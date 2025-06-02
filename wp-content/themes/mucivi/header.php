@@ -39,14 +39,14 @@ $mucivi_logo                 = $theme_options_all['mucivi_logo'];
 
 
 <header class="header-mucivi">
-
+    <a class="logo-desktop" href="<?php echo esc_url(home_url('/')); ?>">
+        <img width="200" height="auto" alt="logo mucivi" src="<?php echo $mucivi_logo ?>"/>
+    </a>
     <nav class="desktop-nav">
         <div class="">
             <div class="header-wrapper">
 
-                <a class="logo-desktop" href="<?php echo esc_url(home_url('/')); ?>">
-                    <img width="200" height="auto" alt="logo mucivi" src="<?php echo $mucivi_logo ?>"/>
-                </a>
+              
                 <?php
                 wp_nav_menu(array(
                     'theme_location' => 'primary-menu',
@@ -57,13 +57,11 @@ $mucivi_logo                 = $theme_options_all['mucivi_logo'];
                     'fallback_cb' => false
                 ));
                 ?>
-
-                <div class="d-flex align-items-center">
-<!--                    --><?php //get_template_part('template-parts/search-form'); ?>
-                    <?php get_template_part('template-parts/language-switch'); ?>
-                    <?php get_template_part('template-parts/mega-menu'); ?>
-
-                </div>
+	            
+	            <?php get_template_part('template-parts/language-switch'); ?>
+	            <?php get_template_part('template-parts/mega-menu'); ?>
+                <?php get_template_part('template-parts/search-form'); ?>
+         
 
             </div>
 

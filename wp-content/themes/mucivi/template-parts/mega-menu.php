@@ -31,7 +31,7 @@ $instagram_link                 = $theme_options_all['instagram_link'] ?? "";
 $facebook_link                  = $theme_options_all['facebook_link'] ?? "";
 ?>
 
-<div class="open-mega-menu" id="openMegaMenu">
+<div class="open-mega-menu d-flex d-lg-none" id="openMegaMenu">
     <!-- Open Hamburger SVG -->
     <div class="svg-icon open-icon">
         <img src="/wp-content/themes/mucivi/assets/img/vectors/openMenu.svg" width="30" height="27.23" alt="Close">

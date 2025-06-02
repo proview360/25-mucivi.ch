@@ -26,9 +26,25 @@ function gn_hero_section_block_rc($attributes, $content) {
     $hero_description           = $attributes["hero_description"] ?? '';
     $hero_button_text           = $attributes["hero_button_text"] ?? '';
     $hero_button_link           = $attributes["hero_button_link"] ?? '';
+	
 
-    $hero_image_html      = '';
-    $hero_btn_html              = '';
+	$hero_button_text_2 = $attributes["hero_button_text_2"] ?? '';
+	$hero_button_link_2 = $attributes["hero_button_link_2"] ?? '';
+	
+	$hero_button_text_3 = $attributes["hero_button_text_3"] ?? '';
+	$hero_button_link_3 = $attributes["hero_button_link_3"] ?? '';
+	
+	$hero_button_text_4 = $attributes["hero_button_text_4"] ?? '';
+	$hero_button_link_4 = $attributes["hero_button_link_4"] ?? '';
+	
+	$hero_button_text_5 = $attributes["hero_button_text_5"] ?? '';
+	$hero_button_link_5 = $attributes["hero_button_link_5"] ?? '';
+	
+	$hero_button_text_6 = $attributes["hero_button_text_6"] ?? '';
+	$hero_button_link_6 = $attributes["hero_button_link_6"] ?? '';
+
+    $hero_image_html                = '';
+	$overlay                        = $attributes["overlay"] ?? '';
     $hero_section_style             = '';
     $hero_section_layout_type       = $attributes["hero_section_layout_type"] ?? '';
     $hero_section_image_position    = $attributes["hero_section_image_position"] ?? 'scroll';
@@ -49,17 +65,77 @@ function gn_hero_section_block_rc($attributes, $content) {
     }
 
     // check if btn exist
-    if( $hero_button_link )
-    {
-        $hero_btn_html = '   <div class="hero-section-button">
-                                <a class="btn-full btn-full-red" href="'.$hero_button_link.'">
-                                    '.$hero_button_text.'
-                                </a>
-                              </div>';
-    }
-
-
-    if($hero_section_layout_type == 'hero-section-banner-2'){
+	$hero_btn_html = '';
+	
+	$buttons = [];
+	
+	if ($hero_button_link) {
+		$buttons[] = '<span class="hero-section-button">
+                    <a href="' . esc_url($hero_button_link) . '">
+                        ' . esc_html($hero_button_text) . '
+                    </a>
+                  </span>';
+	}
+	
+	if ($hero_button_link_2) {
+		$buttons[] = '<span class="hero-section-button">
+                    <a href="' . esc_url($hero_button_link_2) . '">
+                        ' . esc_html($hero_button_text_2) . '
+                    </a>
+                  </span>';
+	}
+	
+	if ($hero_button_link_3) {
+		$buttons[] = '<span class="hero-section-button">
+                    <a href="' . esc_url($hero_button_link_3) . '">
+                        ' . esc_html($hero_button_text_3) . '
+                    </a>
+                  </span>';
+	}
+	
+	if ($hero_button_link_4) {
+		$buttons[] = '<span class="hero-section-button">
+                    <a href="' . esc_url($hero_button_link_4) . '">
+                        ' . esc_html($hero_button_text_4) . '
+                    </a>
+                  </span>';
+	}
+	
+	if ($hero_button_link_5) {
+		$buttons[] = '<span class="hero-section-button">
+                    <a href="' . esc_url($hero_button_link_5) . '">
+                        ' . esc_html($hero_button_text_5) . '
+                    </a>
+                  </span>';
+	}
+	
+	if ($hero_button_link_6) {
+		$buttons[] = '<span class="hero-section-button">
+                    <a href="' . esc_url($hero_button_link_6) . '">
+                        ' . esc_html($hero_button_text_6) . '
+                    </a>
+                  </span>';
+	}
+	
+	// Combine with white line separator and wrap in flex container
+	if (!empty($buttons)) {
+		$hero_btn_html = '<div class="hero-button-section-mob d-flex align-items-center justify-content-center flex-wrap">'
+			. implode('<span style="color: white;" class="seperator-herosection">-</span>', $buttons)
+			. '</div>';
+	}
+	
+	$overlay_html ="";
+	if ($overlay === "yez") {
+		$overlay_html = '<div class="hero-section-overlay"></div>';
+	}
+	
+	$overlay_picture_html ="";
+	if ($overlay === "yez") {
+		$overlay_picture_html = '<div class="hero-section-overlay-picture"></div>';
+	}
+	
+	
+	if($hero_section_layout_type == 'hero-section-banner-2'){
         $hero_section_style = '
             <style>
             
@@ -69,10 +145,10 @@ function gn_hero_section_block_rc($attributes, $content) {
                 }
         </style>';
 
-        $hero_section_html = '<div class="hero-section d-flex flex-column align-items-'.$hero_align_content.' justify-content-center text-'.$hero_align_content.'">
+        $hero_section_html = '<div class=" container hero-section d-flex flex-column align-items-'.$hero_align_content.' justify-content-center text-'.$hero_align_content.'">
                         <h1 class="hero-title">'.$hero_headline.'</h1>
                         <p  id="'.$unique_id.'" class="hero-description">'.$hero_description.'</p>
-                            '.$hero_btn_html.'
+             				'.$hero_btn_html.'
                         '.$hero_image_html.'
                 </div>';
 
@@ -85,7 +161,7 @@ function gn_hero_section_block_rc($attributes, $content) {
                     background-attachment: '. $hero_section_image_position.';
                     background-size: cover;  
                     background-repeat: no-repeat; 
-                    background-position: center center;
+                    background-position: left center;
                     color:  var('. $banner_text_color.');
                 }
         
@@ -96,7 +172,7 @@ function gn_hero_section_block_rc($attributes, $content) {
                 }
         </style>';
 
-        $hero_section_html = '<div class="hero-section d-flex flex-column align-items-'.$hero_align_content.' justify-content-center text-'.$hero_align_content.'">
+        $hero_section_html = '<div class=" container hero-section d-flex flex-column align-items-'.$hero_align_content.' justify-content-center text-'.$hero_align_content.'">
                 
                         <h1 class="hero-title">'.$hero_headline.'</h1>
                         <p  id="'.$unique_id.'" class="hero-description">'.$hero_description.'</p>
@@ -107,8 +183,11 @@ function gn_hero_section_block_rc($attributes, $content) {
     }
 
 
-    return $hero_section_style.'<section class="hero-section-block ' . $unique_class . '">   
-            <div class="container hero-section-container '.$hero_section_layout_type.' '.$hero_image_extra_class.'">
+    return $hero_section_style.'<section class="hero-section-block ' . $unique_class . '">
+		
+            <div class=" hero-section-container '.$hero_section_layout_type.' '.$hero_image_extra_class.'">
+                    '. $overlay_picture_html .'
+                    '. $overlay_html .'
                     '.$hero_section_html.'
             </div>
         </section>';

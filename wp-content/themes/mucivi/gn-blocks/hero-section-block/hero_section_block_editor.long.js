@@ -33,6 +33,36 @@
             hero_button_link: {
                 type: 'string'
             },
+            hero_button_text_2: {
+                type: 'string'
+            },
+            hero_button_link_2: {
+                type: 'string'
+            },
+            hero_button_text_3: {
+                type: 'string'
+            },
+            hero_button_link_3: {
+                type: 'string'
+            },
+            hero_button_text_4: {
+                type: 'string'
+            },
+            hero_button_link_4: {
+                type: 'string'
+            },
+            hero_button_text_5: {
+                type: 'string'
+            },
+            hero_button_link_5: {
+                type: 'string'
+            },
+            hero_button_text_6: {
+                type: 'string'
+            },
+            hero_button_link_6: {
+                type: 'string'
+            },
             hero_image: {
                 type: 'object'
             },
@@ -46,6 +76,12 @@
                 type: 'string'
             },
             hero_section_align_content: {
+                type: 'string'
+            },
+            overlay: {
+                type: 'string'
+            },
+            overlay_picture: {
                 type: 'string'
             },
             banner_text_color: {
@@ -75,7 +111,16 @@
             {
                 props.setAttributes({hero_section_align_content: "left"})
             }
-
+            
+            if(!props.attributes.overlay)
+            {
+                props.setAttributes({overlay: "no"})
+            }
+          
+            if(!props.attributes.overlay_picture)
+            {
+                props.setAttributes({overlay_picture: "no"})
+            }
 
             if (!props.attributes.hero_background_image)
             {
@@ -100,7 +145,48 @@
             function update_hero_button_link( event ) {
                 props.setAttributes( { hero_button_link: event.target.value } );
             }
-
+      
+            function update_hero_button_text_2(event) {
+                props.setAttributes({ hero_button_text_2: event.target.value });
+            }
+            
+            function update_hero_button_link_2(event) {
+                props.setAttributes({ hero_button_link_2: event.target.value });
+            }
+            
+            function update_hero_button_text_3(event) {
+                props.setAttributes({ hero_button_text_3: event.target.value });
+            }
+            
+            function update_hero_button_link_3(event) {
+                props.setAttributes({ hero_button_link_3: event.target.value });
+            }
+            
+            function update_hero_button_text_4(event) {
+                props.setAttributes({ hero_button_text_4: event.target.value });
+            }
+            
+            function update_hero_button_link_4(event) {
+                props.setAttributes({ hero_button_link_4: event.target.value });
+            }
+            
+            function update_hero_button_text_5(event) {
+                props.setAttributes({ hero_button_text_5: event.target.value });
+            }
+            
+            function update_hero_button_link_5(event) {
+                props.setAttributes({ hero_button_link_5: event.target.value });
+            }
+            
+            function update_hero_button_text_6(event) {
+                props.setAttributes({ hero_button_text_6: event.target.value });
+            }
+            
+            function update_hero_button_link_6(event) {
+                props.setAttributes({ hero_button_link_6: event.target.value });
+            }
+            
+            
             function update_hero_background_image( newContent ) {
                 props.setAttributes( { hero_background_image: newContent } )
             }
@@ -123,6 +209,13 @@
 
             function update_hero_section_align_content (newValue) {
                 props.setAttributes( {hero_section_align_content: newValue} )
+            }
+            function update_overlay (newValue) {
+                props.setAttributes( {overlay: newValue} )
+            }
+            
+            function update_overlay_picture (newValue) {
+                props.setAttributes( {overlay_picture: newValue} )
             }
 
             function update_banner_text_color (event) {
@@ -216,6 +309,54 @@
                                 }
                             ),
                         ),
+                        
+                        el("div",
+                            {
+                                class: "granit-block-sidebar-element"
+                            },
+                            el("strong", null, "Overlay Color"),
+                            el(SelectControl,
+                                {
+                                    label: '',
+                                    value: props.attributes.overlay,
+                                    options: [
+                                        {
+                                            value: 'yez',
+                                            label: 'Yes'
+                                        },
+                                        {
+                                            value: 'no',
+                                            label: 'No'
+                                        },
+                                    ],
+                                    onChange: update_overlay
+                                }
+                            ),
+                        ),
+                        
+                        el("div",
+                            {
+                                class: "granit-block-sidebar-element"
+                            },
+                            el("strong", null, "Overlay Picture"),
+                            el(SelectControl,
+                                {
+                                    label: '',
+                                    value: props.attributes.overlay_picture,
+                                    options: [
+                                        {
+                                            value: 'yez',
+                                            label: 'Yes'
+                                        },
+                                        {
+                                            value: 'no',
+                                            label: 'No'
+                                        },
+                                    ],
+                                    onChange: update_overlay_picture
+                                }
+                            ),
+                        ),
 
 
                     ),
@@ -278,7 +419,8 @@
                                         placeholder: "Write here...",
                                         onChange: update_hero_description
                                     }),
-
+                                    el("hr", { style: { borderColor: "red" } }),
+                                    
                                     el("p", { class: "label-text" }, "Button Text"),
                                     el("input", {
                                         type: "text",
@@ -294,7 +436,92 @@
                                         placeholder: "Write here...",
                                         onChange: update_hero_button_link
                                     }),
-
+                                    el("hr", { style: { borderColor: "red" } }),
+                                    
+                                    el("p", { class: "label-text" }, "Button Text 2"),
+                                    el("input", {
+                                        type: "text",
+                                        value: props.attributes.hero_button_text_2,
+                                        placeholder: "Write here...",
+                                        onChange: update_hero_button_text_2
+                                    }),
+                                    
+                                    el("p", { class: "label-text" }, "Button Link 2"),
+                                    el("input", {
+                                        type: "text",
+                                        value: props.attributes.hero_button_link_2,
+                                        placeholder: "Write here...",
+                                        onChange: update_hero_button_link_2
+                                    }),
+                                    el("hr", { style: { borderColor: "red" } }),
+                                    
+                                    el("p", { class: "label-text" }, "Button Text 3"),
+                                    el("input", {
+                                        type: "text",
+                                        value: props.attributes.hero_button_text_3,
+                                        placeholder: "Write here...",
+                                        onChange: update_hero_button_text_3
+                                    }),
+                                    
+                                    el("p", { class: "label-text" }, "Button Link 3"),
+                                    el("input", {
+                                        type: "text",
+                                        value: props.attributes.hero_button_link_3,
+                                        placeholder: "Write here...",
+                                        onChange: update_hero_button_link_3
+                                    }),
+                                    el("hr", { style: { borderColor: "red" } }),
+                                    
+                                    el("p", { class: "label-text" }, "Button Text 4"),
+                                    el("input", {
+                                        type: "text",
+                                        value: props.attributes.hero_button_text_4,
+                                        placeholder: "Write here...",
+                                        onChange: update_hero_button_text_4
+                                    }),
+                                    
+                                    el("p", { class: "label-text" }, "Button Link 4"),
+                                    el("input", {
+                                        type: "text",
+                                        value: props.attributes.hero_button_link_4,
+                                        placeholder: "Write here...",
+                                        onChange: update_hero_button_link_4
+                                    }),
+                                    el("hr", { style: { borderColor: "red" } }),
+                                    
+                                    el("p", { class: "label-text" }, "Button Text 5"),
+                                    el("input", {
+                                        type: "text",
+                                        value: props.attributes.hero_button_text_5,
+                                        placeholder: "Write here...",
+                                        onChange: update_hero_button_text_5
+                                    }),
+                                    
+                                    el("p", { class: "label-text" }, "Button Link 5"),
+                                    el("input", {
+                                        type: "text",
+                                        value: props.attributes.hero_button_link_5,
+                                        placeholder: "Write here...",
+                                        onChange: update_hero_button_link_5
+                                    }),
+                                    el("hr", { style: { borderColor: "red" } }),
+                                    
+                                    el("p", { class: "label-text" }, "Button Text 6"),
+                                    el("input", {
+                                        type: "text",
+                                        value: props.attributes.hero_button_text_6,
+                                        placeholder: "Write here...",
+                                        onChange: update_hero_button_text_6
+                                    }),
+                                    
+                                    el("p", { class: "label-text" }, "Button Link 6"),
+                                    el("input", {
+                                        type: "text",
+                                        value: props.attributes.hero_button_link_6,
+                                        placeholder: "Write here...",
+                                        onChange: update_hero_button_link_6
+                                    }),
+                                    el("hr", { style: { borderColor: "red" } }),
 
                                     el("div", {},
                                             el("p", { class: "label-text" }, "Text Color "),

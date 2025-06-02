@@ -319,7 +319,7 @@ a.btn-full::before {
 
 @media (max-width: 991px) {
     .content-wrapper{
-        margin-top: 80px;
+        margin-top: 130px;
     }
 }
 
@@ -531,10 +531,10 @@ header.header-mucivi.active {
 }
 
 nav.desktop-nav .header-wrapper{
-    height: 80px;
+    height: 130px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     color: #fff;
     padding: 0;
     font-size: 16px;
@@ -568,7 +568,7 @@ nav.desktop-nav .nav-menu {
 
 nav.desktop-nav .nav-menu > li {
     position: relative;
-    height: 80px;
+    height: 130px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -582,10 +582,10 @@ nav.desktop-nav .nav-menu > li:first-child {
 
 header.header-mucivi nav.desktop-nav .nav-menu > li > a {
     text-transform: uppercase;
-    color: var(--mucivi-black);
+    color: var(--mucivi-primary);
     padding: 5px;
     text-decoration: none;
-    height: 80px;
+    height: 130px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -593,7 +593,7 @@ header.header-mucivi nav.desktop-nav .nav-menu > li > a {
 }
 
 header.header-mucivi nav.desktop-nav .nav-menu > li > a:hover {
-    color: var(--mucivi-primary);
+    color: var(--mucivi-black);
 }
 
 
@@ -601,7 +601,7 @@ header.header-mucivi.active nav.desktop-nav .nav-menu > li > a {
     color: var(--mucivi-black);
     padding: 5px;
     text-decoration: none;
-    height: 80px;
+    height: 130px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -618,7 +618,7 @@ nav.desktop-nav .nav-menu > li > a:hover {
 }
 
 nav.desktop-nav .nav-menu > li.active > a {
-    color: var(--mucivi-primary) !important;
+    color: var(--mucivi-black) !important;
 }
 
 
@@ -681,6 +681,7 @@ nav.desktop-nav .nav-menu .dropdown-submenu:hover > .dropdown-menu.depth_2 {
     animation: dropdownBounceIn 0.5s ease forwards;
     pointer-events: auto;
     display: block;
+    border-radius: 0;
 }
 nav.desktop-nav .nav-menu .dropdown-menu {
     animation: none;
@@ -694,11 +695,11 @@ nav.desktop-nav .nav-menu .dropdown-menu li.active a {
 }
 
 nav.desktop-nav .nav-menu .dropdown-menu li a:hover {
-    color:var(--mucivi-primary);
+    color:var(--mucivi-black);
 }
 
 nav.desktop-nav .nav-menu .dropdown-menu a {
-    color: var(--mucivi-black);
+    color: var(--mucivi-primary);
     text-decoration: none;
     font-weight: var(--font-weight-400);
     width: 100%;
@@ -712,7 +713,7 @@ nav.desktop-nav .nav-menu .dropdown-menu a {
 }
 
 header.header-mucivi i.bi.bi-search {
-    color: var(--mucivi-white);
+    color: var(--mucivi-primary);
     cursor: pointer;
 }
 
@@ -722,27 +723,53 @@ header.header-mucivi.active i.bi.bi-search {
 }
 
 i.bi.bi-search:hover{
-    color: var(--mucivi-primary);
+    color: var(--mucivi-black);
     cursor: pointer;
 }
 
 nav.desktop-nav .nav-menu>li.current-menu-parent > a span,
 nav.desktop-nav .nav-menu>li .current-menu-item a span
 {
-    color: var(--mucivi-primary) !important;
+    color: var(--mucivi-black) !important;
 }
 
 nav.desktop-nav .nav-menu>li.current-menu-parent > a span.arrow-mucivi-desktop{
-    border-top: 1px solid var(--mucivi-primary);
-    border-right: 1px solid var(--mucivi-primary);
+    border-top: 1px solid var(--mucivi-black);
+    border-right: 1px solid var(--mucivi-black);
 }
 
-nav.desktop-nav .header-wrapper .logo-desktop img{
-    width: 200px;
-    padding: 10px 0 10px 0;
-    margin-left: 50px;
+.header-mucivi .logo-desktop {
+    position: fixed;
+    top: 33%;
+    left: 0;
 }
 
+
+.header-mucivi .logo-desktop img{
+    width: 80px;
+    transition: .2s all;
+    padding: 16px;
+    background: white;
+}
+.header-mucivi .logo-desktop img:hover {
+    opacity: 0.6;
+}
+@media (max-width: 991px) {
+    nav.desktop-nav .header-wrapper{
+        height: 80px;
+    }
+
+    nav.desktop-nav .header-wrapper {
+        height: 80px;
+    }
+    .open-mega-menu {
+        width: 80px !important;
+        height: 80px !important;
+    }
+    .content-wrapper {
+        margin-top: 80px;
+    }
+}
 @media (max-width: 767px) {
     nav.desktop-nav .header-wrapper .logo-desktop img{
         margin-left: 20px;
@@ -775,7 +802,7 @@ nav.mobile-nav {
 }
 
 nav.mobile-nav .header-wrapper{
-    height: 80px;
+    height: 130px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -817,6 +844,12 @@ nav.mobile-nav .mobile-icons {
 .lang-active {
     color: var(--mucivi-primary);
 }
+
+.lang-active:hover {
+    color: var(--mucivi-black);
+    cursor: pointer;
+}
+
 
 /* end of language switcher */
 /* Search Container */
@@ -886,14 +919,14 @@ button.search-submit {
 }
 
 header.header-mucivi .close-button-search {
-    color: var(--mucivi-white);
+    color: var(--mucivi-primary);
     border: 0;
     background: transparent;
     font-size: 13px;
 }
 
 header.header-mucivi.active .close-button-search {
-    color: var(--mucivi-primary);
+    color: var(--mucivi-black);
     border: 0;
     background: transparent;
     font-size: 13px;
@@ -983,7 +1016,7 @@ button#close-search-mobile {
     color: var(--mucivi-primary);
     border: 0;
     background: transparent;
-    font-size: 13px;
+    font-size: 18px;
 }
 
 /* For Chrome, Safari, and Opera */
@@ -1109,8 +1142,8 @@ header.header-mucivi .arrow-mucivi-desktop {
     height: 7px;
     /*border-top: 1px solid var(--mucivi-white);*/
     /*border-right: 1px solid var(--mucivi-white);*/
-    border-top: 1px solid var(--mucivi-black);
-    border-right: 1px solid var(--mucivi-black);
+    border-top: 1px solid var(--mucivi-primary);
+    border-right: 1px solid var(--mucivi-primary);
     transform: rotate(135deg);
     margin-left: 8px;
     margin-bottom: 8px;
@@ -1120,8 +1153,8 @@ header.header-mucivi .active .arrow-mucivi-desktop {
     display: inline-block;
     width: 7px;
     height: 7px;
-    border-top: 1px solid var(--mucivi-primary);
-    border-right: 1px solid var(--mucivi-primary);
+    border-top: 1px solid var(--mucivi-black);
+    border-right: 1px solid var(--mucivi-black);
     transform: rotate(135deg);
     margin-left: 8px;
     margin-bottom: 8px;
@@ -1142,8 +1175,8 @@ header.header-mucivi .active .arrow-mucivi-desktop {
 }
 
 nav.desktop-nav .nav-menu > li > a:hover .arrow-mucivi-desktop{
-    border-top: 1px solid var(--mucivi-primary);
-    border-right: 1px solid var(--mucivi-primary);
+    border-top: 1px solid var(--mucivi-black);
+    border-right: 1px solid var(--mucivi-black);
 }
 
 nav.desktop-nav .nav-menu .dropdown-menu .arrow-mucivi-desktop {
@@ -1373,7 +1406,7 @@ and (-webkit-min-device-pixel-ratio: 2) {
     }
 
     .search-results-mt {
-        margin-top: 110px;
+        margin-top: 130px;
     }
 }
 
@@ -2011,8 +2044,11 @@ button.btn-full .svg-icon {
 /*Start css for mega-contact-form */
 
 .open-mega-menu {
-    width: 50px;
-    height: 50px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 130px;
+    height: 130px;
     z-index: 1100;
     display: flex;
     justify-content: center;
@@ -2024,12 +2060,17 @@ button.btn-full .svg-icon {
 }
 
 .svg-icon {
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 40px;
     height: 27.23px;
     transition: 0.4s ease;
 }
 
+.open-mega-menu.active{
+    position: fixed;
+}
 /* Hamburger to X Transformation */
 .open-mega-menu.active .open-icon {
     opacity: 0;
@@ -2060,14 +2101,14 @@ button.btn-full .svg-icon {
 
 .panel-left {
     left: 0;
-    background-color: #ffffff;
+    background-color: transparet;
     color: #000000;
     transform: translateX(-100%);
 }
 
 .panel-right {
     right: 0;
-    background-color: var(--mucivi-primary); /* Path to your image */
+    background-color: var(--mucivi-black); /* Path to your image */
     transform: translateX(100%);
     background-position: center;
     background-size: cover;
@@ -2208,11 +2249,11 @@ button.btn-full .svg-icon {
 }
 
 .mega-menu-main ul.nav-menu-mobile li a:hover{
-    color: var(--mucivi-black);
+    color: var(--mucivi-primary);
 }
 
 .mega-menu-main ul.nav-menu-mobile li.current-menu-item a{
-    color: var(--mucivi-black);
+    color: var(--mucivi-primary);
 }
 
 .mega-menu-main ul.dropdown-menu.sub-menu.depth_0 li a{
@@ -2221,11 +2262,11 @@ button.btn-full .svg-icon {
 }
 
 .mega-menu-main ul.dropdown-menu.sub-menu.depth_0 li a:hover {
-    color: var(--mucivi-black);
+    color: var(--mucivi-primary);
 }
 
 .mega-menu-main ul.dropdown-menu.sub-menu.depth_0 li.current-menu-item a {
-    color: var(--mucivi-black);
+    color: var(--mucivi-primary);
 }
 
 .mega-social-description {
