@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="375" height="421.411" viewBox="0 0 375 421.411">
+  <defs>
+    <filter id="Path_75" x="0" y="0" width="375" height="421.411" filterUnits="userSpaceOnUse">
+      <feOffset dy="15" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="12.5" result="blur"/>
+      <feFlood flood-color="#d51030" flood-opacity="0.114"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#Path_75)">
+    <path id="Path_75-2" data-name="Path 75" d="M497.392,428.279V255.074l-150-86.6-150,86.6V428.279l150,86.6Z" transform="translate(-159.89 -145.97)" fill="#fff"/>
+  </g>
+  <g id="Group_56" data-name="Group 56" transform="translate(92.136 85.593)">
+    <path id="Path_76" data-name="Path 76" d="M404.351,352.394V242.282l-95.359-55.056-95.359,55.056V352.394l95.359,55.056Z" transform="translate(-213.633 -187.226)" fill="none" stroke="#d51030" stroke-linecap="round" stroke-miterlimit="10" stroke-width="10"/>
+    <path id="Path_77" data-name="Path 77" d="M213.633,203.592" transform="translate(-213.632 -148.535)" fill="none" stroke="#d51030" stroke-linecap="round" stroke-miterlimit="10" stroke-width="10"/>
+    <path id="Path_78" data-name="Path 78" d="M308.991,258.648l-39.286-21.94v33.647l-9.618-5.968a38.245,38.245,0,0,1-18.1-32.51V220.385l-28.359-16.793" transform="translate(-213.632 -148.535)" fill="none" stroke="#d51030" stroke-linecap="round" stroke-miterlimit="10" stroke-width="10"/>
+    <path id="Path_79" data-name="Path 79" d="M241.979,258.648l36.016-21.675-28.83-17.342,10.068-5.17a38.256,38.256,0,0,1,37.186,1.251l9.85,5.921,31.07-18.041" transform="translate(-146.62 -148.535)" fill="none" stroke="#d51030" stroke-linecap="round" stroke-miterlimit="10" stroke-width="10"/>
+    <path id="Path_80" data-name="Path 80" d="M242,219.958l-.034,42.236,29.819-17.826-.357,11.313a38.249,38.249,0,0,1-19.108,31.928l-9.564,5.52L242,330.067" transform="translate(-146.643 -109.846)" fill="none" stroke="#d51030" stroke-linecap="round" stroke-miterlimit="10" stroke-width="10" opacity="0.25"/>
+    <line id="Line_22" data-name="Line 22" y2="53.182" transform="translate(157.932 130.315)" fill="none" stroke="#d51030" stroke-linecap="round" stroke-miterlimit="10" stroke-width="10" opacity="0.25"/>
+  </g>
+</svg>

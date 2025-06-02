@@ -1,0 +1,33 @@
+/* Employee Block */
+.employee-block img.employee-image {
+    width: 100%;
+    max-width: 250px;
+    height: auto;
+}
+
+.employee-block p.job-title {
+    font-weight: bold;
+}
+.employee-block a {
+    color: var(--mucivi-black);
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 27px;
+}
+
+.employee-block a:hover {
+    color: var(--mucivi-primary);
+
+}
+@media (max-width: 1199px) {
+
+}
+
+@media (max-width: 991px) {
+
+
+}
+
+@media (max-width: 575px) {
+
+}

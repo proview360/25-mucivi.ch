@@ -1,0 +1,112 @@
+section.showcase-section-block .showcase-section-container {
+    height: auto;
+    min-height: 450px;
+    max-height: 550px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+section.showcase-section-block h2.showcase-title{
+    font-weight: var(--font-weight-600);
+    word-break: break-word;
+    hyphens: auto;
+    font-size: 48px;
+    padding-bottom: 5px;
+    line-height: 50px;
+}
+
+section.showcase-section-block .showcase-section-banner  .showcase-content{
+    width: 100%;
+}
+
+section.showcase-section-block .showcase-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    scale: 0.8;
+}
+
+section.showcase-section-block .showcase-section-banner p.showcase-description{
+    font-size: 32px;
+    padding-bottom: 0;
+    font-weight: var(--font-weight-400);
+    line-height: 35px;
+}
+
+
+section.showcase-section-block .showcase-section-container.showcase-section-banner .showcase-section-button {
+    padding-top: 10px;
+}
+
+section.showcase-section-block .showcase-section-container.showcase-section-banner .showcase-section {
+    height: 100%;
+    width: 100%;
+}
+
+
+@media(max-width: 1399px) {
+    section.showcase-section-block .showcase-image {
+        width: 100%;
+    }
+}
+@media (max-width: 1199px) {
+
+    section.showcase-section-block .showcase-section-container.showcase-section-banner .showcase-section {
+        padding-top: 0;
+    }
+    section.showcase-section-block .showcase-image {
+        padding-top: 0;
+    }
+
+    section.showcase-section-block .showcase-section-container.showcase-section-banner  {
+        padding: 50px 0;
+    }
+
+}
+
+@media (max-width: 991px) {
+    section.showcase-section-block .showcase-section-container {
+        padding-top: 50px;
+    }
+
+    section.showcase-section-block .showcase-section-container.showcase-section-banner
+    {
+        padding: 50px 0;
+    }
+
+    section.showcase-section-block .showcase-image {
+        margin-left: 50px;
+    }
+
+    section.showcase-section-block .showcase-image {
+        margin: 0px auto;
+        display: block;
+    }
+
+    section.showcase-section-block .showcase-content {
+        width: 100%;
+    }
+}
+
+
+@media (max-width: 767px) {
+
+}
+
+@media (max-width: 575px) {
+    section.showcase-section-block .showcase-section-container.showcase-section-banner {
+        padding: 50px 10px;
+    }
+    section.showcase-section-block{
+        padding: 0 20px;
+    }
+}
+
+@media (max-width: 376px) {
+    section.showcase-section-block p.showcase-description {
+        font-size: 16px;
+    }
+}
+

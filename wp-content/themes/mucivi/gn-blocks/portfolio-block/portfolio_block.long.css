@@ -1,0 +1,574 @@
+
+/* ================================
+   Portfolio Grid
+================================= */
+.hex-container{
+    overflow: hidden;
+}
+
+.gn-portfolio-block {
+    margin-top: 50px;
+    margin-bottom: 100px;
+}
+
+.portfolio-grid{
+    margin-bottom: 2rem !important;
+}
+/* ================================
+   Filter Navigation
+================================= */
+.portfolio-filter {
+    position: relative;
+}
+
+/* Navigation container adjustments */
+.filter-nav .nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0;
+}
+
+/* Hexagon link styles */
+.filter-nav .nav-link-gn {
+    color: #343a40;
+    margin: 0;
+    border: 2px solid transparent; /* Keep the initial border transparent */
+    transition: all 0.2s ease;
+    position: relative;
+    background: var(--mucivi-white);
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 14px;
+    padding: 40px 20px;
+    /* Hexagon shape */
+    clip-path: polygon(10px 33%, calc(100% - 10px) 33%, 100% 50%, calc(100% - 10px) 66%, 10px 66%, 0 50%);
+    min-width: 90px;
+    text-align: center;
+    line-height: 1.2;
+    box-sizing: border-box; /* Ensure padding and border don't distort the shape */
+}
+
+
+/* Active state */
+.filter-nav .nav-link-gn:hover,
+.filter-nav .nav-link-gn.active {
+    background-color: var(--mucivi-primary) !important; ;
+    color: var(--mucivi-white) ;
+    border-color:  var(--mucivi-primary) ;
+    box-shadow: none;
+    z-index: 2;
+}
+/* Mobile responsive styles */
+@media (max-width: 991.98px) {
+    .filter-nav .nav {
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+    }
+    .filter-nav li.nav-item{
+        display: block;
+        width: 100%;
+        height: 35px;
+    }
+    .filter-nav .nav-link-gn {
+        padding: 30px 30px;
+    }
+}
+/* ================================
+   Portfolio Card
+================================= */
+/* Hexagons */
+#hexGrid {
+    width: 90%;
+    margin: 0 auto;
+    padding: 0.866% 0;
+    font-family: var(--font-family-default);
+    font-size: 15px;
+}
+
+#hexGrid:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.hex {
+    position: relative;
+    list-style-type: none;
+    float: left;
+    overflow: hidden;
+    visibility: hidden;
+    outline: 1px solid transparent;  /* fix for jagged edges in FF on hover transition */
+    transform: rotate(-60deg) skewY(30deg) translatez(-1px);
+}
+
+.hex * {
+    position: absolute;
+    visibility: visible;
+    outline: 1px solid transparent;  /* fix for jagged edges in FF on hover transition */
+}
+
+.hexIn {
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    color: #fff;
+    overflow: hidden;
+    transform: skewY(-30deg) rotate(60deg);
+}
+
+/* ⚙️ Enlarge the video so it bleeds into the top & bottom triangles */
+.hexIn iframe {
+    left: -100%;
+    right: -100%;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    scale: 3;
+    -webkit-clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+    clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+    background-color: var(--mucivi-primary);
+    pointer-events: none;
+}
+
+i.bi.bi-card-image.icon-gallery {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 50px;
+}
+
+
+i.bi.bi-box-arrow-up-right.icon-post {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 50px;
+}
+
+i.bi.bi-play-circle.icon-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 80px;
+}
+
+/*#lightboxModal iframe {*/
+/*    max-width: 800px;*/
+/*    max-height: 500px;*/
+/*    width: 100%;*/
+/*    height: 500px;*/
+/*    margin: 0 auto;*/
+/*    display: block;*/
+/*}*/
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.glass-loader {
+    background: rgba(255, 255, 255, 0);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(13px);
+    -webkit-backdrop-filter: blur(13px);
+}
+
+
+
+@media only screen and (max-width: 570px) {
+    i.bi.bi-card-image.icon-gallery {
+        font-size: 30px;
+    }
+
+
+    i.bi.bi-box-arrow-up-right.icon-post {
+        font-size: 30px;
+    }
+
+    i.bi.bi-play-circle.icon-video {
+        font-size: 40px;
+    }
+}
+
+
+/*** HEX CONTENT **********************************************************************/
+
+.hex img {
+    left: -100%;
+    right: -100%;
+    width: auto;
+    height: 100%;
+    margin: 0 auto;
+}
+
+.hex h2,
+.hex p,
+.hex .hex-btn{
+    margin: 0;
+    width: 102%;
+    left: -1%;  /* prevent line on the right where background doesn't cover image */
+    padding: 5%;
+    box-sizing: border-box;
+    background-color: rgba(213, 16, 48, 0.65);
+    font-weight: 300;
+    transition: transform .2s ease-out, opacity .3s ease-out;
+}
+
+.hex h2 {
+    bottom: 50%;
+    padding-top: 50%;
+    padding-bottom: 80px;
+    font-size: 25px;
+    text-align: center;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateX(-100%) translatez(-1px);
+}
+
+.hex h2.gn-h3 span {
+    margin-top: 100px;
+    padding: 0 40px;
+}
+
+.hex p {
+    top: 50%;
+    padding-bottom: 50%;
+    transform: translateX(100%) translatez(-1px);
+}
+
+.hex .hex-btn {
+    display: none;
+    position: absolute;
+    top: 75%; /* pak më poshtë se p */
+    left: -1%;
+    width: 102%;
+    padding: 5%;
+    background-color: transparent;
+    color: #fff;
+    text-decoration: none;
+    transform: translateX(150%) translatez(-1px);
+    transition: transform .2s ease-out, opacity .3s ease-out;
+    box-sizing: border-box;
+    text-align: center;
+    font-size: 18px;
+    line-height: 27px;
+    font-weight: 700;
+}
+
+.hex .hex-btn:hover {
+    background-color: var(--mucivi-primary-dark);
+}
+
+/*** HOVER EFFECT  **********************************************************************/
+
+.hexIn:hover h2, .hexIn:hover p, .hexIn:hover .hex-btn {
+    color: #fff;
+    transform: translateX(0%) translatez(-1px);
+}
+
+.hexIn:hover .hex-btn {
+    display: block;
+}
+.hexIn.active h2,
+.hexIn.active p,
+.hexIn.active .hex-btn{
+    transform: translateX(0%) translatez(-1px);
+}
+
+.hexIn.active .hex-btn{
+    display: block;
+}
+
+
+/*** SPACING AND SIZING *****************************************************************/
+
+@media (min-width:1201px) {  /* <- 2-3  hexagons per row */
+    .hex {
+        width: 32.666%;    /* = (100-2) / 3 */
+        padding-bottom: 37.720%;    /* =  width / sin(60) */
+    }
+    .hex:nth-child(5n+1),
+    .hex:nth-child(5n+2) {
+        transform: translateX(50%) rotate(-60deg) skewY(30deg);
+    }
+    .hex:nth-child(5n+3),
+    .hex:nth-child(5n+4),
+    .hex:nth-child(5n+5) {
+        margin-top: -8.564%;
+        margin-bottom: -8.564%;
+    }
+    .hex:nth-child(5n+2),
+    .hex:nth-child(5n+4) {
+        margin-right: 1%;
+        margin-left: 1%;
+    }
+    .hex:nth-child(5n+1) {
+        margin-left: 0.5%;
+    }
+    .hex:nth-child(5n+3),
+    .hex:nth-child(5n+6) {
+        clear: left;
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+ /* <- 1-2  hexagons per row */
+    .hex {
+        width: 49.5%;    /* = (100-1) / 2 */
+        padding-bottom: 57.158%;    /* =  width / sin(60) */
+    }
+    .hex:nth-child(3n+1) {
+        transform: translateX(50%) rotate(-60deg) skewY(30deg);
+    }
+    .hex:nth-child(3n+2),
+    .hex:nth-child(3n+3) {
+        margin-top: -13.423%;
+        margin-bottom: -13.423%;
+    }
+    .hex:nth-child(3n+1) {
+        margin-left: 0.5%
+    }
+    .hex:nth-child(3n+3) {
+        margin-left: 1%;
+    }
+    .hex:nth-child(3n+2),
+    .hex:nth-child(3n+4) {
+        clear: left;
+    }
+}
+
+@media (max-width: 400px) {
+    #hexGrid {
+        font-size: 13px;
+    }
+}
+
+/* End Hexagons */
+
+
+
+@media only screen and (max-width: 767px) {
+
+    .button-margin{
+        margin-top: 100px !important;
+    }
+
+    .hexIn h2.gn-h3{
+        font-size: 1rem;
+    }
+    .hex h2.gn-h3 span {
+        margin-top: 75px;
+    }
+
+    .hex .hex-btn {
+        top: 65%;
+    }
+    p.hex-in-description {
+        font-size: 0.9rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+}
+
+
+
+@media only screen and (max-width: 606px) {
+    .hex h2.gn-h3 span {
+        margin-top: 100px;
+    }
+    .hexIn h2.gn-h3 {
+        font-size: 1rem; /* Further reduce font size for very small screens */
+    }
+
+}
+
+@media only screen and (max-width: 570px) {
+    .hexIn h2.gn-h3 {
+        font-size: 0.9rem; /* Even smaller font size for small screens */
+    }
+
+    .hex h2 {
+        padding-bottom: 60px;
+    }
+}
+
+@media only screen and (max-width: 420px) {
+    .hex .hex-btn {
+        top: 60%;
+        font-size: 0.8rem;  /* Small font size for buttons */
+    }
+
+    .hex h2 {
+        padding-bottom: 45px;
+    }
+
+    .hex h2.gn-h3 span {
+        margin-top: 83px;
+    }
+
+    p.hex-in-description {
+        font-size: 0.8rem; /* Adjust description text size for small screens */
+    }
+}
+/* ================================
+   Button Styles
+================================= */
+.button-margin{
+    margin-top: 200px;
+}
+
+span.portfolio-filters-mob {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--mucivi-primary);
+}
+
+span.portfolio-filters-mob i{
+    font-size: 50px;
+
+}
+/* ================================
+   Spinner Styling
+================================= */
+#portfolio-spinner .spinner-border {
+    width: 3rem;
+    height: 3rem;
+}
+
+/* ================================
+   Lightbox Image Styles
+================================= */
+.lightbox-img {
+    object-fit: cover;
+    max-height: 500px;
+    max-width: 800px;
+    width: auto;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+}
+
+.modal-content-description {
+    position: absolute;
+    bottom: 40px;
+    left: 55px;
+    color: white;
+    font-weight: 600;
+    z-index: 9999;
+}
+
+p.hex-modal-description {
+    width: 280px;
+    line-height: normal;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+
+/*.modal-content-description p {*/
+/*    font-size: 1rem;*/
+/*    color: #6c757d;*/
+/*}*/
+
+/* ================================
+   Carousel Control Styling
+================================= */
+.carousel-control-prev-icon, .carousel-control-next-icon {
+    background: url(../../assets/img/vectors/sliderRightArrow.svg) 100% no-repeat;
+    width: 50px;
+    height: 65px;
+    right: 50px;
+    background-size: 25px;
+    background-position: center;
+}
+.carousel-control-prev-icon {
+    transform: rotate(180deg);
+}
+.carousel-control-prev-icon:hover, .carousel-control-next-icon:hover {
+    background-color: #fff3;
+}
+
+.carousel-control-next, .carousel-control-prev {
+    top: 50%;
+    transform: translateY(-50%);
+    bottom: unset;
+    height: 100px;
+}
+
+/* ================================
+   Image Number Styling
+================================= */
+.image-number {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-top: 10px;
+    color: #bf0e2b;
+}
+
+
+/* Mobile Styles (screens < 992px) */
+
+
+@media only screen and (max-width: 991.98px) {
+    /* Show the toggler button only on mobile */
+    .portfolio-filter .navbar-toggler {
+        display: block !important;
+    }
+
+    /* Make the filter menu full width on mobile */
+    #portfolioFilterMenu {
+        background: #fff;
+        border-radius: 0;
+        position: absolute;
+        right: 40px;
+        top: 130px;
+        z-index: 99;
+        padding: 0 30px 50px 30px;
+    }
+
+    /* Stack nav items vertically on mobile */
+    .filter-nav {
+        flex-direction: column !important;
+        gap: 0.5rem !important;
+    }
+
+
+}
+
+@media only screen and (max-width: 767px) {
+    #portfolioFilterMenu {
+        top: 75px;
+        right: 40px;
+    }
+}
+
+/* Desktop Styles (screens ≥ 992px) */
+@media (min-width: 992px) {
+    .filter-nav {
+        justify-content: flex-end;
+    }
+    /* Hide the toggler button on desktop */
+    .portfolio-filter .navbar-toggler {
+        display: none !important;
+    }
+
+    /* Ensure menu stays visible on desktop */
+    #portfolioFilterMenu {
+        display: block !important;
+    }
+}
+@media only screen and (max-width: 440px) {
+    span.portfolio-filters-mob {
+        font-size: 0; /* hides text */
+    }
+}
+/*/////////////////////////////////////*/

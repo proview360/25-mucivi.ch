@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="53.462" height="61.732" viewBox="0 0 53.462 61.732">
+  <defs>
+    <clipPath id="clip-path">
+      <path id="Path_103" data-name="Path 103" d="M413.954,308.352v-30l-25.981-15-25.981,15v30l25.981,15Z" transform="translate(-361.993 -263.352)" fill="none" stroke="#d51030" strokeMiterlimit="10" stroke-width="1.5"/>
+    </clipPath>
+  </defs>
+  <g id="Group_38" data-name="Group 38" transform="translate(-361.243 -262.485)">
+    <g id="Group_37" data-name="Group 37" transform="translate(361.993 263.352)" clip-path="url(#clip-path)">
+      <g id="layer1" transform="translate(-3.734 35.02)">
+        <path id="path14003" d="M374.714,361.871v8.384h8.568v-8.384Z" transform="translate(-366.458 -361.871)" fill="none" stroke="#d51030" strokeMiterlimit="10" stroke-width="1.5" fillRule="evenodd"/>
+        <path id="path13999" d="M422.923,361.871v8.384h8.565v-8.384Z" transform="translate(-397.531 -361.871)" fill="none" stroke="#d51030" strokeMiterlimit="10" stroke-width="1.5" fillRule="evenodd"/>
+        <path id="path13995" d="M471.123,361.871v8.384h8.568v-8.384Z" transform="translate(-428.598 -361.871)" fill="none" stroke="#d51030" strokeMiterlimit="10" stroke-width="1.5" fillRule="evenodd"/>
+        <path id="path13989" d="M495.228,385.458v8.334a30.157,30.157,0,0,0,5.76-8.334Z" transform="translate(-444.134 -377.074)" fill="none" stroke="#d51030" strokeMiterlimit="10" stroke-width="1.5" fillRule="evenodd"/>
+        <path id="path13983" d="M471.123,409.606v5.888a30.059,30.059,0,0,0,8.321-5.888Z" transform="translate(-428.598 -392.638)" fill="none" stroke="#d51030" strokeMiterlimit="10" stroke-width="1.5" fillRule="evenodd"/>
+        <path id="path13979" d="M422.923,409.606v8.481a30.166,30.166,0,0,0,4.089.3h.387a30.166,30.166,0,0,0,4.089-.3v-8.481Z" transform="translate(-397.531 -392.638)" fill="none" stroke="#d51030" strokeMiterlimit="10" stroke-width="1.5" fillRule="evenodd"/>
+        <path id="path13975" d="M375.408,409.606a30.06,30.06,0,0,0,8.321,5.888v-5.888Z" transform="translate(-366.905 -392.638)" fill="none" stroke="#d51030" strokeMiterlimit="10" stroke-width="1.5" fillRule="evenodd"/>
+        <path id="path13969" d="M358.509,385.458a30.158,30.158,0,0,0,5.76,8.334v-8.334Z" transform="translate(-356.013 -377.074)" fill="none" stroke="#d51030" strokeMiterlimit="10" stroke-width="1.5" fillRule="evenodd"/>
+        <path id="path13965" d="M398.818,394.042h8.568v-8.584h-8.568Z" transform="translate(-381.994 -377.074)" fill="none" stroke="#d51030" strokeMiterlimit="10" stroke-width="1.5" fillRule="evenodd"/>
+        <path id="path13963" d="M447.018,394.042h8.568v-8.584h-8.568Z" transform="translate(-413.061 -377.074)" fill="none" stroke="#d51030" strokeMiterlimit="10" stroke-width="1.5" fillRule="evenodd"/>
+        <path id="rect21952" d="M351.488,361.88h59.349" transform="translate(-351.488 -361.877)" fill="none" stroke="#d51030" strokeMiterlimit="10" stroke-width="1.5"/>
+      </g>
+      <g id="layer2" transform="translate(4.411 15.862)">
+        <path id="path24582" d="M424.405,307.975l1.4,4.194,4.422.04-3.554,2.632,1.329,4.218-3.6-2.567-3.6,2.567,1.329-4.218-3.554-2.632,4.422-.04Z" transform="translate(-402.876 -307.975)" fill="none" stroke="#d51030" strokeMiterlimit="10" stroke-width="1.5"/>
+        <path id="path25458" d="M468.579,307.975l1.4,4.194,4.423.04-3.555,2.632,1.329,4.218-3.6-2.567-3.6,2.567,1.329-4.218-3.555-2.632,4.423-.04Z" transform="translate(-431.347 -307.975)" fill="none" stroke="#d51030" strokeMiterlimit="10" stroke-width="1.5"/>
+        <path id="path25460" d="M380.23,307.975l1.4,4.194,4.422.04L382.5,314.84l1.329,4.218-3.6-2.567-3.6,2.567,1.329-4.218-3.555-2.632,4.423-.04Z" transform="translate(-374.403 -307.975)" fill="none" stroke="#d51030" strokeMiterlimit="10" stroke-width="1.5"/>
+      </g>
+    </g>
+    <path id="Path_104" data-name="Path 104" d="M413.954,308.352v-30l-25.981-15-25.981,15v30l25.981,15Z" transform="translate(0)" fill="none" stroke="#d51030" strokeMiterlimit="10" stroke-width="1.5"/>
+  </g>
+</svg>

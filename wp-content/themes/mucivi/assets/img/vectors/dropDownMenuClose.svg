@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256.5" height="25" viewBox="0 0 256.5 25">
+  <g id="Group_963" data-name="Group 963" transform="translate(-61.5 -238.5)">
+    <g id="Path_135" data-name="Path 135" transform="translate(371.998 122.349)" fill="none">
+      <path d="M-54,134.9V122.4l-10.825-6.25-10.825,6.25v12.5l10.825,6.25Z" stroke="none"/>
+      <path d="M -64.82339477539062 139.9959259033203 L -54.99807357788086 134.3232727050781 L -54.99807357788086 122.9779968261719 L -64.82339477539062 117.3053512573242 L -74.64871215820312 122.9779968261719 L -74.64871215820312 134.3232727050781 L -64.82339477539062 139.9959259033203 M -64.82339477539062 141.150634765625 L -75.64871215820312 134.900634765625 L -75.64871215820312 122.4006423950195 L -64.82339477539062 116.1506423950195 L -53.99807357788086 122.4006423950195 L -53.99807357788086 134.900634765625 L -64.82339477539062 141.150634765625 Z" stroke="none" fill="#fff"/>
+    </g>
+    <path id="Path_130" data-name="Path 130" d="M0,0H8.544" transform="translate(302.902 251)" fill="none" stroke="#fff" stroke-width="1"/>
+    <path id="Path_931" data-name="Path 931" d="M0,0H205.918" transform="translate(61.5 251.5)" fill="none" stroke="#fff" stroke-width="1"/>
+    <path id="Path_130-2" data-name="Path 130" d="M0,0H8.544" transform="translate(307.174 255.272) rotate(-90)" fill="none" stroke="#fff" stroke-width="1"/>
+  </g>
+</svg>

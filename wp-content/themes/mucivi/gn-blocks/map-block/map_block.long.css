@@ -1,0 +1,14 @@
+.map-block{
+    position: relative;
+}
+
+.map-block iframe {
+    padding: 0;
+    z-index: 9;
+}
+
+@media (max-width: 575px) {
+    .map-block iframe {
+        padding: 0 10px;
+    }
+}

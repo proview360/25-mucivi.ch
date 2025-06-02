@@ -1,0 +1,70 @@
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="66.677"
+        height="76.992"
+        viewBox="0 0 66.677 76.992"
+      >
+        <g
+          id="Group_183"
+          data-name="Group 183"
+          transform="translate(-277.793 -259.142)"
+        >
+          <g id="Group_182" data-name="Group 182">
+            <g id="Group_179" data-name="Group 179">
+              <path
+                id="Path_257"
+                data-name="Path 257"
+                d="M311.132,297.638h0Z"
+                fill="#d6213b"
+              />
+              <path
+                id="Path_258"
+                data-name="Path 258"
+                d="M311.131,259.142,277.793,278.39v38.5l33.338,19.248,33.338-19.248v-38.5Z"
+                fill="#d6213b"
+              />
+            </g>
+            <g id="Group_180" data-name="Group 180">
+              <path
+                id="Path_259"
+                data-name="Path 259"
+                d="M326.576,288.772h0v17.834h0l-15.444,8.917v7.824l22.22-12.828V284.86Z"
+                fill="#fff"
+              />
+              <path
+                id="Path_260"
+                data-name="Path 260"
+                d="M311.132,272.032l-22.22,12.829,6.776,3.912h0l15.444-8.917,15.444,8.917,6.776-3.912Z"
+                fill="#f2d2d5"
+              />
+              <path
+                id="Path_261"
+                data-name="Path 261"
+                d="M307.6,295.6l-6.759-3.9-.017,11.863,10.312,5.953v-7.824l-3.536-2.041Z"
+                fill="#e5a5ab"
+              />
+              <path
+                id="Path_262"
+                data-name="Path 262"
+                d="M321.443,303.557l-.017-11.863-6.759,3.9v4.048l-3.535,2.041v7.824Z"
+                fill="#fff"
+              />
+              <path
+                id="Path_263"
+                data-name="Path 263"
+                d="M295.687,306.606V288.772l-6.776-3.912V323.3l6.774,3.911h0V314.43l15.444,8.916v-7.824Z"
+                fill="#e5a5ab"
+              />
+            </g>
+            <g id="Group_181" data-name="Group 181">
+              <rect
+                id="Rectangle_48"
+                data-name="Rectangle 48"
+                width="7.824"
+                transform="matrix(0.53, -0.848, 0.848, 0.53, 309.058, 322.751)"
+                fill="#e5a5ab"
+              />
+            </g>
+          </g>
+        </g>
+      </svg>

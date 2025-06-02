@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50">
+  <g id="Group_945" data-name="Group 945" transform="translate(-401 -3484)">
+    <rect id="Rectangle_47" data-name="Rectangle 47" width="50" height="50" rx="2" transform="translate(401 3484)" fill="#fff"/>
+    <circle id="Ellipse_64" data-name="Ellipse 64" cx="2.974" cy="2.974" r="2.974" transform="translate(422.679 3508.088) rotate(-45)" fill="none" stroke="#d51030" stroke-width="1"/>
+    <line id="Line_99" data-name="Line 99" y2="3.234" transform="translate(426.883 3506.47)" fill="none" stroke="#d51030" stroke-width="1"/>
+    <line id="Line_100" data-name="Line 100" x2="3.234" transform="translate(425.266 3508.087)" fill="none" stroke="#d51030" stroke-width="1"/>
+    <path id="Path_130" data-name="Path 130" d="M0,0H5.736" transform="translate(420.912 3514.117) rotate(-45)" fill="none" stroke="#d51030" stroke-width="1"/>
+    <g id="Path_135" data-name="Path 135" transform="translate(490.823 3380.35)" fill="none">
+      <path d="M-54,134.9V122.4l-10.825-6.25-10.825,6.25v12.5l10.825,6.25Z" stroke="none"/>
+      <path d="M -64.82339477539063 139.9959259033203 L -54.99807357788086 134.3232727050781 L -54.99807357788086 122.9779968261719 L -64.82339477539063 117.3053512573242 L -74.64871215820313 122.9779968261719 L -74.64871215820313 134.3232727050781 L -64.82339477539063 139.9959259033203 M -64.82339477539063 141.150634765625 L -75.64871215820313 134.900634765625 L -75.64871215820313 122.4006423950195 L -64.82339477539063 116.1506423950195 L -53.99807357788086 122.4006423950195 L -53.99807357788086 134.900634765625 L -64.82339477539063 141.150634765625 Z" stroke="none" fill="#d51030"/>
+    </g>
+  </g>
+</svg>
