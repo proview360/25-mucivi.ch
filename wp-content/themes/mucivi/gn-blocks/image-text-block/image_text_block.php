@@ -37,6 +37,7 @@ function gn_image_text_block_rc($attributes, $content) {
     $space_bottom           = $attributes["space_bottom"] ?? 'yes';
     $space_top              = $attributes["space_top"] ?? 'yes';
     $align_items            = $attributes["align_items"] ?? 'end';
+	$content_design         = $attributes["content_design"] ?? 'photo-content';
 
 
 
@@ -117,27 +118,54 @@ function gn_image_text_block_rc($attributes, $content) {
                     </div>';
     }
 
-    return '<section id="'.$class_name.'" class="text-block '.$class_name.' space-bottom-'.$space_bottom.' space-top-'.$space_top.' text-block-id-'.$uniq_id.' bg-color-'.$background_color.' text-color-'.$text_color.'">                
-                    <div class="d-none container d-lg-flex justify-content-between align-items-center align-items-xl-'.$align_items.' gap-5">  
-                       <div class=" col-lg-6 col-xl-7">
-                            '.$headline.'    
-                            '.$conHTML.'    
+	$content_full_html = "";
+	if($content_design === "content-photo" ){
+		$content_full_html = '<section id="'.$class_name.'" class="text-block '.$class_name.' space-bottom-'.$space_bottom.' space-top-'.$space_top.' text-block-id-'.$uniq_id.' bg-color-'.$background_color.' text-color-'.$text_color.'">
+                    <div class="d-none container d-lg-flex justify-content-between align-items-center align-items-xl-'.$align_items.' ">
+                       <div class="pe-lg-5  col-lg-6 col-xl-7">
+                            '.$headline.'
+                            '.$conHTML.'
                         </div>
                          <div class="col-lg-6 col-xl-5 d-flex justify-content-center">
-                            '.$content_image_html.'      
-                        </div>                 
-                                                          
-                    </div> 
-                    
-                    <div class="d-flex container d-lg-none justify-content-between align-items-center align-items-xl-'.$align_items.' gap-5">  
-                       <div class="col-12">
-                            '.$headline.'    
-                            <div class="d-flex justify-content-center py-3">
-                                '.$content_image_html.'    
-                            </div>
-                            '.$conHTML.'    
+                            '.$content_image_html.'
                         </div>
-                    </div>                                      
-            </section>
-            ';
+                        
+                    </div>
+                    
+                    <div class="d-flex container d-lg-none justify-content-between align-items-center align-items-xl-'.$align_items.'">
+                       <div class="col-12">
+                            '.$headline.'
+                            <div class="d-flex justify-content-center py-3">
+                                '.$content_image_html.'
+                            </div>
+                            '.$conHTML.'
+                        </div>
+                    </div>
+            </section>';
+	}else {
+		$content_full_html = '<section id="'.$class_name.'" class="text-block '.$class_name.' space-bottom-'.$space_bottom.' space-top-'.$space_top.' text-block-id-'.$uniq_id.' bg-color-'.$background_color.' text-color-'.$text_color.'">
+                    <div class="d-none container d-lg-flex justify-content-between align-items-center align-items-xl-'.$align_items.' ">
+                         <div class="col-lg-6 col-xl-5 d-flex justify-content-center">
+                         
+                            '.$content_image_html.'
+                        </div>
+                        <div class="ps-lg-5  col-lg-6 col-xl-7">
+                            '.$headline.'
+                            '.$conHTML.'
+                        </div>
+                        
+                    </div>
+                    
+                    <div class="d-flex container d-lg-none justify-content-between align-items-center align-items-xl-'.$align_items.' ">
+                       <div class="col-12">
+                            '.$headline.'
+                            <div class="d-flex justify-content-center py-3">
+                                '.$content_image_html.'
+                            </div>
+                            '.$conHTML.'
+                        </div>
+                    </div>
+            </section>';
+	}
+    return $content_full_html;
 }

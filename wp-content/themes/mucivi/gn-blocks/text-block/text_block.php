@@ -38,9 +38,6 @@ function gn_text_block_rc($attributes, $content) {
 
     $headline_html              = "";
     $sub_headline_html          = "";
-
-    $content_image_html         = "";
-    $bg_headline_html           = "";
 	
     $class_name                 = $attributes["class_name"] ?? "";
     $content_position           = $attributes["two_columns"] ?? "0";
@@ -48,18 +45,15 @@ function gn_text_block_rc($attributes, $content) {
     $background_color           = $attributes["background_color"] ?? 'white';
     $text_color                 = $attributes["text_color"] ?? 'black';
     $text_style                 = $attributes["text_style"] ?? 'sRichText';
-    $image                      = $attributes["image_text_block"]["url"] ?? '';
     $space_bottom               = $attributes["space_bottom"] ?? 'yes';
     $space_top                  = $attributes["space_top"] ?? 'yes';
-    $bg_headline                = $attributes["bg_headline"] ?? '';
+
     $margin_top                 = $attributes["margin_top"] ?? '20';
     $headline_style             = $attributes["select_headline_style"] ?? 'style-1';
     $select_sub_headline_type   = $attributes["select_sub_headline_type"] ?? '';
     $select_headline_type       = $attributes["select_headline_type"] ?? '';
-
-//            echo '<pre>';
-//        echo print_r($attributes);
-//        echo '</pre>';
+	$sidebar_enable             = $attributes['side_bar_enable'] ?? '';
+	$sidebar_title              = $attributes["side_bar_title"] ?? '';
 
     if($headline_style == "style_2")
     {
@@ -88,15 +82,7 @@ function gn_text_block_rc($attributes, $content) {
         $headline_sub_type = "h1";
     }
 
-    if($bg_headline !== ""){
-        $bg_headline_html ="<p class='background-text'> $bg_headline </p>";
-    }
 
-
-    if($image !== '')
-    {
-        $content_image_html = "<img class='img-fluid' src='$image' />";
-    }
 
 
     if ($text_style === "sRichText")
@@ -137,14 +123,57 @@ function gn_text_block_rc($attributes, $content) {
                                                           
                     </div>';
     }
+	$sidebar_html = '';
+	
+	if ($sidebar_enable === 'yes') {
+		$sidebar_html .= '
 
-    return '<section id="'.$class_name.'" class="text-block '.$class_name.' space-bottom-'.$space_bottom.' space-top-'.$space_top.' text-block-id-'.$uniq_id.' bg-color-'.$background_color.' text-color-'.$text_color.'">                
-                    <div class="container">
-                        '.$bg_headline_html.'         
-                        '.$headline_html.'
-                        '.$sub_headline_html.'       
-                        '.$content_image_html.'                       
-                        '.$conHTML.'                                              
-                    </div>                                
+		<div class="sidebar-title">
+		   '.$sidebar_title.'
+		</div>
+		<div class="sidebar-buttons mt-4">';
+		// Loop up to a reasonable number, e.g., 10
+			for ($i = 1; $i <= 10; $i++) {
+				$name_key = "button_{$i}_name";
+				$link_key = "button_{$i}_link";
+				
+				if (!empty($attributes[$name_key]) && !empty($attributes[$link_key])) {
+					$sidebar_html .= '<div class="sidebar-button mb-2">';
+					$sidebar_html .= '<a href="' . esc_url($attributes[$link_key]) . '" class="sidebar-link">';
+					$sidebar_html .= esc_html($attributes[$name_key]);
+					$sidebar_html .= '</a></div>';
+				}
+			}
+		$sidebar_html .= '</div>';
+	}
+	
+	$full_content_html = '';
+	if($sidebar_enable === 'yes')
+	{
+		$full_content_html = '
+		
+		<section id="'.$class_name.'" class="text-block '.$class_name.' space-bottom-'.$space_bottom.' space-top-'.$space_top.' text-block-id-'.$uniq_id.' bg-color-'.$background_color.' text-color-'.$text_color.'">
+                    <div class="container d-flex flex-column flex-lg-row ">
+                        <div class="col-12 col-lg-9">
+	                        '.$headline_html.'
+	                        '.$sub_headline_html.'
+	                        '.$conHTML.'
+                        </div>
+                       <div class="sidebar-container col-12 col-lg-3 ps-lg-5">
+                        	'.$sidebar_html.'
+                        </div>
+                        
             </section>';
+	}
+	else
+	{
+		$full_content_html = '<section id="'.$class_name.'" class="text-block '.$class_name.' space-bottom-'.$space_bottom.' space-top-'.$space_top.' text-block-id-'.$uniq_id.' bg-color-'.$background_color.' text-color-'.$text_color.'">
+                    <div class="container">
+                        '.$headline_html.'
+                        '.$sub_headline_html.'
+                        '.$conHTML.'
+                    </div>
+            </section>';
+	}
+    return $full_content_html;
 }

@@ -11,6 +11,7 @@ section.showcase-section-block .showcase-section-container {
     align-items: center;
 }
 
+section.showcase-section-block h1.showcase-title,
 section.showcase-section-block h2.showcase-title{
     font-family: var(--font-family-brown-bold);
     font-weight: 400;

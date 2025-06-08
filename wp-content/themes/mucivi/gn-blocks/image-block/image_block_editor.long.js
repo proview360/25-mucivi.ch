@@ -31,6 +31,12 @@
             image_link: {
                 type: 'string'
             },
+            image_width: {
+                type: 'string'
+            },
+            image_height: {
+                type: 'string'
+            },
             // Desktop Padding
             desktop_padding_top: {
                 type: 'string',
@@ -148,8 +154,16 @@
             function update_image_link(event) {
                 props.setAttributes({image_link: event.target.value});
             }
-
-
+            function update_image_width(event) {
+                props.setAttributes({image_width: event.target.value});
+            }
+            
+            function update_image_height(event) {
+                props.setAttributes({image_height: event.target.value});
+            }
+            
+            
+            
             return (
                 el(Fragment, null,
                     el(InspectorControls, {class: "granit-SelectControl"},
@@ -339,6 +353,20 @@
                                     value: props.attributes.image_link,
                                     placeholder: "Write here...",
                                     onChange: update_image_link
+                                }),
+                                el("h3", null, "Image Width in PX (optional)"),
+                                el("input", {
+                                    type: "text",
+                                    value: props.attributes.image_width,
+                                    placeholder: "Write here...",
+                                    onChange: update_image_width
+                                }),
+                                el("h3", null, "Image Height in PX (optional)"),
+                                el("input", {
+                                    type: "text",
+                                    value: props.attributes.image_height,
+                                    placeholder: "Write here...",
+                                    onChange: update_image_height
                                 }),
                             ),
                         ),

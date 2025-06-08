@@ -379,24 +379,6 @@ h4 .gn-4 {
 }
 
 
-@media (max-width: 767px) {
-
-    h1, .gn-h1 {
-        font-size: 28px;
-        line-height: 1;
-    }
-
-    h2, .gn-h2 {
-        font-size: 22px;
-        line-height: 1;
-    }
-
-    h3, .gn-h3 {
-        font-size: 22px;
-        line-height: 1;
-    }
-}
-
 @media (max-width: 991px) {
     .entry-content {
         margin-top: 80px;
@@ -510,7 +492,7 @@ nav.desktop-nav .header-wrapper{
     height: 130px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     color: #fff;
     padding: 0;
     font-size: 16px;

@@ -49,6 +49,9 @@
             background_color: {
                 type: 'string'
             },
+            content_design: {
+                type: 'string'
+            },
             text_color: {
                 type: 'string'
             },
@@ -61,7 +64,6 @@
             space_bottom: {
                 type: 'string',
             },
-
             space_top: {
                 type: 'string',
             }
@@ -102,7 +104,7 @@
 
             if(!props.attributes.background_color)
             {
-                props.setAttributes({background_color: "gray"})
+                props.setAttributes({background_color: "white"})
             }
 
             if(!props.attributes.text_color)
@@ -158,7 +160,12 @@
             function update_text_color (newValue) {
                 props.setAttributes( { text_color: newValue } );
             }
-
+            
+            function update_content_design (newValue) {
+                props.setAttributes( { content_design: newValue } );
+            }
+            
+            
             function update_image_text_block(newContent) {
                 props.setAttributes({image_text_block: newContent})
             }
@@ -229,10 +236,6 @@
                                     value: props.attributes.background_color,
                                     options: [
                                         {
-                                            value: 'grayblue',
-                                            label: 'Gray'
-                                        },
-                                        {
                                             value: 'white',
                                             label: 'White'
                                         },
@@ -241,8 +244,12 @@
                                             label: 'Black'
                                         },
                                         {
-                                            value: 'red',
-                                            label: 'Red'
+                                            value: 'primary',
+                                            label: 'primary'
+                                        },
+                                        {
+                                            value: 'secondary',
+                                            label: 'Secondary'
                                         },
 
                                     ],
@@ -257,10 +264,6 @@
                                     value: props.attributes.text_color,
                                     options: [
                                         {
-                                            value: 'grayblue',
-                                            label: 'Gray'
-                                        },
-                                        {
                                             value: 'white',
                                             label: 'White'
                                         },
@@ -269,8 +272,12 @@
                                             label: 'Black'
                                         },
                                         {
-                                            value: 'red',
-                                            label: 'Red'
+                                            value: 'primary',
+                                            label: 'primary'
+                                        },
+                                        {
+                                            value: 'secondary',
+                                            label: 'Secondary'
                                         },
 
                                     ],
@@ -294,6 +301,26 @@
                                         }
                                     ],
                                     onChange: update_text_style
+                                }
+                            ),
+                            
+                            el("strong", null, "Content"),
+                            el(SelectControl,
+                                {
+                                    label: '',
+                                    value: props.attributes.content_design,
+                                    options: [
+                                        {
+                                            value: 'photo-content',
+                                            label: 'Photo / Content'
+                                        },
+                                        {
+                                            value: 'content-photo',
+                                            label: 'Content / Photo'
+                                        },
+                                    
+                                    ],
+                                    onChange: update_content_design
                                 }
                             ),
 

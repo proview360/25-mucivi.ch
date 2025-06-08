@@ -38,42 +38,31 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-// jQuery(document).ready(function($) {
-//     var owl = $(".slider-carousel");
-//     owl.owlCarousel({
-//         loop: true,
-//         margin: 10,
-//         autoplay: true,
-//         autoplayTimeout: 3000,
-//         autoplayHoverPause: true,
-//         dots: true,
-//         nav: false,  // Disable default navigation
-//         responsive:{
-//             0:{
-//                 items:1
-//             },
-//             768:{
-//                 items:2
-//             },
-//             1000:{
-//                 items:3
-//             },
-//             1200:{
-//                 items:3
-//             }
-//         }
-//     });
-//
-//
-//     // Custom Button
-//     $('.owl-next-gn').click(function() {
-//         owl.trigger('next.owl.carousel');
-//     })
-//
-//     $('.owl-prev-gn').click(function() {
-//         owl.trigger('prev.owl.carousel');
-//     })
-// });
+jQuery(document).ready(function($) {
+    var owl = $(".slider-carousel");
+    owl.owlCarousel({
+        loop: true,
+        margin: 0,
+        autoplay: true,
+        autoplayTimeout: 5000,
+        autoplayHoverPause: true,
+        nav: false,  // Disable default navigation
+        responsive:{
+            0:{
+                items:1
+            },
+            768:{
+                items:2
+            },
+            1000:{
+                items:3
+            },
+            1200:{
+                items:3
+            }
+        }
+    });
+});
 
 
 document.addEventListener('DOMContentLoaded', function() {

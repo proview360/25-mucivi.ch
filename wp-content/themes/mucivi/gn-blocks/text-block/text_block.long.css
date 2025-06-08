@@ -6,6 +6,7 @@ section.text-block {
 
 }
 
+
 section.text-block.bg-color-yellow p,
 section.text-block.bg-color-gray p,
 section.text-block.bg-color-black p,
@@ -19,11 +20,6 @@ section.text-block.bg-color-primary p
     margin-bottom: 0;
 }
 
-
-h2 {
-    font-size: 1.8em;
-    margin-bottom: 20px;
-}
 
 .top-section {
     display: flex;
@@ -67,11 +63,6 @@ section.text-block.space-bottom-no {
     padding-bottom: 0;
 }
 
-
-section.text-block p.wp-block-gn-text-block {
-    margin-top: 10px;
-}
-
 section.text-block .content-two-columns p.wp-block-gn-text-block {
     margin-top: 0px;
 }
@@ -85,17 +76,6 @@ section.text-block .textBlock-text strong a{
     font-size: 16px;
 }
 
-section.text-block h1.textBlock-headline,
-section.text-block h2.textBlock-headline,
-section.text-block h3.textBlock-headline,
-section.text-block h4.textBlock-headline,
-section.text-block h5.textBlock-headline,
-section.text-block h6.textBlock-headline,
-section.text-block p.textBlock-headline {
-    font-size: 48px;
-    line-height: 1;
-}
-
 section.text-block h1.textBlock-headline.style-2,
 section.text-block h2.textBlock-headline.style-2,
 section.text-block h3.textBlock-headline.style-2,
@@ -103,24 +83,8 @@ section.text-block h4.textBlock-headline.style-2,
 section.text-block h5.textBlock-headline.style-2,
 section.text-block h6.textBlock-headline.style-2,
 section.text-block p.textBlock-headline.style-2 {
-    font-size: 27px;
-    line-height: 1;
     color: var(--mucivi-primary);
 }
-
-section.text-block h1.textBlock-sub-headline,
-section.text-block h2.textBlock-sub-headline,
-section.text-block h3.textBlock-sub-headline,
-section.text-block h4.textBlock-sub-headline,
-section.text-block h5.textBlock-sub-headline,
-section.text-block h6.textBlock-sub-headline,
-section.text-block p.textBlock-sub-headline  {
-    font-size: 48px;
-    line-height: 1;
-    font-weight: var(--font-weight-700);
-}
-
-
 
 section.text-block .textBlock-headline.left,
 section.text-block div.textBlock-text p.left {
@@ -158,6 +122,24 @@ section.text-block div.textBlock-text p.justify {
     column-gap: 50px;
 }
 
+.wp-block-gn-text-block img {
+    float: left;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+.wp-block-gn-text-block {
+    text-align: justify;
+}
+
+.sidebar-container .sidebar-button a {
+    color: var(--mucivi-primary);
+}
+
+.sidebar-container .sidebar-button a:hover {
+    color: var(--mucivi-black);
+}
+
 .text-block .text-block-html p{
     margin-bottom: 1rem;
 }
@@ -193,43 +175,19 @@ section.text-block div.textBlock-text p.justify {
 }
 
 @media (max-width: 767px) {
-    section.text-block h1.textBlock-headline,
-    section.text-block h2.textBlock-headline,
-    section.text-block h3.textBlock-headline,
-    section.text-block h4.textBlock-headline,
-    section.text-block h5.textBlock-headline,
-    section.text-block h6.textBlock-headline,
-    section.text-block p.textBlock-headline {
-        font-size: 24px;
-    }
 
-    section.text-block h1.textBlock-headline.style-2,
-    section.text-block h2.textBlock-headline.style-2,
-    section.text-block h3.textBlock-headline.style-2,
-    section.text-block h4.textBlock-headline.style-2,
-    section.text-block h5.textBlock-headline.style-2,
-    section.text-block h6.textBlock-headline.style-2,
-    section.text-block p.textBlock-headline.style-2 {
-        font-size: 18px;
-        color: var(--mucivi-primary);
-    }
-
-
-
-    section.text-block h1.textBlock-sub-headline,
-    section.text-block h2.textBlock-sub-headline,
-    section.text-block h3.textBlock-sub-headline,
-    section.text-block h4.textBlock-sub-headline,
-    section.text-block h5.textBlock-sub-headline,
-    section.text-block h6.textBlock-sub-headline,
-    section.text-block p.textBlock-sub-headline  {
-        font-size: 24px;
-    }
 }
 
 
 
 @media (max-width: 575px) {
+    .wp-block-gn-text-block img {
+        display: block;
+        width: auto;
+        margin: 0 auto 24px auto;
+        float: none;
+    }
+
     section.text-block .textBlock-text .center {
         width: 100%;
     }

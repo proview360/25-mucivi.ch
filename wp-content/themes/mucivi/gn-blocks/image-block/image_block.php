@@ -28,6 +28,8 @@ function gn_image_block_rc( $attributes, $content ) {
     $layout             = $attributes["layout"] ?? '';
     $background_color   = $attributes["background_color"] ?? "";
     $image_link         = $attributes["image_link"] ?? "";
+	$image_width         = $attributes["image_width"] ?? "";
+	$image_height         = $attributes["image_height"] ?? "";
 
     $paddings = array(
         'desktop' => array(
@@ -61,6 +63,11 @@ function gn_image_block_rc( $attributes, $content ) {
         'tablet' => '991px',
         'mobile' => '575px',
     );
+	
+	$image_class= "";
+	if($image_width !== ""){
+		$image_class = 'width-auto';
+	}
 
     foreach($devices as $device => $breakpoint) {
         foreach($paddings[$device] as $padding_type => $value) {
@@ -85,12 +92,12 @@ function gn_image_block_rc( $attributes, $content ) {
     if($image_link !== "")
     {
         $image_link_html = '<a  '.($image_link == "" ? "" : "href='$image_link'").'>
-                                <img id="'.$img_block_id.'" class="img-block '.$padding_classes.'" src="'.$img_url.'" />
+                                <img width="'.$image_width.'" height="'.$image_height.'"  id="'.$img_block_id.'" class="img-block '.$image_class.' '.$padding_classes.'" src="'.$img_url.'" />
                             </a>';
     }
     else
     {
-        $image_link_html = '  <img id="'.$img_block_id.'" class="img-block '.$padding_classes.'" src="'.$img_url.'" />';
+        $image_link_html = '  <img width="'.$image_width.'" height="'.$image_height.'" id="'.$img_block_id.'" class="img-block '.$image_class.' '.$padding_classes.'" src="'.$img_url.'" />';
     }
 
     return '<section class="image-gallery-block">  

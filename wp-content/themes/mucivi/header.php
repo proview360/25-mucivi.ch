@@ -42,7 +42,7 @@ $mucivi_logo                 = $theme_options_all['mucivi_logo'];
     <a class="logo-desktop" href="<?php echo esc_url(home_url('/')); ?>">
         <img width="200" height="auto" alt="logo mucivi" src="<?php echo $mucivi_logo ?>"/>
     </a>
-    <nav class="desktop-nav">
+    <nav class="desktop-nav container">
         <div class="">
             <div class="header-wrapper">
 
@@ -57,10 +57,12 @@ $mucivi_logo                 = $theme_options_all['mucivi_logo'];
                     'fallback_cb' => false
                 ));
                 ?>
-	            
-	            <?php get_template_part('template-parts/language-switch'); ?>
-	            <?php get_template_part('template-parts/mega-menu'); ?>
-                <?php get_template_part('template-parts/search-form'); ?>
+                
+                <div class="d-flex gap-2">
+                    <?php get_template_part('template-parts/language-switch'); ?>
+                    <?php get_template_part('template-parts/mega-menu'); ?>
+                    <?php get_template_part('template-parts/search-form'); ?>
+                </div>
          
 
             </div>

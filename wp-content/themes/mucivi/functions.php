@@ -363,9 +363,9 @@ function register_granit_blocks() {
 	    array("name" => "iframe_block", "block-name" => "iframe-block", "deps" => array("wp-block-editor","wp-blocks","wp-element","wp-data")),
 	    array("name" => "image_block", "block-name" => "image-block", "deps" => array("wp-block-editor","wp-blocks","wp-element","wp-data")),
 	    array("name" => "text_block", "block-name" => "text-block", "deps" => array("wp-block-editor","wp-blocks","wp-element","wp-data")),
+	    array("name" => "image_text_block", "block-name" => "image-text-block", "deps" => array("wp-block-editor","wp-blocks","wp-element","wp-data")),
 		
 		
-        array("name" => "image_text_block", "block-name" => "image-text-block", "deps" => array("wp-block-editor","wp-blocks","wp-element","wp-data")),
         array("name" => "hexagon_block", "block-name" => "hexagon-block", "deps" => array("wp-block-editor","wp-blocks","wp-element","wp-data")),
         array("name" => "threed_and_lists_block", "block-name" => "threed-and-lists-block", "deps" => array("wp-block-editor","wp-blocks","wp-element","wp-data")),
         array("name" => "website_block", "block-name" => "website-block", "deps" => array("wp-block-editor","wp-blocks","wp-element","wp-data")),

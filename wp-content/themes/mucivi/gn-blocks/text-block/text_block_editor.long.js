@@ -5,9 +5,38 @@
         Fragment            = element.Fragment,
         RichText            = blockEditor.RichText,
         InspectorControls   = blockEditor.InspectorControls,
-        MediaUpload         = blockEditor.MediaUpload,
         SelectControl       = components.SelectControl;
-
+    
+    var blockAttributes = {
+        content: { type: 'string', source: 'html', selector: 'p' },
+        headline: { type: 'string' },
+        number_of_link: {type: 'string'},
+        side_bar_title: {type: 'string'},
+        sub_headline: { type: 'string' },
+        headline_color: { type: 'string' },
+        class_name: { type: 'string' },
+        select_field: { type: 'string' },
+        select_headline_type: { type: 'string' },
+        select_headline_style: { type: 'string' },
+        select_sub_headline_type: { type: 'string' },
+        text_select_field: { type: 'string' },
+        text_style: { type: 'string' },
+        side_bar_enable: { type: 'string' },
+        text_html: { type: 'string' },
+        two_columns: { type: 'string' },
+        background_color: { type: 'string' },
+        text_color: { type: 'string' },
+        space_bottom: { type: 'string' },
+        space_top: { type: 'string' },
+        margin_top: { type: 'string' }
+    };
+    
+    // Auto-generate dynamic button attributes
+    for (let i = 1; i <= 10; i++) {
+        blockAttributes[`button_${i}_name`] = { type: 'string' };
+        blockAttributes[`button_${i}_link`] = { type: 'string' };
+    }
+    
     //register block
     blocks.registerBlockType('gn/text-block', {
 
@@ -19,73 +48,7 @@
         example: {},
 
         //define required attributes
-        attributes: {
-            content: {
-                type: 'string',
-                source: 'html',
-                selector: 'p',
-            },
-            headline: {
-                type: 'string'
-            },
-
-            bg_headline: {
-                type: 'string'
-            },
-
-            sub_headline: {
-                type: 'string'
-            },
-
-            headline_color: {
-                type: 'string'
-            },
-            class_name: {
-                type: 'string'
-            },
-            select_field: {
-                type: 'string',
-            },
-            select_headline_type: {
-                type: 'string',
-            },
-            select_headline_style: {
-                type: 'string',
-            },
-            select_sub_headline_type: {
-                type: 'string',
-            },
-            text_select_field: {
-                type: 'string',
-            },
-            text_style: {
-                type: 'string'
-            },
-            text_html: {
-                type: 'string'
-            },
-            two_columns: {
-                type: 'string'
-            },
-
-            background_color: {
-                type: 'string'
-            },
-            text_color: {
-                type: 'string'
-            },
-
-            space_bottom: {
-                type: 'string',
-            },
-
-            space_top: {
-                type: 'string',
-            },
-            margin_top: {
-                type: 'string',
-            }
-        },
+        attributes: blockAttributes,
 
         //set edit function
         edit: function(props) {
@@ -105,7 +68,11 @@
             {
                 props.setAttributes({text_style: "sRichText"})
             }
-
+            
+            if(!props.attributes.side_bar_enable)
+            {
+                props.setAttributes({side_bar_enable: "no"})
+            }
 
             if (!props.attributes.two_columns)
             {
@@ -122,7 +89,7 @@
 
             if(!props.attributes.background_color)
             {
-                props.setAttributes({background_color: "gray"})
+                props.setAttributes({background_color: "white"})
             }
 
             if(!props.attributes.text_color)
@@ -173,9 +140,17 @@
             function update_content_headline (event) {
                 props.setAttributes( {headline: event.target.value} )
             }
-            function update_content_bg_headline (event) {
-                props.setAttributes( {bg_headline: event.target.value} )
+            
+            function update_number_of_link (event) {
+                props.setAttributes( {number_of_link: event.target.value} )
             }
+            
+            function update_side_bar_title (event) {
+                props.setAttributes( {side_bar_title: event.target.value} )
+            }
+            
+            
+
             function update_margin_top(event) {
                 props.setAttributes( {margin_top: event.target.value} )
             }
@@ -187,6 +162,12 @@
             function update_text_style (newValue) {
                 props.setAttributes( {text_style: newValue} )
             }
+            
+            function update_side_bar_enable (newValue) {
+                props.setAttributes( {side_bar_enable: newValue} )
+            }
+            
+            
             function update_text_html (event) {
                 props.setAttributes( {text_html: event.target.value} )
             }
@@ -404,6 +385,8 @@
                                     onChange: update_background_color
                                 }
                             ),
+                            
+                            
 
                             el("strong", null, "Text Color"),
                             el(SelectControl,
@@ -486,7 +469,49 @@
                                 options: space_bottom,
                                 onChange: update_space_bottom
                             }),
-
+                            
+                            el("dt", null, "Sidebar enable"),
+                            el(SelectControl,
+                                {
+                                    label: '',
+                                    value: props.attributes.side_bar_enable,
+                                    options: [
+                                        {
+                                            value: 'no',
+                                            label: 'No'
+                                        },
+                                        {
+                                            value: 'yes',
+                                            label: 'Yes'
+                                        }
+                                    ],
+                                    onChange: update_side_bar_enable
+                                }
+                            ),
+                            
+                            props.attributes.side_bar_enable === 'yes' && [
+                                el("dt", null, "Number of links"),
+                                    el("input", {
+                                        key: "input",
+                                        type: "text",
+                                        value: props.attributes.number_of_link,
+                                        placeholder: "Write here...",
+                                        onChange: update_number_of_link
+                                    })
+                            ],
+                            
+                            props.attributes.side_bar_enable === 'yes' && [
+                                    el("dt", null, "Side Bar Title"),
+                                    el("input", {
+                                        key: "input",
+                                        type: "text",
+                                        value: props.attributes.side_bar_title,
+                                        placeholder: "Write here...",
+                                        onChange: update_side_bar_title
+                                    })
+                            ],
+                            
+                            
                         ),
                     ),
 
@@ -531,23 +556,7 @@
                                     }
                                 )
                             ),
-
-                            el("dt", null,
-                                el("span", null, "Background Headline "),
-                                el("small", null, "(optional)")
-                            ),
-
-                            el("dd", null,
-                                el("input", {
-                                        type: "text",
-                                        value: props.attributes.bg_headline,
-                                        placeholder: "Write here...",
-                                        onChange: update_content_bg_headline
-                                    }
-                                )
-                            ),
-
-
+    
                             el("dt", null,
                                 el("span", null, "Content Margin Top"),
                                 el("small", null, "(optional)")
@@ -589,10 +598,59 @@
                                                 }, props.attributes.text_html)
                                             )
                                     ) : null,
-
-
-
-
+                            
+                            
+                            props.attributes.side_bar_enable === 'yes' && (() => {
+                                const numberOfLinks = parseInt(props.attributes.number_of_link || "0");
+                                const fields = [];
+                                
+                                for (let i = 1; i <= numberOfLinks; i++) {
+                                    fields.push(
+                                        el("dt", { key: `btn${i}-label` },
+                                            el("span", null, `Button ${i} name`)
+                                        ),
+                                        el("dd", { key: `btn${i}-name` },
+                                            el("input", {
+                                                type: "text",
+                                                value: props.attributes[`button_${i}_name`] || "",
+                                                placeholder: `Button ${i} name...`,
+                                                onChange: (e) => {
+                                                    const newAttrs = {};
+                                                    newAttrs[`button_${i}_name`] = e.target.value;
+                                                    props.setAttributes(newAttrs);
+                                                }
+                                            })
+                                        ),
+                                        el("dt", { key: `btn${i}-link-label` },
+                                            el("span", null, `Button ${i} link`)
+                                        ),
+                                        el("dd", { key: `btn${i}-link` },
+                                            el("input", {
+                                                type: "text",
+                                                value: props.attributes[`button_${i}_link`] || "",
+                                                placeholder: `Button ${i} link...`,
+                                                onChange: (e) => {
+                                                    const newAttrs = {};
+                                                    newAttrs[`button_${i}_link`] = e.target.value;
+                                                    props.setAttributes(newAttrs);
+                                                }
+                                            })
+                                        ),
+                                        // Optional <hr> between items
+                                        i < numberOfLinks ? el("hr", {
+                                            key: `hr-${i}`,
+                                            style: { borderColor: "red", borderWidth: "1px", margin: "20px 0" }
+                                        }) : null
+                                    );
+                                }
+                                
+                                return fields;
+                            })()
+                        
+                        
+                        
+                        
+                        
                         )
                     )
                 )
