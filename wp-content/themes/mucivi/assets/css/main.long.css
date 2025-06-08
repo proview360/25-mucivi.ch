@@ -107,7 +107,7 @@
     --mucivi-gray-dark: #3b3b3b;
     --mucivi-medium-black: #333;
     --mucivi-black: #111;
-    --mucivi-tertiary: #1D1D1B;
+    --mucivi-tertiary: #333;
     --mucivi-black-light: #141618;
     --mucivi-brown: #736456;
     --mucivi-brown-original: #5A3319;
@@ -124,7 +124,8 @@
     --mucivi-light-gray: #dedede;
     --mucivi-dark-gray: #666;
     /* hover */
-    --mucivi-primary-light: #f48189;
+    --mucivi-primary-light: #EFECE7;
+    --mucivi-primary-light-hover: #D7D4D0;
     --mucivi-turquoise:#0093BE;
     --mucivi-light-blue:#6DB7EB;
     --mucivi-orange: #E36000;
@@ -136,6 +137,7 @@
 
     /* Font Family */
     --font-family-default: 'Brown-Regular', sans-serif;
+    --font-family-brown-bold: 'Brown-Bold', sans-serif;
 
     /* Font Weights */
     --font-weight-300: 300;
@@ -173,32 +175,16 @@
     background-color: var(--mucivi-white);
 }
 
-.bg-color-light-gray{
-    background-color: var(--mucivi-gray-blue);
-}
-
-/* black */
-.bg-color-black{
-    background-color: var(--mucivi-black);
-}
-
-.bg-color-extra-light-gray{
-    background-color: var(--mucivi-extra-light-gray);
-}
-
-/*  Red */
-.bg-color-red{
+/*  primary */
+.bg-color-primary{
     background-color: var(--mucivi-primary);
 }
 
 
-.bg-color-grayblue{
-    background-color: var(--mucivi-gray-blue);
+.bg-color-secondary{
+    background-color: var(--mucivi-secondary);
 }
 
-.bg-color-extra-light-gray{
-    background-color: var(--mucivi-extra-light-gray);
-}
 
 /******* text color *******/
 
@@ -211,15 +197,16 @@
 .text-color-black{
     color: var(--mucivi-black);
 }
-
-.text-color-gray{
-    color: var(--mucivi-gray-blue);
-}
-
 /*  Red */
-.text-color-red{
+.text-color-primary{
     color: var(--mucivi-primary);
 }
+
+
+.text-color-secondary{
+    color: var(--mucivi-secondary);
+}
+
 
 
 /* scroll style */
@@ -252,76 +239,61 @@ body,
     scrollbar-base-color: var(--mucivi-primary);
 }
 
-a.btn-full {
-    padding: 1.25rem 2rem 1.25rem 5.5rem;
+a.btn-full-primary{
+    padding: 9px 24px;
     color: var(--mucivi-white);
-    position: relative;
-    border-radius: 0;
-    font-weight: 600;
-
-}
-
-a.btn-full-red {
+    font-size: 18px;
+    border-radius: 50px;
     background-color: var(--mucivi-primary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 14px;
 }
 
-a.btn-full-red:hover {
+a.btn-full-primary:hover {
     background-color: var(--mucivi-primary-hover);
     color: var(--mucivi-white);
+
 }
+
+
+a.btn-full-secondary {
+    padding: 9px 24px;
+    font-size: 18px;
+    border-radius: 50px;
+    background-color: var(--mucivi-primary-light);
+    color: var(--mucivi-black);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 14px;
+}
+
+a.btn-full-secondary:hover {
+    background-color: var(--mucivi-primary-light-hover);
+    color: var(--mucivi-black);
+}
+
 
 a.btn-outline {
-    padding: 1.25rem 2rem 1.25rem 5.5rem;
-    color: var(--mucivi-black);
-    position: relative;
-    border-radius: 0;
+    padding: 9px 24px;
+    border-radius: 50px;
+    color: var(--mucivi-primary) !important;
     font-size: 18px;
-}
-
-a.btn-outline-red {
     background-color: transparent;
+    border: 1px solid var(--mucivi-primary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 14px;
 }
 
-a.btn-outline-red:hover {
+a.btn-outline:hover {
     background-color: transparent;
-    color: var(--mucivi-primary-hover);
-}
-
-/* Add the SVG icon before the text */
-a.btn-outline::before {
-    content: "";
-    position: absolute;
-    left: 1.5rem; /* Adjust to control icon spacing */
-    top: 50%;
-    transform: translateY(-50%); /* Center the icon vertically */
-    width: 3rem; /* Adjust size of the icon */
-    height: 3rem;
-    background-image: url('../img/vectors/nextButton.svg'); /* Path to your SVG */
-    background-size: contain;
-    background-repeat: no-repeat;
+    color: var(--mucivi-primary-hover) !important;
+    border: 1px solid var(--mucivi-primary-hover);
 }
 
 
-/* Add the SVG icon before the text */
-a.btn-full::before {
-    content: "";
-    position: absolute;
-    left: 1.5rem; /* Adjust to control icon spacing */
-    top: 50%;
-    transform: translateY(-50%); /* Center the icon vertically */
-    width: 2rem; /* Adjust size of the icon */
-    height: 2rem;
-    background-image: url('../img/vectors/svgButton.svg'); /* Path to your SVG */
-    background-size: contain;
-    background-repeat: no-repeat;
-}
 
-
-@media (max-width: 991px) {
-    .content-wrapper{
-        margin-top: 130px;
-    }
-}
 
 body, div, ul, li, ol, h1, h2, h3, h4, h5, h6, form, fieldset, p, select, input {
     margin: 0;
@@ -384,19 +356,19 @@ h1, .gn-h1 {
 }
 
 h2, .gn-h2 {
-    font-size: 45px;
+    font-size: 36px;
     line-height: 1;
     font-weight: var(--font-weight-400);
 }
 
 h3, .gn-h3 {
-    font-size: 30px;
+    font-size: 28px;
     line-height: 1;
     font-weight: var(--font-weight-400);
 }
 
 h4 .gn-4 {
-    font-size: 25px;
+    font-size: 22px;
     line-height: 1;
     font-weight: var(--font-weight-400);
 }
@@ -509,10 +481,9 @@ ol.wp-block-list li::before {
 
 /* header */
 /* Menu Styles */
-header.header-mucivi {
+div.header-mucivi {
     background: white;
     transition: all 0.3s ease;
-    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
@@ -520,7 +491,7 @@ header.header-mucivi {
 }
 
 
-header.header-mucivi.active {
+div.header-mucivi.active {
     z-index: 99;
     position: fixed; /* For Safari */
     top: 0;
@@ -580,7 +551,7 @@ nav.desktop-nav .nav-menu > li:first-child {
     margin-left: 0;
 }
 
-header.header-mucivi nav.desktop-nav .nav-menu > li > a {
+div.header-mucivi nav.desktop-nav .nav-menu > li > a {
     text-transform: uppercase;
     color: var(--mucivi-primary);
     padding: 5px;
@@ -592,12 +563,12 @@ header.header-mucivi nav.desktop-nav .nav-menu > li > a {
     outline: none;
 }
 
-header.header-mucivi nav.desktop-nav .nav-menu > li > a:hover {
+div.header-mucivi nav.desktop-nav .nav-menu > li > a:hover {
     color: var(--mucivi-black);
 }
 
 
-header.header-mucivi.active nav.desktop-nav .nav-menu > li > a {
+div.header-mucivi.active nav.desktop-nav .nav-menu > li > a {
     color: var(--mucivi-black);
     padding: 5px;
     text-decoration: none;
@@ -608,7 +579,7 @@ header.header-mucivi.active nav.desktop-nav .nav-menu > li > a {
     outline: none;
 }
 
-header.header-mucivi.active nav.desktop-nav .nav-menu > li > a:hover {
+div.header-mucivi.active nav.desktop-nav .nav-menu > li > a:hover {
     color: var(--mucivi-primary);
 }
 
@@ -712,12 +683,12 @@ nav.desktop-nav .nav-menu .dropdown-menu a {
     /*justify-content: flex-end;*/
 }
 
-header.header-mucivi i.bi.bi-search {
+div.header-mucivi i.bi.bi-search {
     color: var(--mucivi-primary);
     cursor: pointer;
 }
 
-header.header-mucivi.active i.bi.bi-search {
+div.header-mucivi.active i.bi.bi-search {
     color: var(--mucivi-black);
     cursor: pointer;
 }
@@ -766,9 +737,7 @@ nav.desktop-nav .nav-menu>li.current-menu-parent > a span.arrow-mucivi-desktop{
         width: 80px !important;
         height: 80px !important;
     }
-    .content-wrapper {
-        margin-top: 80px;
-    }
+
 }
 @media (max-width: 767px) {
     nav.desktop-nav .header-wrapper .logo-desktop img{
@@ -830,14 +799,11 @@ nav.mobile-nav .mobile-icons {
 
 /* language switcher */
 .lang-switcher {
-    display: flex;
-    align-items: center;
+    display: inline-block;
     color: var(--mucivi-primary);
 }
 
-.lang {
-    color: var(--mucivi-black);
-    text-decoration: none;
+.lang-switcher span {
     margin: 0 5px;
 }
 
@@ -848,6 +814,16 @@ nav.mobile-nav .mobile-icons {
 .lang-active:hover {
     color: var(--mucivi-black);
     cursor: pointer;
+}
+
+.lang-inactive a {
+    text-decoration: none;
+    color: var(--mucivi-black);
+}
+
+.lang-inactive a:hover {
+    text-decoration: none;
+    color: var(--mucivi-primary);
 }
 
 
@@ -893,12 +869,12 @@ nav.mobile-nav .mobile-icons {
     background: transparent;
 }
 
-header.header-mucivi .search-field-desktop::placeholder {
+div.header-mucivi .search-field-desktop::placeholder {
     color: var(--mucivi-white);
     opacity: 1;
 }
 
-header.header-mucivi.active .search-field-desktop::placeholder {
+div.header-mucivi.active .search-field-desktop::placeholder {
     color: var(--mucivi-black);
     opacity: 1;
 }
@@ -918,25 +894,25 @@ button.search-submit {
     background: transparent;
 }
 
-header.header-mucivi .close-button-search {
+div.header-mucivi .close-button-search {
     color: var(--mucivi-primary);
     border: 0;
     background: transparent;
     font-size: 13px;
 }
 
-header.header-mucivi.active .close-button-search {
+div.header-mucivi.active .close-button-search {
     color: var(--mucivi-black);
     border: 0;
     background: transparent;
     font-size: 13px;
 }
 
-header.header-mucivi .close-button-search:hover{
+div.header-mucivi .close-button-search:hover{
     color: var(--mucivi-primary);
 }
 
-header.header-mucivi.active .close-button-search:hover{
+div.header-mucivi.active .close-button-search:hover{
     color: var(--mucivi-black);
 }
 
@@ -1126,7 +1102,7 @@ input[type="search"]::-ms-clear {
 }
 
 /* arrow bottom */
-header.header-mucivi.active .arrow-mucivi-desktop {
+div.header-mucivi.active .arrow-mucivi-desktop {
     display: inline-block;
     width: 7px;
     height: 7px;
@@ -1136,7 +1112,7 @@ header.header-mucivi.active .arrow-mucivi-desktop {
     margin-left: 8px;
     margin-bottom: 8px;
 }
-header.header-mucivi .arrow-mucivi-desktop {
+div.header-mucivi .arrow-mucivi-desktop {
     display: inline-block;
     width: 7px;
     height: 7px;
@@ -1149,7 +1125,7 @@ header.header-mucivi .arrow-mucivi-desktop {
     margin-bottom: 8px;
 }
 
-header.header-mucivi .active .arrow-mucivi-desktop {
+div.header-mucivi .active .arrow-mucivi-desktop {
     display: inline-block;
     width: 7px;
     height: 7px;
@@ -1201,8 +1177,17 @@ nav.desktop-nav .nav-menu .dropdown-menu .arrow-mucivi-desktop {
 }
 
 .footer-bottom {
-    background: var(--mucivi-white);
+    background-color: var(--mucivi-primary);
+    color: var(--mucivi-white);
+    text-align: center;
 }
+
+.lang-divider {
+    height: 1px;
+    background: #ccc;
+    margin: 5px 0;
+}
+
 
 
 .menu-footer-1-container a,
@@ -1415,11 +1400,10 @@ and (-webkit-min-device-pixel-ratio: 2) {
     padding: 0px !important;
     margin: 24px 0 14px !important;
     border: 0 !important;
-    color: #dc3232;
+    color: var(--mucivi-primary);
     font-size: 16px;
     line-height: 24px;
     font-weight: var(--font-weight-700);
-
 }
 
 .mucivi-checkbox p {
@@ -1483,7 +1467,7 @@ button.btn-full {
     background: none;
 }
 
-button.btn-full-red {
+button.btn-full-primary {
     background-color: var(--mucivi-primary);
 }
 

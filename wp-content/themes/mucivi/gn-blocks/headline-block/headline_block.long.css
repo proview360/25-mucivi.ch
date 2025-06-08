@@ -5,21 +5,8 @@ section.headline-block {
     overflow-x: hidden;
 }
 
-section.headline-block.bg-color-yellow p,
-section.headline-block.bg-color-gray p,
-section.headline-block.bg-color-black p,
-section.headline-block.bg-color-blue p,
-section.headline-block.bg-color-turquoise p,
-section.headline-block.bg-color-light-blue p,
-section.headline-block.bg-color-orange p,
-section.headline-block.bg-color-red p
-{
-    margin-top: 10px;
-    margin-bottom: 0;
-}
-
 section.headline-block.space-top-yes {
-    padding-top: 150px;
+    padding-top: 120px;
 }
 
 section.headline-block.space-bottom-yes {
@@ -39,29 +26,6 @@ section.headline-block p.wp-block-gn-headline-block {
     margin-top: 10px;
 }
 
-section.headline-block h1.textBlock-headline,
-section.headline-block h2.textBlock-headline,
-section.headline-block h3.textBlock-headline,
-section.headline-block h4.textBlock-headline,
-section.headline-block h5.textBlock-headline,
-section.headline-block h6.textBlock-headline,
-section.headline-block p.textBlock-headline {
-    font-size: 48px;
-    line-height: 1;
-}
-
-section.headline-block h1.textBlock-sub-headline,
-section.headline-block h2.textBlock-sub-headline,
-section.headline-block h3.textBlock-sub-headline,
-section.headline-block h4.textBlock-sub-headline,
-section.headline-block h5.textBlock-sub-headline,
-section.headline-block h6.textBlock-sub-headline,
-section.headline-block p.textBlock-sub-headline  {
-    font-size: 48px;
-    line-height: 1;
-    font-weight: var(--font-weight-700);
-}
-
 
 .headline-block .background-text {
     top: -80px;
@@ -78,7 +42,6 @@ section.headline-block p.textBlock-sub-headline  {
 }
 
 @media (max-width: 991px) {
-
     section.headline-block{
         overflow-y: hidden;
     }
@@ -90,30 +53,6 @@ section.headline-block p.textBlock-sub-headline  {
     }
 
 }
-
-@media (max-width: 767px) {
-    section.headline-block h1.textBlock-headline,
-    section.headline-block h2.textBlock-headline,
-    section.headline-block h3.textBlock-headline,
-    section.headline-block h4.textBlock-headline,
-    section.headline-block h5.textBlock-headline,
-    section.headline-block h6.textBlock-headline,
-    section.headline-block p.textBlock-headline {
-        font-size: 24px;
-    }
-
-    section.headline-block h1.textBlock-sub-headline,
-    section.headline-block h2.textBlock-sub-headline,
-    section.headline-block h3.textBlock-sub-headline,
-    section.headline-block h4.textBlock-sub-headline,
-    section.headline-block h5.textBlock-sub-headline,
-    section.headline-block h6.textBlock-sub-headline,
-    section.headline-block p.textBlock-sub-headline  {
-        font-size: 24px;
-    }
-}
-
-
 
 @media (max-width: 575px) {
     section.headline-block {

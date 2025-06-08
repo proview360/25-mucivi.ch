@@ -32,12 +32,13 @@ function gn_headline_block_rc($attributes, $content) {
     $bg_headline_html           = "";
 
     $class_name                 = $attributes["class_name"] ?? "";
-    $selectFieldValue           = $attributes["select_field"] ?? 'left';
+
     $background_color           = $attributes["background_color"] ?? 'white';
     $text_color                 = $attributes["text_color"] ?? 'black';
     $space_bottom               = $attributes["space_bottom"] ?? 'yes';
     $space_top                  = $attributes["space_top"] ?? 'yes';
     $bg_headline                = $attributes["bg_headline"] ?? '';
+	$text_align                 = $attributes["text_align"] ?? 'left';
 
     $headline       = str_replace("[*", "<br/><span class='text-bold'>", $headline);
     $headline        = str_replace("*]", "</span>", $headline);
@@ -71,7 +72,7 @@ function gn_headline_block_rc($attributes, $content) {
     {
         $headline_hml = '<div class="row">                                        
                         <div class="col">
-                            <'.$headline_type.' class="textBlock-headline '.$selectFieldValue.' '.$class_name.'">'.$headline.'</'.$headline_type.'>
+                            <'.$headline_type.' class="textBlock-headline text-'.$text_align.'  '.$class_name.'">'.$headline.'</'.$headline_type.'>
                         </div>       
                                                           
                     </div>';
@@ -81,7 +82,7 @@ function gn_headline_block_rc($attributes, $content) {
     {
         $sub_headline_hml = '<div class="row">                                        
                         <div class="col">
-                            <'.$headline_sub_type.' class="textBlock-sub-headline '.$selectFieldValue.' '.$class_name.'">'.$sub_headline.'</'.$headline_sub_type.'>
+                            <'.$headline_sub_type.' class="textBlock-sub-headline  '.$class_name.'">'.$sub_headline.'</'.$headline_sub_type.'>
                         </div>       
                                                           
                     </div>';

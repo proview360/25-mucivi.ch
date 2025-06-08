@@ -45,11 +45,12 @@ function gn_hero_section_block_rc($attributes, $content) {
 
     $hero_image_html                = '';
 	$overlay                        = $attributes["overlay"] ?? '';
+	$overlay_picture                = $attributes["overlay_picture"] ?? '';
     $hero_section_style             = '';
     $hero_section_layout_type       = $attributes["hero_section_layout_type"] ?? '';
     $hero_section_image_position    = $attributes["hero_section_image_position"] ?? 'scroll';
     $hero_align_content             = $attributes["hero_section_align_content"] ?? 'start';
-    $unique_class = 'hero-section-block-' . uniqid();
+	$unique_class = 'hero-section-block-' . ( $attributes['clientId'] ?? uniqid() );
 
     $banner_text_color          =  $attributes["banner_text_color"] ?? '--mucivi-white';
     $banner_background_color    = $attributes["banner_background_color"] ?? '';
@@ -130,7 +131,7 @@ function gn_hero_section_block_rc($attributes, $content) {
 	}
 	
 	$overlay_picture_html ="";
-	if ($overlay === "yez") {
+	if ($overlay_picture === "yez") {
 		$overlay_picture_html = '<div class="hero-section-overlay-picture"></div>';
 	}
 	

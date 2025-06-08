@@ -94,7 +94,7 @@ function gn_employee_block_rc($attributes, $content) {
                         </div>
                         <div class="">
                                <p class="gn-h3">'.$full_name.'</p> 
-                               <p class="job-title text-color-red mb-2">'.$job_title.'</p> 
+                               <p class="job-title text-color-primary mb-2">'.$job_title.'</p> 
                                <a href="tel:'.$tel_number_link.'">'.$tel_number.'</a><br>
                                <a href="mailto:'.$email.'">'.$email.'</a>
                                

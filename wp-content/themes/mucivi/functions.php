@@ -15,10 +15,10 @@ function add_frontend_resources() {
     // CSS
     wp_enqueue_style("boo-icons", $theme_path . "/assets/bootstrap-icons/font/bootstrap-icons.min.css", array("bootstrap-css"), _S_VERSION);
     wp_enqueue_style("bootstrap-css", $theme_path . "/assets/css/bootstrap/bootstrap.min.css", array(), "5.2.2");
-
-    wp_enqueue_style("css-main", $theme_path . "/assets/css/main.css", null, _S_VERSION);
-
-    // JS
+	
+	wp_enqueue_style("css-main", $theme_path . "/assets/css/main.css", array("bootstrap-css"), _S_VERSION);
+ 
+	// JS
     wp_deregister_script("wp-embed");
     wp_enqueue_script("bootstrap-js", $theme_path . "/assets/js/bootstrap.min.js", array("jquery"), "5.2.2", true);
 
@@ -355,16 +355,19 @@ function register_granit_blocks() {
     // init vars
     global $theme_path;
     $blocks = array(
+	    array("name" => "hero_section_block", "block-name" => "hero-section-block", "deps" => array("wp-block-editor","wp-blocks","wp-element","wp-data")),
+	    array("name" => "split_block", "block-name" => "split-block", "deps" => array("wp-block-editor","wp-blocks","wp-element","wp-data")),
+	    array("name" => "image_gallery_block", "block-name" => "image-gallery-block", "deps" => array("wp-block-editor","wp-blocks","wp-element","wp-data")),
+	    array("name" => "headline_block", "block-name" => "headline-block", "deps" => array("wp-block-editor","wp-blocks","wp-element","wp-data")),
+	    array("name" => "showcase_block", "block-name" => "showcase-block", "deps" => array("wp-block-editor","wp-blocks","wp-element","wp-data")),
+		
+		
         array("name" => "image_block", "block-name" => "image-block", "deps" => array("wp-block-editor","wp-blocks","wp-element","wp-data")),
-        array("name" => "hero_section_block", "block-name" => "hero-section-block", "deps" => array("wp-block-editor","wp-blocks","wp-element","wp-data")),
-        array("name" => "showcase_block", "block-name" => "showcase-block", "deps" => array("wp-block-editor","wp-blocks","wp-element","wp-data")),
-        array("name" => "headline_block", "block-name" => "headline-block", "deps" => array("wp-block-editor","wp-blocks","wp-element","wp-data")),
         array("name" => "text_block", "block-name" => "text-block", "deps" => array("wp-block-editor","wp-blocks","wp-element","wp-data")),
         array("name" => "image_text_block", "block-name" => "image-text-block", "deps" => array("wp-block-editor","wp-blocks","wp-element","wp-data")),
         array("name" => "hexagon_block", "block-name" => "hexagon-block", "deps" => array("wp-block-editor","wp-blocks","wp-element","wp-data")),
         array("name" => "threed_and_lists_block", "block-name" => "threed-and-lists-block", "deps" => array("wp-block-editor","wp-blocks","wp-element","wp-data")),
         array("name" => "website_block", "block-name" => "website-block", "deps" => array("wp-block-editor","wp-blocks","wp-element","wp-data")),
-        array("name" => "image_gallery_block", "block-name" => "image-gallery-block", "deps" => array("wp-block-editor","wp-blocks","wp-element","wp-data")),
         array("name" => "accordion_block", "block-name" => "accordion-block", "deps" => array("wp-block-editor","wp-blocks","wp-element","wp-data")),
         array("name" => "map_block", "block-name" => "map-block", "deps" => array("wp-block-editor","wp-blocks","wp-element","wp-data")),
         array("name" => "quick_facts_block", "block-name" => "quick-facts-block", "deps" => array("wp-block-editor","wp-blocks","wp-element","wp-data")),

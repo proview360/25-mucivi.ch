@@ -45,7 +45,7 @@ section.slider-section .main-slider .text-area .text-right-are.text-color-black 
     color: #000000;
 }
 
-section.slider-section .main-slider .text-area .text-right-are.text-color-red {
+section.slider-section .main-slider .text-area .text-right-are.text-color-primary {
     color: var(--mucivi-primary);
 }
 

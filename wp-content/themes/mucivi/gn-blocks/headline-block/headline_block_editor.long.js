@@ -50,7 +50,9 @@
             select_sub_headline_type: {
                 type: 'string',
             },
-
+            text_align:{
+                type: 'string',
+            },
             background_color: {
                 type: 'string'
             },
@@ -101,22 +103,13 @@
 
             if(!props.attributes.background_color)
             {
-                props.setAttributes({background_color: "gray"})
+                props.setAttributes({background_color: "white"})
             }
 
             if(!props.attributes.text_color)
             {
                 props.setAttributes({text_color: "black"})
             }
-
-
-
-
-            if (!props.attributes.image_text_block) {
-                image_not_present_1 = "gn-image-not-present";
-            }
-
-            var select_field = props.attributes.select_field;
 
             const space_bottom = [
                 { value: 'yes', label: 'Yes' },
@@ -127,13 +120,9 @@
                 { value: 'yes', label: 'Yes' },
                 { value: 'no', label: 'No' },
             ];
-
-            function on_change_content (newContent) {
-                props.setAttributes( { content: newContent } );
-            }
-
-            function on_change_select_field (newValue) {
-                props.setAttributes( { select_field: newValue } );
+     
+            function on_change_text_align (newValue) {
+                props.setAttributes( { text_align: newValue } );
             }
             function on_change_select_headline_type (newValue) {
                 props.setAttributes( { select_headline_type: newValue } );
@@ -267,7 +256,7 @@
                             el(SelectControl,
                                 {
                                     label: '',
-                                    value: select_field,
+                                    value: props.attributes.text_align,
                                     options: [
                                         {
                                             value: 'left',
@@ -286,7 +275,7 @@
                                             label: 'Justify'
                                         }
                                     ],
-                                    onChange: on_change_select_field
+                                    onChange: on_change_text_align
                                 }
                             ),
 
@@ -298,10 +287,6 @@
                                     value: props.attributes.background_color,
                                     options: [
                                         {
-                                            value: 'grayblue',
-                                            label: 'Gray'
-                                        },
-                                        {
                                             value: 'white',
                                             label: 'White'
                                         },
@@ -310,10 +295,13 @@
                                             label: 'Black'
                                         },
                                         {
-                                            value: 'red',
-                                            label: 'Red'
+                                            value: 'primary',
+                                            label: 'primary '
                                         },
-
+                                        {
+                                            value: 'secondary',
+                                            label: 'Secondary'
+                                        }
                                     ],
                                     onChange: update_background_color
                                 }
@@ -326,10 +314,6 @@
                                     value: props.attributes.text_color,
                                     options: [
                                         {
-                                            value: 'grayblue',
-                                            label: 'Gray'
-                                        },
-                                        {
                                             value: 'white',
                                             label: 'White'
                                         },
@@ -338,10 +322,13 @@
                                             label: 'Black'
                                         },
                                         {
-                                            value: 'red',
-                                            label: 'Red'
+                                            value: 'primary',
+                                            label: 'primary '
                                         },
-
+                                        {
+                                            value: 'secondary',
+                                            label: 'Secondary'
+                                        }
                                     ],
                                     onChange: update_text_color
                                 }

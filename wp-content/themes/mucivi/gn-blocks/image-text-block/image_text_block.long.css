@@ -6,7 +6,7 @@ section.text-block {
 section.text-block.bg-color-yellow p,
 section.text-block.bg-color-gray p,
 section.text-block.bg-color-black p,
-section.text-block.bg-color-red p
+section.text-block.bg-color-primary p
 {
     margin-top: 10px;
     margin-bottom: 0;
@@ -47,7 +47,7 @@ section.text-block .textBlock-text a:hover{
     color: var(--mucivi-primary-dark);
 }
 
-section.text-block.bg-color-red .textBlock-text a{
+section.text-block.bg-color-primary .textBlock-text a{
     font-size: 18px;
     color: var(--mucivi-medium-black);
 
@@ -57,7 +57,7 @@ section.text-block.bg-color-red .textBlock-text a{
 section.text-block.bg-color-gray .textBlock-text a:hover,
 section.text-block.bg-color-black .textBlock-text a:hover,
 section.text-block.bg-color-blue .textBlock-text a:hover,
-section.text-block.bg-color-red .textBlock-text a:hover
+section.text-block.bg-color-primary .textBlock-text a:hover
 {
     text-decoration: underline;
 }

@@ -41,13 +41,16 @@
 }
 
 
-/*  white */
-.bg-color-white{
-    background-color: var(--mucivi-white);
+.bg-color-primary{
+    background-color: var(--mucivi-primary);
 }
 
-.bg-color-grayblue{
+.bg-color-secondary{
     background-color: var(--mucivi-gray-blue);
+}
+
+.bg-color-white{
+    background-color: var(--mucivi-white);
 }
 
 /* black */
@@ -55,45 +58,21 @@
     background-color: var(--mucivi-black);
 }
 
-.bg-color-extra-light-gray{
-    background-color: var(--mucivi-extra-light-gray);
-}
-
-
-
-/*  Red */
-.bg-color-red{
-    background-color: var(--mucivi-primary);
-}
-
 /******* text color *******/
+.text-color-primary{
+    color: var(--mucivi-primary);
+}
+.text-color-secondary{
+    color: var(--mucivi-secondary);
+}
 
-/*  white */
 .text-color-white{
     color: var(--mucivi-white);
 }
 
-.text-color-grayblue{
-    color: var(--mucivi-extra-light-gray);
-}
-
-
-/* black */
 .text-color-black{
    color: var(--mucivi-black);
 }
-
-/* blue */
-.text-color-blue{
-    color: var(--mucivi-primary-dark);
-}
-
-
-/*  Red */
-.text-color-red{
-    color: var(--mucivi-primary);
-}
-
 
 /* granit-Blocks */
 .wp-block {

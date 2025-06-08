@@ -20,26 +20,6 @@ domRdy(function () {
 
 });
 
-// language switcher
-document.addEventListener('DOMContentLoaded', function () {
-    const activeLang = document.querySelector('.lang-active');
-    const dropdown = document.querySelector('.lang-dropdown');
-
-    if (activeLang) {
-        activeLang.addEventListener('click', function (e) {
-            e.preventDefault();
-            dropdown.classList.toggle('show-lang-dropdown');
-        });
-    }
-
-    document.addEventListener('click', function (e) {
-        if (!e.target.closest('.lang-switcher')) {
-            dropdown.classList.remove('show-lang-dropdown');
-        }
-    });
-});
-
-
 //contact form 7
 document.addEventListener("DOMContentLoaded", function () {
     const cf7Btns = document.querySelectorAll('.wpcf7 .wpcf7-submit');

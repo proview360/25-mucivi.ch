@@ -1,0 +1,52 @@
+div.granit-block.split-block.sRichText dt.TextHtml,
+div.granit-block.split-block.sRichText dd.TextHtml {
+    display: none;
+}
+
+div.granit-block.split-block.sHtml dt.TextRichText,
+div.granit-block.split-block.sHtml dd.TextRichText {
+    display: none;
+}
+
+div.gn-block-sidebar-element .mobile-option-1,
+div.gn-block-sidebar-element .mobile-option-1 + div.components-base-control,
+div.gn-block-sidebar-element .mobile-option-3,
+div.gn-block-sidebar-element .mobile-option-3 + div.components-base-control {
+    display: none;
+}
+
+div.granit-block.split-block div.layout-img-0,
+div.granit-block.split-block div.layout-img-1 {
+    display: none;
+}
+
+div.granit-block.split-block.count-buttons-1 .button-2,
+div.granit-block.split-block.count-buttons-1 .button-3 {
+    display: none;
+}
+
+div.granit-block.split-block.count-buttons-2 .button-3 {
+    display: none;
+}
+
+div.granit-block.split-block.layout-0 .slider-picker,
+div.granit-block.split-block.layout-1 .slider-picker {
+    display: none;
+}
+
+div.granit-block.split-block.layout-2 .option-img,
+div.granit-block.split-block.layout-3 .option-img {
+    display: none;
+}
+
+div.granit-block.split-block .button-1 input,
+div.granit-block.split-block .button-2 input,
+div.granit-block.split-block .button-3 input {
+    margin-bottom: 0 !important;
+}
+
+div.granit-block.split-block dd p.label-text {
+    line-height: 1;
+    margin-bottom: 5px;
+    font-size: 16px;
+}

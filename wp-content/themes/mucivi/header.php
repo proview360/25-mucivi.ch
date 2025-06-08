@@ -38,7 +38,7 @@ $mucivi_logo                 = $theme_options_all['mucivi_logo'];
 <?php wp_body_open(); ?>
 
 
-<header class="header-mucivi">
+<div class="header-mucivi">
     <a class="logo-desktop" href="<?php echo esc_url(home_url('/')); ?>">
         <img width="200" height="auto" alt="logo mucivi" src="<?php echo $mucivi_logo ?>"/>
     </a>
@@ -68,4 +68,4 @@ $mucivi_logo                 = $theme_options_all['mucivi_logo'];
         </div>
     </nav>
 
-</header>
+</div>
