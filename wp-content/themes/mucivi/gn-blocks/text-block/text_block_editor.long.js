@@ -384,10 +384,6 @@
                                     value: props.attributes.background_color,
                                     options: [
                                         {
-                                            value: 'grayblue',
-                                            label: 'Gray'
-                                        },
-                                        {
                                             value: 'white',
                                             label: 'White'
                                         },
@@ -396,8 +392,12 @@
                                             label: 'Black'
                                         },
                                         {
-                                            value: 'red',
-                                            label: 'Red'
+                                            value: 'primary',
+                                            label: 'primary'
+                                        },
+                                        {
+                                            value: 'secondary',
+                                            label: 'Secondary'
                                         },
 
                                     ],
@@ -412,10 +412,6 @@
                                     value: props.attributes.text_color,
                                     options: [
                                         {
-                                            value: 'grayblue',
-                                            label: 'Gray'
-                                        },
-                                        {
                                             value: 'white',
                                             label: 'White'
                                         },
@@ -424,10 +420,15 @@
                                             label: 'Black'
                                         },
                                         {
-                                            value: 'red',
-                                            label: 'Red'
+                                            value: 'primary',
+                                            label: 'primary'
                                         },
-
+                                        {
+                                            value: 'secondary',
+                                            label: 'Secondary'
+                                        },
+                                    
+                                    
                                     ],
                                     onChange: update_text_color
                                 }

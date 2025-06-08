@@ -361,10 +361,10 @@ function register_granit_blocks() {
 	    array("name" => "headline_block", "block-name" => "headline-block", "deps" => array("wp-block-editor","wp-blocks","wp-element","wp-data")),
 	    array("name" => "showcase_block", "block-name" => "showcase-block", "deps" => array("wp-block-editor","wp-blocks","wp-element","wp-data")),
 	    array("name" => "iframe_block", "block-name" => "iframe-block", "deps" => array("wp-block-editor","wp-blocks","wp-element","wp-data")),
+	    array("name" => "image_block", "block-name" => "image-block", "deps" => array("wp-block-editor","wp-blocks","wp-element","wp-data")),
+	    array("name" => "text_block", "block-name" => "text-block", "deps" => array("wp-block-editor","wp-blocks","wp-element","wp-data")),
 		
 		
-        array("name" => "image_block", "block-name" => "image-block", "deps" => array("wp-block-editor","wp-blocks","wp-element","wp-data")),
-        array("name" => "text_block", "block-name" => "text-block", "deps" => array("wp-block-editor","wp-blocks","wp-element","wp-data")),
         array("name" => "image_text_block", "block-name" => "image-text-block", "deps" => array("wp-block-editor","wp-blocks","wp-element","wp-data")),
         array("name" => "hexagon_block", "block-name" => "hexagon-block", "deps" => array("wp-block-editor","wp-blocks","wp-element","wp-data")),
         array("name" => "threed_and_lists_block", "block-name" => "threed-and-lists-block", "deps" => array("wp-block-editor","wp-blocks","wp-element","wp-data")),

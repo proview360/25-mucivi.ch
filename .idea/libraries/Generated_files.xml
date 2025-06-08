@@ -5,22 +5,28 @@
         <item url="file://$PROJECT_DIR$/wp-content/themes/mucivi/assets/js/functions.min.js" />
         <item url="file://$PROJECT_DIR$/wp-content/themes/mucivi/gn-blocks/headline-block/headline_block_editor.min.js" />
         <item url="file://$PROJECT_DIR$/wp-content/themes/mucivi/gn-blocks/hero-section-block/hero_section_block_editor.min.js" />
+        <item url="file://$PROJECT_DIR$/wp-content/themes/mucivi/gn-blocks/iframe-block/iframe_block_editor.min.js" />
+        <item url="file://$PROJECT_DIR$/wp-content/themes/mucivi/gn-blocks/image-block/image_block_editor.min.js" />
         <item url="file://$PROJECT_DIR$/wp-content/themes/mucivi/gn-blocks/image-gallery-block/image_gallery_block_editor.min.js" />
         <item url="file://$PROJECT_DIR$/wp-content/themes/mucivi/gn-blocks/portfolio-block/portfolio_block.min.js" />
         <item url="file://$PROJECT_DIR$/wp-content/themes/mucivi/gn-blocks/showcase-block/showcase_block_editor.min.js" />
         <item url="file://$PROJECT_DIR$/wp-content/themes/mucivi/gn-blocks/split-block/split_block.min.js" />
         <item url="file://$PROJECT_DIR$/wp-content/themes/mucivi/gn-blocks/split-block/split_block_editor.min.js" />
+        <item url="file://$PROJECT_DIR$/wp-content/themes/mucivi/gn-blocks/text-block/text_block_editor.min.js" />
       </sourceFilesUrls>
     </properties>
     <CLASSES>
       <root url="file://$PROJECT_DIR$/wp-content/themes/mucivi/assets/js/functions.min.js" />
       <root url="file://$PROJECT_DIR$/wp-content/themes/mucivi/gn-blocks/headline-block/headline_block_editor.min.js" />
       <root url="file://$PROJECT_DIR$/wp-content/themes/mucivi/gn-blocks/hero-section-block/hero_section_block_editor.min.js" />
+      <root url="file://$PROJECT_DIR$/wp-content/themes/mucivi/gn-blocks/iframe-block/iframe_block_editor.min.js" />
+      <root url="file://$PROJECT_DIR$/wp-content/themes/mucivi/gn-blocks/image-block/image_block_editor.min.js" />
       <root url="file://$PROJECT_DIR$/wp-content/themes/mucivi/gn-blocks/image-gallery-block/image_gallery_block_editor.min.js" />
       <root url="file://$PROJECT_DIR$/wp-content/themes/mucivi/gn-blocks/portfolio-block/portfolio_block.min.js" />
       <root url="file://$PROJECT_DIR$/wp-content/themes/mucivi/gn-blocks/showcase-block/showcase_block_editor.min.js" />
       <root url="file://$PROJECT_DIR$/wp-content/themes/mucivi/gn-blocks/split-block/split_block.min.js" />
       <root url="file://$PROJECT_DIR$/wp-content/themes/mucivi/gn-blocks/split-block/split_block_editor.min.js" />
+      <root url="file://$PROJECT_DIR$/wp-content/themes/mucivi/gn-blocks/text-block/text_block_editor.min.js" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

@@ -169,20 +169,20 @@
                                     value: props.attributes.text_color,
                                     options: [
                                         {
-                                            value: 'grayblue',
-                                            label: 'Gray'
+                                            value: 'black',
+                                            label: 'black'
                                         },
                                         {
                                             value: 'white',
                                             label: 'White'
                                         },
                                         {
-                                            value: 'black',
-                                            label: 'Black'
+                                            value: 'primary',
+                                            label: 'Primary'
                                         },
                                         {
-                                            value: 'red',
-                                            label: 'Red'
+                                            value: 'secondary',
+                                            label: 'Secondary'
                                         },
                                     ],
                                     onChange: on_change_text_color
@@ -196,20 +196,21 @@
                                     value: props.attributes.background_color,
                                     options: [
                                         {
-                                            value: 'grayblue',
-                                            label: 'Gray'
-                                        },
-                                        {
                                             value: 'white',
                                             label: 'White'
                                         },
                                         {
                                             value: 'black',
-                                            label: 'Black'
+                                            label: 'black'
+                                        },
+                                     
+                                        {
+                                            value: 'primary',
+                                            label: 'Primary'
                                         },
                                         {
-                                            value: 'red',
-                                            label: 'Red'
+                                            value: 'secondary',
+                                            label: 'Secondary'
                                         },
                                     ],
                                     onChange: on_change_background_color

@@ -20,6 +20,37 @@ section.text-block.bg-color-primary p
 }
 
 
+h2 {
+    font-size: 1.8em;
+    margin-bottom: 20px;
+}
+
+.top-section {
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.top-section img {
+    width: 280px;
+    height: auto;
+    flex-shrink: 0;
+}
+
+.intro-text {
+    flex: 1;
+    min-width: 300px;
+}
+
+.bottom-text {
+    margin-top: 20px;
+}
+
+p {
+    text-align: justify;
+    margin-bottom: 1em;
+}
 section.text-block.space-top-yes {
     padding-top: 150px;
 }

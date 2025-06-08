@@ -41,10 +41,10 @@ function gn_text_block_rc($attributes, $content) {
 
     $content_image_html         = "";
     $bg_headline_html           = "";
-
+	
     $class_name                 = $attributes["class_name"] ?? "";
     $content_position           = $attributes["two_columns"] ?? "0";
-    $selectFieldValue           = $attributes["select_field"] ?? 'left';
+	$align_items                = $attributes["select_field"] ?? 'left';
     $background_color           = $attributes["background_color"] ?? 'white';
     $text_color                 = $attributes["text_color"] ?? 'black';
     $text_style                 = $attributes["text_style"] ?? 'sRichText';
@@ -111,7 +111,7 @@ function gn_text_block_rc($attributes, $content) {
     if (!empty($con)) {
         $conHTML = '<div class="row text">
                     <div class="col">
-                        <div class="textBlock-text text-block-html" style="margin-top: '.$margin_top.'px; ' . ($content_position == "1" ? "content-two-columns" : "") . '">
+                        <div class="textBlock-text text-block-html ' . ($content_position == "1" ? "content-two-columns" : "") . '" style="margin-top: '.$margin_top.'px; ">
                             ' . $con . '
                         </div>
                     </div>                                        
@@ -122,7 +122,7 @@ function gn_text_block_rc($attributes, $content) {
     {
         $headline_html = '<div class="row">                                        
                         <div class="col">
-                            <'.$headline_type.' class="textBlock-headline '.$headline_style_class.' '.$selectFieldValue.' '.$class_name.'">'.$headline.'</'.$headline_type.'>
+                            <'.$headline_type.' class="textBlock-headline '.$headline_style_class.' '.$align_items.' '.$class_name.'">'.$headline.'</'.$headline_type.'>
                         </div>       
                                                           
                     </div>';
@@ -132,15 +132,14 @@ function gn_text_block_rc($attributes, $content) {
     {
         $sub_headline_html = '<div class="row">                                        
                         <div class="col">
-                            <'.$headline_sub_type.' class="textBlock-sub-headline '.$selectFieldValue.' '.$class_name.'">'.$sub_headline.'</'.$headline_sub_type.'>
+                            <'.$headline_sub_type.' class="textBlock-sub-headline '.$align_items.' '.$class_name.'">'.$sub_headline.'</'.$headline_sub_type.'>
                         </div>       
                                                           
                     </div>';
     }
 
     return '<section id="'.$class_name.'" class="text-block '.$class_name.' space-bottom-'.$space_bottom.' space-top-'.$space_top.' text-block-id-'.$uniq_id.' bg-color-'.$background_color.' text-color-'.$text_color.'">                
-                
-                    <div class="container">     
+                    <div class="container">
                         '.$bg_headline_html.'         
                         '.$headline_html.'
                         '.$sub_headline_html.'       

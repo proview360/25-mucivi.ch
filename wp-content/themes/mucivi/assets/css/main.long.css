@@ -175,6 +175,11 @@
     background-color: var(--mucivi-white);
 }
 
+.bg-color-black{
+    background-color: var(--mucivi-black);
+}
+
+
 /*  primary */
 .bg-color-primary{
     background-color: var(--mucivi-primary);
@@ -804,6 +809,12 @@ nav.mobile-nav .mobile-icons {
     color: var(--mucivi-primary);
 }
 
+.lang-divider {
+    height: 1px;
+    background: #ccc;
+    margin: 5px 0;
+}
+
 .lang-switcher span {
     margin: 0 5px;
 }
@@ -1183,11 +1194,6 @@ nav.desktop-nav .nav-menu .dropdown-menu .arrow-mucivi-desktop {
     text-align: center;
 }
 
-.lang-divider {
-    height: 1px;
-    background: #ccc;
-    margin: 5px 0;
-}
 
 
 
@@ -1231,8 +1237,9 @@ nav.desktop-nav .nav-menu .dropdown-menu .arrow-mucivi-desktop {
     color: var(--mucivi-primary);
 }
 
-.footer-bottom .footer-copyrights p.first-copyright{
+.footer-bottom p.first-copyright{
     font-size: 16px;
+    margin-bottom: 0;
 }
 
 .footer-bottom .footer-copyrights p.second-copyright{

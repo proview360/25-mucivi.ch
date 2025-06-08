@@ -39,7 +39,7 @@ function gn_iframe_block_rc($attributes, $content) {
     {
         $headline_html = '<div class="row pb-4">                                        
                         <div class="col">
-                            <'.$select_headline_type.' class="textBlock-headline text-'.$text_color.' ">'.$headline.'</'.$select_headline_type.'>
+                            <'.$select_headline_type.' class="textBlock-headline text-color-'.$text_color.' ">'.$headline.'</'.$select_headline_type.'>
                         </div>       
                     </div>';
     }
