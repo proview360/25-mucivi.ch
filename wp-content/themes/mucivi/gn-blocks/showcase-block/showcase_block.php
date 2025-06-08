@@ -30,8 +30,10 @@ function gn_showcase_block_rc($attributes, $content) {
     $showcase_section_image_position = $attributes["showcase_section_image_position"] ?? 'scroll';
     $showcase_align_content         = $attributes["showcase_section_align_content"] ?? 'start';
     $banner_text_color              = $attributes["banner_text_color"] ?? '--mucivi-white';
-
-
+	$overlay                        = $attributes["overlay"] ?? '';
+	$overlay_picture                = $attributes["overlay_picture"] ?? '';
+	$headline_type                  = $attributes["select_headline_type"] ?? 'h1';
+	
     $show_case_button           = $attributes["show_case_button"] ?? 'btn-full-blue';
     $unique_class               = 'showcase-section-block-' . uniqid();
 
@@ -41,9 +43,19 @@ function gn_showcase_block_rc($attributes, $content) {
                             '.$showcase_button_text.'
                         </a>';
     }
-
-
-    $showcase_section_style = '
+	
+	$overlay_html ="";
+	if ($overlay === "yez") {
+		$overlay_html = '<div class="showcase-overlay"></div>';
+	}
+	
+	$overlay_picture_html ="";
+	if ($overlay_picture === "yez") {
+		$overlay_picture_html = '<div class="showcase-overlay-picture"></div>';
+	}
+	
+	
+	$showcase_section_style = '
         <style>
              .' . $unique_class . ' {
                 background-image: url('. $showcase_background_image .');
@@ -64,9 +76,8 @@ function gn_showcase_block_rc($attributes, $content) {
 
     $showcase_section_html = '<div class="showcase-section d-flex flex-column align-items-'.$showcase_align_content.' justify-content-evenly text-'.$showcase_align_content.'">
             <div class="showcase-content">
-                <h2 class="showcase-title">'.$showcase_headline.'</h2>
+				<'.$headline_type.' class="showcase-title">'.$showcase_headline.'</'.$headline_type.'>
                 <p class="showcase-description">'.$showcase_description.'</p>
-                <hr class="horizontal-line">
                   <div class="showcase-section-button">
                     '.$showcase_btn_html.'
                   </div>
@@ -75,6 +86,8 @@ function gn_showcase_block_rc($attributes, $content) {
 
     return $showcase_section_style.'<section class="showcase-section-block ' . $unique_class . '">   
         <div class="container showcase-section-container showcase-section-banner">
+                 '. $overlay_picture_html .'
+                    '. $overlay_html .'
                 '.$showcase_section_html.'
         </div>
     </section>';

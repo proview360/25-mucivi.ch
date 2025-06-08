@@ -713,6 +713,7 @@ nav.desktop-nav .nav-menu>li.current-menu-parent > a span.arrow-mucivi-desktop{
     position: fixed;
     top: 33%;
     left: 0;
+    z-index: 3;
 }
 
 

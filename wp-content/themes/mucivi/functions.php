@@ -360,6 +360,7 @@ function register_granit_blocks() {
 	    array("name" => "image_gallery_block", "block-name" => "image-gallery-block", "deps" => array("wp-block-editor","wp-blocks","wp-element","wp-data")),
 	    array("name" => "headline_block", "block-name" => "headline-block", "deps" => array("wp-block-editor","wp-blocks","wp-element","wp-data")),
 	    array("name" => "showcase_block", "block-name" => "showcase-block", "deps" => array("wp-block-editor","wp-blocks","wp-element","wp-data")),
+	    array("name" => "iframe_block", "block-name" => "iframe-block", "deps" => array("wp-block-editor","wp-blocks","wp-element","wp-data")),
 		
 		
         array("name" => "image_block", "block-name" => "image-block", "deps" => array("wp-block-editor","wp-blocks","wp-element","wp-data")),
@@ -375,7 +376,6 @@ function register_granit_blocks() {
         array("name" => "employee_block", "block-name" => "employee-block", "deps" => array("wp-block-editor","wp-blocks","wp-element","wp-data")),
         array("name" => "slider_block", "block-name" => "slider-block", "deps" => array("wp-block-editor","wp-blocks","wp-element","wp-data")),
         array("name" => "honeycomb_block", "block-name" => "honeycomb-block", "deps" => array("wp-block-editor","wp-blocks","wp-element","wp-data")),
-        array("name" => "iframe_block", "block-name" => "iframe-block", "deps" => array("wp-block-editor","wp-blocks","wp-element","wp-data")),
         array("name" => "teaser_block", "block-name" => "teaser-block", "deps" => array("wp-block-editor","wp-blocks","wp-element","wp-data")),
         array("name" => "before_after_block", "block-name" => "before-after-block", "deps" => array("wp-block-editor","wp-blocks","wp-element","wp-data")),
         array("name" => "testimonial_block", "block-name" => "testimonial-block", "deps" => array("wp-block-editor","wp-blocks","wp-element","wp-data")),

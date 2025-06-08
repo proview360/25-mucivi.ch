@@ -56,6 +56,15 @@
             banner_background_color: {
                 type: 'string'
             },
+            overlay: {
+                type: 'string'
+            },
+            overlay_picture: {
+                type: 'string'
+            },
+            select_headline_type: {
+                type: 'string',
+            },
         },
 
         edit: (function (props) {
@@ -78,7 +87,18 @@
             if (!props.attributes.showcase_image) {
                 image_not_present_2 = "gn-image-not-present";
             }
-
+            
+            if(!props.attributes.overlay)
+            {
+                props.setAttributes({overlay: "no"})
+            }
+            
+            if(!props.attributes.overlay_picture)
+            {
+                props.setAttributes({overlay_picture: "no"})
+            }
+            
+            
             function update_showcase_headline(event) {
                 props.setAttributes({showcase_headline: event.target.value});
             }
@@ -130,6 +150,17 @@
             function update_banner_background_color(event) {
                 props.setAttributes({banner_background_color: event.target.value});
             }
+            function update_overlay (newValue) {
+                props.setAttributes( {overlay: newValue} )
+            }
+            
+            function update_overlay_picture (newValue) {
+                props.setAttributes( {overlay_picture: newValue} )
+            }
+            function on_change_select_headline_type (newValue) {
+                props.setAttributes( { select_headline_type: newValue } );
+            }
+            
 
             return (
                 el(Fragment, null,
@@ -181,6 +212,98 @@
                                         }
                                     ],
                                     onChange: update_showcase_section_align_content
+                                }
+                            ),
+                        ),
+                        el("div",
+                            {
+                                class: "granit-block-sidebar-element"
+                            },
+                            el("strong", null, "Overlay Color"),
+                            el(SelectControl,
+                                {
+                                    label: '',
+                                    value: props.attributes.overlay,
+                                    options: [
+                                        {
+                                            value: 'yez',
+                                            label: 'Yes'
+                                        },
+                                        {
+                                            value: 'no',
+                                            label: 'No'
+                                        },
+                                    ],
+                                    onChange: update_overlay
+                                }
+                            ),
+                        ),
+                        
+                        el("div",
+                            {
+                                class: "granit-block-sidebar-element"
+                            },
+                            el("strong", null, "Overlay Picture"),
+                            el(SelectControl,
+                                {
+                                    label: '',
+                                    value: props.attributes.overlay_picture,
+                                    options: [
+                                        {
+                                            value: 'yez',
+                                            label: 'Yes'
+                                        },
+                                        {
+                                            value: 'no',
+                                            label: 'No'
+                                        },
+                                    ],
+                                    onChange: update_overlay_picture
+                                }
+                            ),
+                        ),
+                        
+                        el("div",
+                            {
+                                class: "granit-block-sidebar-element"
+                            },
+                        el("strong", null, "Headline Type"),
+                            el(SelectControl,
+                                {
+                                    label: '',
+                                    value: props.attributes.select_headline_type,
+                                    options: [
+                                        {
+                                            value: 'h1',
+                                            label: 'H1'
+                                        },
+                                        {
+                                            value: 'h2',
+                                            label: 'H2'
+                                        },
+                                        {
+                                            value: 'h3',
+                                            label: 'H3'
+                                        },
+                                        {
+                                            value: 'h4',
+                                            label: 'H4'
+                                        },
+                                        {
+                                            value: 'h5',
+                                            label: 'H5'
+                                        },
+                                        {
+                                            value: 'h6',
+                                            label: 'H6'
+                                        },
+                                        {
+                                            value: 'p',
+                                            label: 'P'
+                                        }
+                                    
+                                    ],
+                                    onChange: on_change_select_headline_type
                                 }
                             ),
                         ),
@@ -263,14 +386,10 @@
                                                 value: props.attributes.show_case_button,
                                                 onChange: update_show_case_button
                                             },
-
-                                            el('option', {value: 'btn-full-blue'}, 'Blue'),
-                                            el('option', {value: 'btn-full-turquoise'}, 'Turquoise'),
-                                            el('option', {value: 'btn-full-light-blue'}, 'Light Blue'),
-                                            el('option', {value: 'btn-full-yellow'}, 'Yellow'),
-                                            el('option', {value: 'btn-full-orange'}, 'Orange'),
-                                            el('option', {value: 'btn-full-red'}, 'Red'),
-
+                                            
+                                            el('option', {value: 'btn-full-primary'}, 'Button Primary'),
+                                            el('option', {value: 'btn-full-secondary'}, 'Button Secondary'),
+                                            el('option', {value: 'btn-outline'}, 'Button Outline'),
                                         )
                                     ),
 
@@ -281,11 +400,13 @@
                                                 onChange: update_banner_text_color
                                             },
                                             el('option', {value: '--mucivi-white'}, 'White'),
-                                            el('option', {value: '--mucivi-extra-light-gray'}, 'Gray'),
                                             el('option', {value: '--mucivi-black'}, 'Black'),
-                                            el('option', {value: '--mucivi-primary-dark'}, 'Blue'),
+                                            el('option', {value: '--mucivi-primary'}, 'Primary'),
+                                            el('option', {value: '--mucivi-secondary'}, 'Secondary'),
                                         )
                                     ),
+                                    
+                            
                                 ),
                             ),
                         ),
