@@ -25,10 +25,22 @@
             background_color: {
                 type: 'string',
                 default: 'gray'
+            },
+            gallery_type: {
+                type: 'string'
+            },
+            gallery_title: {
+                type: 'string'
             }
         },
         
         edit: function (props) {
+            
+            if(!props.attributes.gallery_type)
+            {
+                props.setAttributes({gallery_type: "no-slider"})
+            }
+            
             
             function update_images(new_image) {
                 const imageObject = {
@@ -71,6 +83,13 @@
                 props.setAttributes({ background_color: newValue });
             }
             
+            function update_gallery_type (newValue) {
+                props.setAttributes( { gallery_type: newValue } );
+            }
+            function update_gallery_title(event) {
+                props.setAttributes( {gallery_title: event.target.value} )
+            }
+            
             return el(Fragment, null,
                 el(InspectorControls, { class: "granit-SelectControl" },
                     el("div", { class: "granit-block-sidebar-element" },
@@ -95,7 +114,26 @@
                                 { value: 'secondary', label: 'Secondary' }
                             ],
                             onChange: update_background_color
-                        })
+                        }),
+                        el("strong", null, "Gallery Type"),
+                        el(SelectControl,
+                            {
+                                label: '',
+                                value: props.attributes.gallery_type,
+                                options: [
+                                    {
+                                        value: 'no-slider',
+                                        label: 'No Slider'
+                                    },
+                                    {
+                                        value: 'slider',
+                                        label: 'Slider'
+                                    }
+                                ],
+                                onChange: update_gallery_type
+                            }
+                        ),
+                        
                     )
                 ),
                 
@@ -105,7 +143,18 @@
                     },
                     el("h3", null, "Gallery-Block"),
                     
-                    el('div', { class: "image-gallery-elements" },
+                    props.attributes.gallery_type === 'slider' && [
+                        el("dt", null, "Gallery Title"),
+                        el("input", {
+                            key: "input",
+                            type: "text",
+                            value: props.attributes.gallery_title,
+                            placeholder: "Write here...",
+                            onChange: update_gallery_title
+                        })
+                    ],
+            
+                  el('div', { class: "image-gallery-elements" },
                         props.attributes.images.map((image, index) =>
                             el('div', { class: "image-gallery-style" },
                                 el('p', {}, `Image ${index + 1}`),

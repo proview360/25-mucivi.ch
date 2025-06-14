@@ -79,6 +79,7 @@ domRdy(function() {
 
 // image selection popup - image button is clicked
     jQuery(document).on("click",
+        '#announcements_fields_meta_box .image-upload, ' +
         '#teasers_fields_meta_box .image-upload, ' +
         '#sliders_fields_meta_box .image-upload, ' +
         '#portfolios_fields_meta_box .image-upload, ' +
@@ -145,6 +146,7 @@ domRdy(function() {
 
 // image selection remove - image-remove button is clicked
     jQuery(document).on("click",
+        '#announcements_fields_meta_box .image-upload-remove, ' +
         '#teasers_fields_meta_box .image-upload-remove, ' +
         '#sliders_fields_meta_box .image-upload-remove, ' +
         '#portfolios_fields_meta_box .image-upload-remove, ' +
@@ -193,6 +195,7 @@ domRdy(function() {
     // sort Functions
     // after click on down
     jQuery(document).on('click',
+        '#gn-wrapper-announcements .sort-down, ' +
         '#gn-wrapper-accordion .sort-down, ' +
         '#gn-wrapper-teaser .sort-down, ' +
         '#gn-wrapper-slider .sort-down, ' +
@@ -215,6 +218,7 @@ domRdy(function() {
 
     // after click on up
     jQuery(document).on('click',
+        '#gn-wrapper-announcements .sort-up, ' +
         '#gn-wrapper-accordion .sort-up, ' +
         '#gn-wrapper-teaser .sort-up, ' +
         '#gn-wrapper-slider .sort-up, ' +

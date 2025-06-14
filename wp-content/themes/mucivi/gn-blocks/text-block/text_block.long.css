@@ -132,13 +132,6 @@ section.text-block div.textBlock-text p.justify {
     text-align: justify;
 }
 
-.sidebar-container .sidebar-button a {
-    color: var(--mucivi-primary);
-}
-
-.sidebar-container .sidebar-button a:hover {
-    color: var(--mucivi-black);
-}
 
 .text-block .text-block-html p{
     margin-bottom: 1rem;

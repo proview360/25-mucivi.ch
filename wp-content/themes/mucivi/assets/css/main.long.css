@@ -460,7 +460,13 @@ ol.wp-block-list li::before {
     color: var(--mucivi-primary);
 }
 
+.sidebar-container .sidebar-button a {
+    color: var(--mucivi-primary);
+}
 
+.sidebar-container .sidebar-button a:hover {
+    color: var(--mucivi-black);
+}
 
 
 /* end of general style  */

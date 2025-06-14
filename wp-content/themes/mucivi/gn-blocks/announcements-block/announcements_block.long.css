@@ -1,0 +1,31 @@
+
+.announcements-block {
+}
+
+.announcements-block .announcement-item {
+    border-bottom: 2px solid #e4e4e4;
+}
+
+.announcements-block .announcement-item p {
+    margin-bottom: 1rem;
+}
+
+.announcements-block .announcement-item p.announcements-date {
+    margin-bottom: 0.5rem;
+}
+
+
+
+
+@media (max-width: 991px) {
+
+}
+
+@media (max-width: 767px) {
+
+}
+
+
+@media (max-width: 575px) {
+
+}

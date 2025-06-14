@@ -142,7 +142,6 @@ function gn_get_text_editor() {
         $editor_id = sanitize_text_field($_POST['text_editor_id']);
         $textarea_name = sanitize_text_field($_POST['textarea_name']);
 
-
         // Set settings for the editor
         $settings = array(
             'media_buttons' => false,  // Show the media buttons
@@ -160,6 +159,10 @@ function gn_get_text_editor() {
     }
     wp_die(); // this is required to terminate immediately and return a proper response
 }
+	
+	add_action('admin_enqueue_scripts', function () {
+		wp_enqueue_editor(); // ✅ loads all necessary TinyMCE + Quicktags assets
+	});
 
 // END of ajax call for wp_editor
 
@@ -364,6 +367,7 @@ function register_granit_blocks() {
 	    array("name" => "image_block", "block-name" => "image-block", "deps" => array("wp-block-editor","wp-blocks","wp-element","wp-data")),
 	    array("name" => "text_block", "block-name" => "text-block", "deps" => array("wp-block-editor","wp-blocks","wp-element","wp-data")),
 	    array("name" => "image_text_block", "block-name" => "image-text-block", "deps" => array("wp-block-editor","wp-blocks","wp-element","wp-data")),
+	    array("name" => "announcements_block", "block-name" => "announcements-block", "deps" => array("wp-block-editor","wp-blocks","wp-element","wp-data")),
 		
 		
         array("name" => "hexagon_block", "block-name" => "hexagon-block", "deps" => array("wp-block-editor","wp-blocks","wp-element","wp-data")),
@@ -593,6 +597,8 @@ include_once("gn-utilities.php");
 
 // cpt
 include_once("gn-cpt.php");
+require_once(get_stylesheet_directory() . '/gn-cpt/announcements.php');
+
 require_once(get_stylesheet_directory() . '/gn-cpt/accordion.php');
 require_once(get_stylesheet_directory() . '/gn-cpt/hexagon.php');
 require_once(get_stylesheet_directory() . '/gn-cpt/employee.php');

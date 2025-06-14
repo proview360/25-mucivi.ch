@@ -38,3 +38,9 @@
         flex: 1 1 calc(25% - 20px);
     }
 }
+
+
+.image-gallery-block .owl-carousel .owl-item img {
+    max-height: 300px;
+    object-fit: cover;
+}
