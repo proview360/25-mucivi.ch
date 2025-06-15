@@ -136,12 +136,12 @@ function gn_text_block_rc($attributes, $content) {
 			for ($i = 1; $i <= 10; $i++) {
 				$name_key = "button_{$i}_name";
 				$link_key = "button_{$i}_link";
+				$icon_key = "button_{$i}_icon";
+				$icon_html = !empty($attributes[$icon_key]) ? '<span class="me-2">' . wp_kses_post($attributes[$icon_key]) . '</span>' : '';
+				
 				
 				if (!empty($attributes[$name_key]) && !empty($attributes[$link_key])) {
-					$sidebar_html .= '<div class="sidebar-button mb-2">';
-					$sidebar_html .= '<a href="' . esc_url($attributes[$link_key]) . '" class="sidebar-link">';
-					$sidebar_html .= esc_html($attributes[$name_key]);
-					$sidebar_html .= '</a></div>';
+					$sidebar_html .= '<div class="sidebar-button mb-2"><a href="' . esc_url($attributes[$link_key]) . '" class="sidebar-link">' . $icon_html . '' . esc_html($attributes[$name_key]) . '</a></div>';
 				}
 			}
 		$sidebar_html .= '</div>';

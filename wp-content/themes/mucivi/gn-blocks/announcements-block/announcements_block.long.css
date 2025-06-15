@@ -14,6 +14,29 @@
     margin-bottom: 0.5rem;
 }
 
+.announcement-item ul{
+    list-style: none;
+    padding-left: 0;
+}
+
+.announcement-item ul li {
+    position: relative;
+    padding-left: 32px; /* enough space for the icon */
+    margin-bottom: 12px;
+    font-size: 18px;
+    line-height: 27px;
+    font-weight: 400;
+}
+
+.announcement-item ul li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 4px;
+    width: 20px;
+    height: 20px;
+    background: url("/wp-content/themes/mucivi/assets/img/vectors/circlePoints.svg") no-repeat center center;
+}
 
 
 

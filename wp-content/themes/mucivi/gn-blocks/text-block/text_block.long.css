@@ -44,7 +44,6 @@ section.text-block.bg-color-primary p
 }
 
 p {
-    text-align: justify;
     margin-bottom: 1em;
 }
 section.text-block.space-top-yes {
@@ -127,11 +126,6 @@ section.text-block div.textBlock-text p.justify {
     margin-right: 20px;
     margin-bottom: 20px;
 }
-
-.wp-block-gn-text-block {
-    text-align: justify;
-}
-
 
 .text-block .text-block-html p{
     margin-bottom: 1rem;

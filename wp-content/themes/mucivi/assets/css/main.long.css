@@ -1419,6 +1419,27 @@ section.text-block .textBlock-text p a strong {
 }
 
 /* contact form 7 */
+
+.wp-block-contact-form-7-contact-form-selector {
+    background-image: url(/wp-content/themes/mucivi/assets/img/mucivi.jpg);
+    background-position: center center;
+    padding: 150px 0;
+    margin: 10px;
+}
+form.wpcf7-form.init {
+    background: white;
+    padding: 100px;
+    margin: 10px;
+}
+
+
+@media (max-width: 575px) {
+    form.wpcf7-form.init {
+        padding: 100px 0;
+    }
+
+}
+
 .form-icon {
     position: absolute;
     top: 57px;
@@ -1432,12 +1453,11 @@ section.text-block .textBlock-text p a strong {
 .wpcf7 input.form-control,
 .wpcf7 textarea.form-control {
     padding: 1rem  45px;
-    border-radius: 10px;
-    border: 1px solid #eee;
+    border-radius: 0;
+    border: 1px solid var(--mucivi-primary);
     background-color: #fff;
     transition: all 0.3s ease;
-    -webkit-box-shadow: -1px 3px 23px -8px rgba(0,0,0,0.27);
-    box-shadow: -1px 3px 23px -8px rgba(0,0,0,0.27);
+
 }
 
 .wpcf7 input.form-control:focus,
@@ -2444,3 +2464,37 @@ button.btn-full .svg-icon {
 
 /*right-Panel menue css*/
 /*End css for mega-contact-form */
+
+/* donation */
+.bin-stripe-donation .bin-stripe-donation-wrap .bin-stripe-donation-wrap-content ul li a.bin-stripe-donation-button {
+    background-color: #9e7e2f !important;
+}
+
+.bin-stripe-donation .bin-stripe-donation-wrap .bin-stripe-donation-wrap-content ul li a.bin-stripe-donation-button:hover {
+    background: #cfa02b !important;
+}
+.bin-stripe-donation .bin-stripe-donation-wrap .bin-stripe-donation-input-custom .bin-stripe-donation-custom-pay-amount-button {
+    background-color: #9e7e2f !important;
+    border: 1px #9e7e2f solid !important;
+}
+
+.bin-stripe-donation .bin-stripe-donation-wrap .bin-stripe-donation-input-custom .bin-stripe-donation-custom-pay-amount-button:hover {
+    background: #cfa02b !important;
+    border-color: #cfa02b !important;
+}
+
+.bin-stripe-donation .bin-stripe-donation-wrap .bin-stripe-donation-wrap-content ul li a.bin-stripe-donation-button .bin-stripe-donation-button-label {
+    font-size: 25px;
+}
+
+.bin-stripe-donation-wrap-content {
+    margin: 40px 0;
+}
+
+.bin-stripe-donation .bin-stripe-donation-wrap .bin-stripe-donation-wrap-messages-block .bin-stripe-donation-message.bin-stripe-donation-message-error {
+    color: white !important;;
+    background-color: #a91e14 !important;;
+    border-color: #ebccd100 !important;;
+    margin: 30px 0 0 0 !important;;
+    font-size: 18px !important;;
+}

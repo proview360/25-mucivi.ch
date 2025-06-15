@@ -35,6 +35,7 @@
     for (let i = 1; i <= 10; i++) {
         blockAttributes[`button_${i}_name`] = { type: 'string' };
         blockAttributes[`button_${i}_link`] = { type: 'string' };
+        blockAttributes[`button_${i}_icon`] = { type: 'string' };
     }
     
     //register block
@@ -606,6 +607,21 @@
                                 
                                 for (let i = 1; i <= numberOfLinks; i++) {
                                     fields.push(
+                                        el("dt", { key: `btn${i}-icon-label` },
+                                            el("span", null, `Button ${i} icon`)
+                                        ),
+                                        el("dd", { key: `btn${i}-icon` },
+                                            el("input", {
+                                                type: "text",
+                                                value: props.attributes[`button_${i}_icon`] || "",
+                                                placeholder: `Button ${i} icon...`,
+                                                onChange: (e) => {
+                                                    const newAttrs = {};
+                                                    newAttrs[`button_${i}_icon`] = e.target.value;
+                                                    props.setAttributes(newAttrs);
+                                                }
+                                            })
+                                        ),
                                         el("dt", { key: `btn${i}-label` },
                                             el("span", null, `Button ${i} name`)
                                         ),

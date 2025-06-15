@@ -36,6 +36,7 @@ function show_announcements_custom_fields() {
                     $btn_text       = $value["button_text"] ?? "";
                     $btn_link       = $value["button_link"] ?? "";
                     $btn_link_type  = $value["link_type"] ?? "";
+	                $headline_color = $value["headline_color"] ?? "";
 
                     echo '<div class="main-announcements cpt-element" data-count="' . $flag . '">
 
@@ -93,6 +94,16 @@ function show_announcements_custom_fields() {
                                                     class="regular-text" 
                                                     value="' . $headline . '">
                                                 </div>
+                                 
+                                                <div class="element-announcements-inputs">
+                                                <dt>' . __("Headline Color", "mucivi") . '</dt>
+                                                     <select name="announcements_fields['.$flag.'][headline_color]" class="announcements-option">
+                                                        <option value="black" '. selected($headline_color, "black", false) .'>Black</option>
+                                                        <option value="white" '. selected($headline_color, "white", false) .'>White</option>
+                                                        <option value="primary" '. selected($headline_color, "primary", false) .'>Primary</option>
+                                                        <option value="secondary" '. selected($headline_color, "secondary", false) .'>Secondary</option>
+                                                    </select>
+                                                </div>
         
                                                 
                                                  <div class="elements-announcements-style">
@@ -131,6 +142,8 @@ function show_announcements_custom_fields() {
                                                         <option value="_self" '. selected($btn_link_type, "_self", false) .'>Open link in the same window</option>
                                                     </select>
                                                 </div>
+                                                
+       
                                 
                                         </div>
                          
@@ -215,6 +228,16 @@ function show_announcements_custom_fields() {
                                                     placeholder="<?php _e('Write here',"mucivi"); ?>..."
                                                     class="regular-text"
                                                     value="">
+                                                </div>
+                                                
+                                                        <div class="element-announcements-inputs">
+                                                <dt><?php _e('Headline Color"', "mucivi"); ?></dt>
+                                                    <select name="announcements_fields[${count}][headline_color]">
+                                                        <option value="black">Black</option>
+                                                        <option value="white">White</option>
+                                                        <option value="primary">Primary</option>
+                                                        <option value="secondary">Secondary</option>
+                                                    </select>
                                                 </div>
 
                                                  <div class="elements-announcements-style">

@@ -28,18 +28,12 @@ document.addEventListener("DOMContentLoaded", function () {
         const btnText = cf7Btn.value;
         const customButton = document.createElement('button');
         customButton.type = 'submit';
-        customButton.className = 'wpcf7-submit btn-full btn-full-red';
-        customButton.innerHTML = `<span class="svg-icon"></span>${btnText}`;
+        customButton.className = 'wpcf7-submit btn-full btn-full-primary';
+        customButton.innerHTML = `${btnText}`;
 
         cf7Btn.parentNode.replaceChild(customButton, cf7Btn);
     });
 });
-
-
-
-
-
-
 
 document.addEventListener('DOMContentLoaded', function() {
 

@@ -31,6 +31,9 @@
             },
             gallery_title: {
                 type: 'string'
+            },
+            gallery_description: {
+                type: 'string'
             }
         },
         
@@ -90,6 +93,12 @@
                 props.setAttributes( {gallery_title: event.target.value} )
             }
             
+            function update_gallery_description(event) {
+                props.setAttributes( {gallery_description: event.target.value} )
+            }
+            
+            
+            
             return el(Fragment, null,
                 el(InspectorControls, { class: "granit-SelectControl" },
                     el("div", { class: "granit-block-sidebar-element" },
@@ -128,6 +137,10 @@
                                     {
                                         value: 'slider',
                                         label: 'Slider'
+                                    },
+                                    {
+                                        value: 'portfolio',
+                                        label: 'Portfolio'
                                     }
                                 ],
                                 onChange: update_gallery_type
@@ -143,7 +156,7 @@
                     },
                     el("h3", null, "Gallery-Block"),
                     
-                    props.attributes.gallery_type === 'slider' && [
+                    (props.attributes.gallery_type === 'slider' ||  props.attributes.gallery_type === 'portfolio') && [
                         el("dt", null, "Gallery Title"),
                         el("input", {
                             key: "input",
@@ -151,6 +164,17 @@
                             value: props.attributes.gallery_title,
                             placeholder: "Write here...",
                             onChange: update_gallery_title
+                        })
+                    ],
+                    
+                    props.attributes.gallery_type === 'portfolio' && [
+                        el("dt", null, "Gallery Description"),
+                        el("input", {
+                            key: "input",
+                            type: "text",
+                            value: props.attributes.gallery_description,
+                            placeholder: "Write here...",
+                            onChange: update_gallery_description
                         })
                     ],
             
@@ -192,14 +216,26 @@
                     
                     el('div', { class: "image-gallery-btn" },
                         el(MediaUpload, {
-                            onSelect: update_images,
+                            multiple: true, // allow selecting more than one image
+                            gallery: true,
                             accept: "image/*",
                             allowedTypes: ['image'],
+                            onSelect: (mediaArray) => {
+                                if (Array.isArray(mediaArray)) {
+                                    const newImages = mediaArray.map(media => ({
+                                        url: media.url,
+                                        url_partner: ''
+                                    }));
+                                    props.setAttributes({
+                                        images: [...props.attributes.images, ...newImages]
+                                    });
+                                }
+                            },
                             render: ({ open }) =>
                                 el('button', {
                                     onClick: open,
                                     className: "image-gallery-button"
-                                }, 'Choose Image')
+                                }, 'Choose Images')
                         })
                     )
                 )

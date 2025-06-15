@@ -35,6 +35,7 @@
 		if (is_array($announcements_data) && count($announcements_data)) {
 			foreach ($announcements_data as $item) {
 				$headline         = $item["headline"] ?? "";
+				$headline_color   = $item["headline_color"] ?? "black";
 				$description      = $item["description"] ?? "";
 				$description_html = $description ? '<div class="my-3">' . wpautop($description) . '</div>' : '';
 				$button_text      = $item["button_text"] ?? "";
@@ -42,22 +43,22 @@
 				$link_type        = $item["link_type"] ?? "";
 				$image_url        = $item["image"] ?? "";
 				$date             = $item["date"] ?? "";
+
+				$date_html          = $date ? '<p class="announcements-date gn-h3">' . $date . '<p>' : '';
+				$headline_html      = $headline ? '<h2 class="text-color-'.$headline_color.'">' . $headline . '</h2>' : '';
+				$image_html         = $image_url ? '<div>
+														<img class="img-fluid py-3" src="' . $image_url . '" alt="' . $headline . '">
+													</div>' : '';
+				$button_html        = $button_text ? '<div class="mt-4"><a href="' . $button_link . '" target="' . $link_type . '" class="btn-full btn-full-primary">' . esc_html($button_text) . '</a></div>' : '';
 				
-				$date_html = $date ? '<p class="announcements-date gn-h3">' . $date . '<p>' : '';
-				
-				$image_html = $image_url ? '<div>
-												<img class="img-fluid py-3" src="' . $image_url . '" alt="' . $headline . '">
-											</div>' : '';
-				$button_html = $button_text ? '<div class="mt-4"><a href="' . $button_link . '" target="' . $link_type . '" class="btn-full btn-full-primary">' . esc_html($button_text) . '</a></div>' : '';
-				
-				$content_html .= '
-                <div class="announcement-item py-5">
-                	'.$date_html.'
-                    <h2>' . esc_html($headline) . '</h2>
-                    ' . $image_html . '
-                    ' . $description_html . '
-                    ' . $button_html . '
-                </div>';
+				$content_html       .= '
+						                <div class="announcement-item py-5">
+						                    '.$date_html.'
+						                    '.$headline_html.'
+						                    ' . $image_html . '
+						                    ' . $description_html . '
+						                    ' . $button_html . '
+						                </div>';
 			}
 		}
 		
@@ -65,17 +66,22 @@
 		if ($sidebar_enable === 'yes')
 		{
 			$sidebar_html .= '<div class="sidebar-title">' . esc_html($sidebar_title) . '</div><div class="sidebar-buttons mt-4">';
+			
 			for ($i = 1; $i <= 10; $i++) {
 				$name_key = "button_{$i}_name";
 				$link_key = "button_{$i}_link";
+				$icon_key = "button_{$i}_icon";
 				
-				if (!empty($attributes[$name_key]) && !empty($attributes[$link_key]))
-				{
-					$sidebar_html .= '<div class="sidebar-button mb-2"><a href="' . esc_url($attributes[$link_key]) . '" class="sidebar-link">' . esc_html($attributes[$name_key]) . '</a></div>';
+				$icon_html = !empty($attributes[$icon_key]) ? '<span class="me-2">' . wp_kses_post($attributes[$icon_key]) . '</span>' : '';
+				
+				if (!empty($attributes[$name_key]) && !empty($attributes[$link_key])) {
+					$sidebar_html .= '<div class="sidebar-button mb-2"><a href="' . esc_url($attributes[$link_key]) . '" class="sidebar-link">' . $icon_html . '' . esc_html($attributes[$name_key]) . '</a></div>';
 				}
 			}
+			
 			$sidebar_html .= '</div>';
 		}
+		
 		
 		// Build full layout
 		if ($sidebar_enable === 'yes')
