@@ -40,17 +40,19 @@ function gn_showcase_block_rc($attributes, $content) {
     // check if button exists
     if($showcase_button_link) {
         $showcase_btn_html = '<a class="btn-full '.$show_case_button.'" href="'.$showcase_button_link.'">
-                            '.$showcase_button_text.'
-                        </a>';
+	                            '.$showcase_button_text.'
+	                          </a>';
     }
 	
 	$overlay_html ="";
-	if ($overlay === "yez") {
+	if ($overlay === "yez")
+	{
 		$overlay_html = '<div class="showcase-overlay"></div>';
 	}
 	
 	$overlay_picture_html ="";
-	if ($overlay_picture === "yez") {
+	if ($overlay_picture === "yez")
+	{
 		$overlay_picture_html = '<div class="showcase-overlay-picture"></div>';
 	}
 	
@@ -75,20 +77,20 @@ function gn_showcase_block_rc($attributes, $content) {
         </style>';
 
     $showcase_section_html = '<div class="showcase-section d-flex flex-column align-items-'.$showcase_align_content.' justify-content-evenly text-'.$showcase_align_content.'">
-            <div class="showcase-content">
-				<'.$headline_type.' class="showcase-title">'.$showcase_headline.'</'.$headline_type.'>
-                <p class="showcase-description">'.$showcase_description.'</p>
-                  <div class="showcase-section-button">
-                    '.$showcase_btn_html.'
-                  </div>
-            </div>
-        </div>';
+					            <div class="showcase-content">
+									<'.$headline_type.' class="showcase-title">'.$showcase_headline.'</'.$headline_type.'>
+					                <p class="showcase-description">'.$showcase_description.'</p>
+					                  <div class="showcase-section-button">
+					                    '.$showcase_btn_html.'
+					                  </div>
+					            </div>
+					        </div>';
 
     return $showcase_section_style.'<section class="showcase-section-block ' . $unique_class . '">   
-        <div class="container showcase-section-container showcase-section-banner">
-                 '. $overlay_picture_html .'
-                    '. $overlay_html .'
-                '.$showcase_section_html.'
-        </div>
-    </section>';
+								        <div class="container showcase-section-container showcase-section-banner">
+								                 '. $overlay_picture_html .'
+								                    '. $overlay_html .'
+								                '.$showcase_section_html.'
+								        </div>
+								    </section>';
 }

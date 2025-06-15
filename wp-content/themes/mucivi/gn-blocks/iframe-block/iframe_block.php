@@ -38,25 +38,25 @@ function gn_iframe_block_rc($attributes, $content) {
     if($headline)
     {
         $headline_html = '<div class="row pb-4">                                        
-                        <div class="col">
-                            <'.$select_headline_type.' class="textBlock-headline text-color-'.$text_color.' ">'.$headline.'</'.$select_headline_type.'>
-                        </div>       
-                    </div>';
+	                        <div class="col">
+	                            <'.$select_headline_type.' class="textBlock-headline text-color-'.$text_color.' ">'.$headline.'</'.$select_headline_type.'>
+	                        </div>
+	                    </div>';
     }
 
 
     if ($video_layout == 'virtual_tour')
     {
         $content_html = '  <div class="virtual-tour-iframe ratio ratio-16x9">
-                  <iframe
-                      width="100%"
-                      height="600"
-                      src="'.$iframe_link.'"
-                      frameborder="0"
-                      allowfullscreen
-                      allow="xr-spatial-tracking; gyroscope; accelerometer"
-                ></iframe>
-        </div>';
+					                  <iframe
+					                      width="100%"
+					                      height="600"
+					                      src="'.$iframe_link.'"
+					                      frameborder="0"
+					                      allowfullscreen
+					                      allow="xr-spatial-tracking; gyroscope; accelerometer"
+					                ></iframe>
+					        </div>';
     }
     elseif ($video_layout == 'youtube')
     {
@@ -66,30 +66,30 @@ function gn_iframe_block_rc($attributes, $content) {
             $youtube_id = $match[1];
         }
         $content_html = '
-        <div class="youtube-iframe ratio ratio-16x9">
-            <iframe class="" src="https://www.youtube.com/embed/'.$youtube_id.'" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>';
+					        <div class="youtube-iframe ratio ratio-16x9">
+					            <iframe class="" src="https://www.youtube.com/embed/'.$youtube_id.'" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+					        </div>';
     }
     elseif ($video_layout == 'gallery')
     {
         $content_html = '  <div class="gallery-iframe ratio ratio-16x9">
-                  <iframe
-                      width="100%"
-                      height="600"
-                      src="'.$iframe_link.'"
-                      frameborder="0"
-                      allowfullscreen
-                      allow="xr-spatial-tracking; gyroscope; accelerometer"
-                ></iframe>
-        </div>';
+					                  <iframe
+					                      width="100%"
+					                      height="600"
+					                      src="'.$iframe_link.'"
+					                      frameborder="0"
+					                      allowfullscreen
+					                      allow="xr-spatial-tracking; gyroscope; accelerometer"
+					                ></iframe>
+					        </div>';
     }
     else
     {
         $content_html = '
-        <video autoplay loop muted>
-            <source src="' . $iframe_link . '" type="video/mp4">
-             Your browser does not support the video tag.
-        </video>';
+				        <video autoplay loop muted>
+				            <source src="' . $iframe_link . '" type="video/mp4">
+				             Your browser does not support the video tag.
+				        </video>';
     }
 
 

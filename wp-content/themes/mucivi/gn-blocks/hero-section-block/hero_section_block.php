@@ -70,7 +70,8 @@ function gn_hero_section_block_rc($attributes, $content) {
 	
 	$buttons = [];
 	
-	if ($hero_button_link) {
+	if ($hero_button_link)
+	{
 		$buttons[] = '<span class="hero-section-button">
                     <a href="' . esc_url($hero_button_link) . '">
                         ' . esc_html($hero_button_text) . '
@@ -78,7 +79,8 @@ function gn_hero_section_block_rc($attributes, $content) {
                   </span>';
 	}
 	
-	if ($hero_button_link_2) {
+	if ($hero_button_link_2)
+	{
 		$buttons[] = '<span class="hero-section-button">
                     <a href="' . esc_url($hero_button_link_2) . '">
                         ' . esc_html($hero_button_text_2) . '
@@ -86,7 +88,8 @@ function gn_hero_section_block_rc($attributes, $content) {
                   </span>';
 	}
 	
-	if ($hero_button_link_3) {
+	if ($hero_button_link_3)
+	{
 		$buttons[] = '<span class="hero-section-button">
                     <a href="' . esc_url($hero_button_link_3) . '">
                         ' . esc_html($hero_button_text_3) . '
@@ -94,7 +97,8 @@ function gn_hero_section_block_rc($attributes, $content) {
                   </span>';
 	}
 	
-	if ($hero_button_link_4) {
+	if ($hero_button_link_4)
+	{
 		$buttons[] = '<span class="hero-section-button">
                     <a href="' . esc_url($hero_button_link_4) . '">
                         ' . esc_html($hero_button_text_4) . '
@@ -102,7 +106,8 @@ function gn_hero_section_block_rc($attributes, $content) {
                   </span>';
 	}
 	
-	if ($hero_button_link_5) {
+	if ($hero_button_link_5)
+	{
 		$buttons[] = '<span class="hero-section-button">
                     <a href="' . esc_url($hero_button_link_5) . '">
                         ' . esc_html($hero_button_text_5) . '
@@ -110,7 +115,8 @@ function gn_hero_section_block_rc($attributes, $content) {
                   </span>';
 	}
 	
-	if ($hero_button_link_6) {
+	if ($hero_button_link_6)
+	{
 		$buttons[] = '<span class="hero-section-button">
                     <a href="' . esc_url($hero_button_link_6) . '">
                         ' . esc_html($hero_button_text_6) . '
@@ -119,77 +125,79 @@ function gn_hero_section_block_rc($attributes, $content) {
 	}
 	
 	// Combine with white line separator and wrap in flex container
-	if (!empty($buttons)) {
+	if (!empty($buttons))
+	{
 		$hero_btn_html = '<div class="hero-button-section-mob d-flex align-items-center justify-content-center flex-wrap">'
 			. implode('<span style="color: white;" class="seperator-herosection">-</span>', $buttons)
 			. '</div>';
 	}
 	
 	$overlay_html ="";
-	if ($overlay === "yez") {
+	if ($overlay === "yez")
+	{
 		$overlay_html = '<div class="hero-section-overlay"></div>';
 	}
 	
 	$overlay_picture_html ="";
-	if ($overlay_picture === "yez") {
+	if ($overlay_picture === "yez")
+	{
 		$overlay_picture_html = '<div class="hero-section-overlay-picture"></div>';
 	}
 	
 	
-	if($hero_section_layout_type == 'hero-section-banner-2'){
+	if($hero_section_layout_type == 'hero-section-banner-2')
+	{
         $hero_section_style = '
-            <style>
-            
-                 .' . $unique_class . ' {
-                        background-color: var('. $banner_background_color.');
-                        color:  var('. $banner_text_color.');
-                }
-        </style>';
+					            <style>
+					                 .' . $unique_class . ' {
+					                        background-color: var('. $banner_background_color.');
+					                        color:  var('. $banner_text_color.');
+					                }
+					        	</style>';
 
         $hero_section_html = '<div class=" container hero-section d-flex flex-column align-items-'.$hero_align_content.' justify-content-center text-'.$hero_align_content.'">
-                        <h1 class="hero-title">'.$hero_headline.'</h1>
-                        <p  id="'.$unique_id.'" class="hero-description">'.$hero_description.'</p>
-             				'.$hero_btn_html.'
-                        '.$hero_image_html.'
-                </div>';
+				                        <h1 class="hero-title">'.$hero_headline.'</h1>
+				                        <p  id="'.$unique_id.'" class="hero-description">'.$hero_description.'</p>
+				                            '.$hero_btn_html.'
+				                        '.$hero_image_html.'
+				                </div>';
 
     }
-    elseif($hero_section_layout_type == 'hero-section-banner-1'){
+    elseif($hero_section_layout_type == 'hero-section-banner-1')
+    {
         $hero_section_style = '
-            <style>
-                 .' . $unique_class . ' {
-                    background-image: url('. $hero_background_image .');
-                    background-attachment: '. $hero_section_image_position.';
-                    background-size: cover;  
-                    background-repeat: no-repeat; 
-                    background-position: left center;
-                    color:  var('. $banner_text_color.');
-                }
-        
-                @media (max-width: 1024px) {
-                     .' . $unique_class . ' {
-                        background-attachment: scroll;
-                    }
-                }
-        </style>';
+					            <style>
+					                 .' . $unique_class . ' {
+					                    background-image: url('. $hero_background_image .');
+					                    background-attachment: '. $hero_section_image_position.';
+					                    background-size: cover;
+					                    background-repeat: no-repeat;
+					                    background-position: left center;
+					                    color:  var('. $banner_text_color.');
+					                }
+					        
+					                @media (max-width: 1024px) {
+					                     .' . $unique_class . ' {
+					                        background-attachment: scroll;
+					                    }
+					                }
+					        </style>';
 
         $hero_section_html = '<div class=" container hero-section d-flex flex-column align-items-'.$hero_align_content.' justify-content-center text-'.$hero_align_content.'">
-                
-                        <h1 class="hero-title">'.$hero_headline.'</h1>
-                        <p  id="'.$unique_id.'" class="hero-description">'.$hero_description.'</p>
-                            '.$hero_btn_html.'
-                    '.$hero_image_html.'
-                </div>';
+				                        <h1 class="hero-title">'.$hero_headline.'</h1>
+				                        <p  id="'.$unique_id.'" class="hero-description">'.$hero_description.'</p>
+				                            '.$hero_btn_html.'
+				                    '.$hero_image_html.'
+				                </div>';
 
     }
 
 
     return $hero_section_style.'<section class="hero-section-block ' . $unique_class . '">
-		
-            <div class=" hero-section-container '.$hero_section_layout_type.' '.$hero_image_extra_class.'">
-                    '. $overlay_picture_html .'
-                    '. $overlay_html .'
-                    '.$hero_section_html.'
-            </div>
-        </section>';
+						            <div class=" hero-section-container '.$hero_section_layout_type.' '.$hero_image_extra_class.'">
+						                    '. $overlay_picture_html .'
+						                    '. $overlay_html .'
+						                    '.$hero_section_html.'
+						            </div>
+						        </section>';
 }

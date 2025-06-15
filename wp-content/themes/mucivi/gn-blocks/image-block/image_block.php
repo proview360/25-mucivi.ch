@@ -101,13 +101,13 @@ function gn_image_block_rc( $attributes, $content ) {
     }
 
     return '<section class="image-gallery-block">  
-  <div class="' . ( $layout == "full-width" ? "container-fluid" : "container" ) . '  bg-color-'.$background_color.'">              
-        <div class="">
-            <div class="row">
-                <div class="img-block col-12">         
-                       	 '.$image_link_html.' 
-                </div>
-            </div>
-        </div>                                                            
-    </section>' .$styles;
+			  <div class="' . ( $layout == "full-width" ? "container-fluid" : "container" ) . '  bg-color-'.$background_color.'">
+			        <div class="">
+			            <div class="row">
+			                <div class="img-block col-12">
+			                         '.$image_link_html.'
+			                </div>
+			            </div>
+			        </div>
+			    </section>' .$styles;
 }

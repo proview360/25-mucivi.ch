@@ -1487,21 +1487,6 @@ button.btn-full-primary {
     background-color: var(--mucivi-primary);
 }
 
-/* Icon before text */
-button.btn-full .svg-icon {
-    content: "";
-    position: absolute;
-    left: 1.5rem;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 2rem;
-    height: 2rem;
-    background-image: url('../img/vectors/svgButton.svg');
-    background-size: contain;
-    background-repeat: no-repeat;
-    pointer-events: none;
-}
-
 /* end of contact from 7 */
 
 
@@ -2101,7 +2086,7 @@ button.btn-full .svg-icon {
 
 .panel-left {
     left: 0;
-    background-color: transparet;
+    background-color: transparent;
     color: #000000;
     transform: translateX(-100%);
 }

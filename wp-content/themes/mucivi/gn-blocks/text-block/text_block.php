@@ -125,7 +125,8 @@ function gn_text_block_rc($attributes, $content) {
     }
 	$sidebar_html = '';
 	
-	if ($sidebar_enable === 'yes') {
+	if ($sidebar_enable === 'yes')
+	{
 		$sidebar_html .= '
 
 		<div class="sidebar-title">

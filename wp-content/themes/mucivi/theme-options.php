@@ -69,50 +69,19 @@ function add_theme_options() {
                 $currentLangCode = ICL_LANGUAGE_CODE;
             }
 
-
             settings_fields( 'theme_options' );
             $options     = get_option( 'mucivi_theme_options_' . $currentLangCode );
             $options_all = get_option( 'mucivi_theme_options_all' );
 
             $mucivi_logo           = $options_all['mucivi_logo'] ?? "";
-            $mucivi_logo_active    = $options_all['mucivi_logo_active'] ?? "";
-
-            $mucivi_logo_mobile    = $options_all['mucivi_logo_mobile'] ?? "";
-
-            // header slider
-            $mucivi_slider_background   = $options_all['mucivi_slider_background'] ?? "";
-
-            // Top Head
-            $mega_menu_title            = $options['mega_menu_title'] ?? "";
-            $button_registration        = $options['button_registration'] ?? "";
-            $button_login_in_link       = $options['button_login_in_link'] ?? "";
-            $button_registration_link   = $options['button_registration_link'] ?? "";
-            $header_phone               = $options['header_phone'] ?? "";
-            $header_phone_link          = $options['header_phone_link'] ?? "";
-            $header_email               = $options['header_email'] ?? "";
 
             // footer
-
-            $footer_title_1 = $options['footer_title_1'] ?? "";
-            $footer_title_2 = $options['footer_title_2'] ?? "";
-
-            $footer_address         = $options['footer_address'] ?? "";
-            $footer_address_2       = $options['footer_address_2'] ?? "";
-            $footer_address_2_link  = $options['footer_address_2_link'] ?? "";
-
             $footer_copyright_text          = $options['footer_copyright_text'] ?? "";
             $footer_copyright_text_2        = $options['footer_copyright_text_2'] ?? "";
 
             $footer_phone_number_title      = $options['footer_phone_number_title'] ?? "";
             $footer_phone_number            = $options['footer_phone_number'] ?? "";
             $footer_phone_number_link       = $options['footer_phone_number_link'] ?? "";
-
-
-            $mucivi_footer_logo      =  $options_all['mucivi_footer_logo'] ?? "";
-            $mucivi_footer_logo_2    =  $options_all['mucivi_footer_logo_2'] ?? "";
-            $footer_logo_link       = $options_all['footer_logo_link'] ?? "";
-            $footer_logo_link_2     = $options_all['footer_logo_link_2'] ?? "";
-            $copyright              = $options['copyright'] ?? "";
 
             // social link
             $social_title       = $options['social_title'] ?? "";
@@ -142,7 +111,7 @@ function add_theme_options() {
                                 <h1><?php _e( 'General Settings', "mucivi" ); ?></h1>
                                 <div>
 
-                                    <!-- SSS Logo -->
+                                    <!-- Logo -->
                                     <p><?php _e( 'Logo', "mucivi" ); ?></p>
                                     <input id="image_url_mucivi_logo" type="text" name="mucivi_theme_options_all[mucivi_logo]" size="60" value="<?php esc_attr_e( $mucivi_logo ); ?>" />
                                     <input id="upload_button_mucivi_logo" type="button" class="button" value="Upload Logo" />
@@ -157,65 +126,6 @@ function add_theme_options() {
                                         echo '<img id="preview_image_mucivi_logo" style="width:50%; background: #F5F5F5; padding:20px;" src="" >';
                                     }
                                     ?>
-
-                                    <!-- SSS Logo -->
-                                    <p><?php _e( 'Logo Active', "mucivi" ); ?></p>
-                                    <input id="image_url_mucivi_logo_active" type="text" name="mucivi_theme_options_all[mucivi_logo_active]" size="60" value="<?php esc_attr_e( $mucivi_logo_active ); ?>" />
-                                    <input id="upload_button_mucivi_logo_active" type="button" class="button" value="Upload Logo" />
-                                    <input id="remove_button_mucivi_logo_active" type="button" class="button" value="Remove Image" />
-                                    <br>
-                                    <?php
-                                    if ($mucivi_logo !== null && $mucivi_logo != '') {
-                                        echo '<p>'. _e('Image Preview',"mucivi") . '</p>';
-                                        echo '<img id="preview_image_mucivi_logo_active" style="width:50%; background: #F5F5F5; padding:20px;" src="'. $mucivi_logo_active. '">';
-                                    } else {
-                                        echo '<p>'. _e('Image Preview',"mucivi") . '</p>';
-                                        echo '<img id="preview_image_mucivi_logo_active" style="width:50%; background: #F5F5F5; padding:20px;" src="" >';
-                                    }
-                                    ?>
-
-                                    <!-- SSS Logo Mobile -->
-                                    <p><?php _e( 'Logo Mobile', "mucivi" ); ?></p>
-                                    <input id="image_url_mucivi_logo_mobile" type="text" name="mucivi_theme_options_all[mucivi_logo_mobile]" size="60" value="<?php esc_attr_e( $mucivi_logo_mobile ); ?>" />
-                                    <input id="upload_button_mucivi_logo_mobile" type="button" class="button" value="Upload Logo" />
-                                    <input id="remove_button_mucivi_logo_mobile" type="button" class="button" value="Remove Image" />
-                                    <br>
-                                    <?php
-                                    if ($mucivi_logo_mobile !== null && $mucivi_logo_mobile != '') {
-                                        echo '<p>'. _e('Image Preview',"mucivi") . '</p>';
-                                        echo '<img id="preview_image_mucivi_logo_mobile" style="width:50%; background: #F5F5F5; padding:20px;" src="'. $mucivi_logo_mobile. '">';
-                                    } else {
-                                        echo '<p>'. _e('Image Preview',"mucivi") . '</p>';
-                                        echo '<img id="preview_image_mucivi_logo_mobile" style="width:50%; background: #F5F5F5; padding:20px;" src="" >';
-                                    }
-                                    ?>
-
-
-                                    <!--Slider Background-->
-                                    <p><?php _e( 'Header Slider Background', "mucivi" ); ?></p>
-                                    <input id="image_url_mucivi_slider_background" type="text" name="mucivi_theme_options_all[mucivi_slider_background]" size="60" value="<?php esc_attr_e( $mucivi_slider_background ); ?>" />
-                                    <input id="upload_button_mucivi_slider_background" type="button" class="button" value="Upload Logo" />
-                                    <input id="remove_button_mucivi_slider_background" type="button" class="button" value="Remove Image" />
-                                    <br>
-                                    <?php
-                                    if ($mucivi_slider_background !== null && $mucivi_slider_background != '') {
-                                        echo '<p>'. _e('Image Preview',"mucivi") . '</p>';
-                                        echo '<img id="preview_image_mucivi_slider_background" style="width:50%" src="'. $mucivi_slider_background. '">';
-                                    } else {
-                                        echo '<p>'. _e('Image Preview',"mucivi") . '</p>';
-                                        echo '<img id="preview_image_mucivi_slider_background" style="width:50%" src="" >';
-                                    }
-                                    ?>
-
-                                    <p><?php _e( 'Mega Menu Navigation Headline', "mucivi" ); ?></p>
-                                    <div>
-                                        <input class="gn-option-fields"
-                                               type="text"
-                                               name="mucivi_theme_options_<?php echo $currentLangCode; ?>[mega_menu_title]"
-                                               value="<?php esc_attr_e( $mega_menu_title ); ?>"
-                                        />
-                                    </div>
-
 
                                 </div>
                             </li>
@@ -275,115 +185,6 @@ function add_theme_options() {
                             </li>
                             <li id="footer">
                                 <h1>Footer Settings</h1>
-
-
-                                <hr>
-
-                                <p><?php _e( 'Footer Logo Link', "mucivi" ); ?></p>
-                                <div>
-                                    <input class="gn-option-fields"
-                                           type="text"
-                                           name="mucivi_theme_options_all[footer_logo_link]"
-                                           value="<?php esc_attr_e( $footer_logo_link ); ?>"
-                                    />
-                                </div>
-
-
-                                <!--Footer Logo -->
-                                <p><?php _e( 'Footer Logo', "mucivi" ); ?></p>
-                                <input id="image_url_mucivi_footer_logo" type="text" name="mucivi_theme_options_all[mucivi_footer_logo]" size="60" value="<?php esc_attr_e( $mucivi_footer_logo ); ?>" />
-                                <input id="upload_button_mucivi_footer_logo" type="button" class="button" value="Upload Logo" />
-                                <input id="remove_button_mucivi_footer_logo" type="button" class="button" value="Remove Image" />
-                                <br>
-                                <?php
-                                if ($mucivi_footer_logo !== null && $mucivi_footer_logo != '') {
-                                    echo '<p>'. _e('Image Preview',"mucivi") . '</p>';
-                                    echo '<img id="preview_image_mucivi_footer_logo" style="width:50%; background: #F5F5F5; padding:20px;" src="'. $mucivi_footer_logo. '">';
-                                } else {
-                                    echo '<p>'. _e('Image Preview',"mucivi") . '</p>';
-                                    echo '<img id="preview_image_mucivi_footer_logo" style="width:50%; background: #F5F5F5; padding:20px;" src="" >';
-                                }
-                                ?>
-
-                                <hr/>
-
-                                <p><?php _e( 'Footer Logo 2 Link', "mucivi" ); ?></p>
-                                <div>
-                                    <input class="gn-option-fields"
-                                           type="text"
-                                           name="mucivi_theme_options_all[footer_logo_link_2]"
-                                           value="<?php esc_attr_e( $footer_logo_link_2 ); ?>"
-                                    />
-                                </div>
-
-
-                                <!--Footer Logo 2 -->
-                                <p><?php _e( 'Footer Logo 2', "mucivi" ); ?></p>
-                                <input id="image_url_mucivi_footer_logo_2" type="text" name="mucivi_theme_options_all[mucivi_footer_logo_2]" size="60" value="<?php esc_attr_e( $mucivi_footer_logo_2 ); ?>" />
-                                <input id="upload_button_mucivi_footer_logo_2" type="button" class="button" value="Upload Logo" />
-                                <input id="remove_button_mucivi_footer_logo_2" type="button" class="button" value="Remove Image" />
-                                <br>
-                                <?php
-                                if ($mucivi_footer_logo_2 !== null && $mucivi_footer_logo_2 != '') {
-                                    echo '<p>'. _e('Image Preview',"mucivi") . '</p>';
-                                    echo '<img id="preview_image_mucivi_footer_logo_2" style="width:50%; background: #F5F5F5; padding:20px;" src="'. $mucivi_footer_logo_2. '">';
-                                } else {
-                                    echo '<p>'. _e('Image Preview',"mucivi") . '</p>';
-                                    echo '<img id="preview_image_mucivi_footer_logo_2" style="width:50%; background: #F5F5F5; padding:20px;" src="" >';
-                                }
-                                ?>
-
-                            <hr/>
-                                <p><?php _e( 'Footer Title 1', "mucivi" ); ?></p>
-                                <div>
-                                    <input class="gn-option-fields"
-                                           type="text"
-                                           name="mucivi_theme_options_<?php echo $currentLangCode; ?>[footer_title_1]"
-                                           value="<?php esc_attr_e( $footer_title_1 ); ?>"
-                                    />
-                                </div>
-
-                                <p><?php _e( 'Footer Title 2', "mucivi" ); ?></p>
-                                <div>
-                                    <input class="gn-option-fields"
-                                           type="text"
-                                           name="mucivi_theme_options_<?php echo $currentLangCode; ?>[footer_title_2]"
-                                           value="<?php esc_attr_e( $footer_title_2 ); ?>"
-                                    />
-                                </div>
-
-                                <hr/>
-                                <p><?php _e( 'Address', "mucivi" ); ?></p>
-                                <div>
-                                    <input class="gn-option-fields"
-                                           type="text"
-                                           name="mucivi_theme_options_<?php echo $currentLangCode; ?>[footer_address]"
-                                           value="<?php esc_attr_e( $footer_address); ?>"
-                                    />
-                                </div>
-
-                                <p><?php _e( 'Address 2', "mucivi" ); ?></p>
-                                <div>
-                                    <input class="gn-option-fields"
-                                           type="text"
-                                           name="mucivi_theme_options_<?php echo $currentLangCode; ?>[footer_address_2]"
-                                           value="<?php esc_attr_e( $footer_address_2); ?>"
-                                    />
-                                </div>
-                                
-                                
-                                
-                                <p><?php _e( 'Footer Address Link', "mucivi" ); ?></p>
-                                <div>
-                                    <input class="gn-option-fields"
-                                           type="text"
-                                           name="mucivi_theme_options_<?php echo $currentLangCode; ?>[footer_address_2_link]"
-                                           value="<?php esc_attr_e( $footer_address_2_link ); ?>"
-                                    />
-
-
-                                </div>
-
                                 <hr/>
                                 <p><?php _e( 'Copyright Text', "mucivi" ); ?></p>
                                 <div>

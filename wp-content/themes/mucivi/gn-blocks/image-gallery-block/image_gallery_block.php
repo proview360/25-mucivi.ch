@@ -70,10 +70,10 @@
 	
 				if ($thumb_url && $full_url) {
 					$image_gallery .= '<div>
-							            <a href="' . $full_url . '" data-fancybox="'.$unique_gallery_id.'" data-caption="' . $gallery_title . '">
-							                <img src="' . $thumb_url . '" alt="' . $gallery_title . '" />
-							            </a>
-							        </div>';
+								            <a href="' . $full_url . '" data-fancybox="'.$unique_gallery_id.'" data-caption="' . $gallery_title . '">
+								                <img src="' . $thumb_url . '" alt="' . $gallery_title . '" />
+								            </a>
+								        </div>';
 				}
 			}
 		}
@@ -144,6 +144,6 @@
 		}
 		
 		return '<section class="image-gallery-block bg-color-' . $background_color . '">
-        ' . $content_html . '
-    </section>';
+			        ' . $content_html . '
+			    </section>';
 	}

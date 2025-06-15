@@ -80,14 +80,7 @@ domRdy(function() {
 // image selection popup - image button is clicked
     jQuery(document).on("click",
         '#announcements_fields_meta_box .image-upload, ' +
-        '#teasers_fields_meta_box .image-upload, ' +
-        '#sliders_fields_meta_box .image-upload, ' +
-        '#portfolios_fields_meta_box .image-upload, ' +
-        '#hexagons_fields_meta_box .image-upload, ' +
-        '#hexagons_fields_meta_box .image-upload-2, ' +
-        '#location_fields_meta_box .image-upload, ' +
-        '#employee_fields_meta_box .image-upload, ' +
-        '#employee_fields_meta_box .image-upload-2 '
+        '#default_fields_meta_box .image-upload, '
         , function(e) {
             // prevents default action
             e.preventDefault();
@@ -147,14 +140,7 @@ domRdy(function() {
 // image selection remove - image-remove button is clicked
     jQuery(document).on("click",
         '#announcements_fields_meta_box .image-upload-remove, ' +
-        '#teasers_fields_meta_box .image-upload-remove, ' +
-        '#sliders_fields_meta_box .image-upload-remove, ' +
-        '#portfolios_fields_meta_box .image-upload-remove, ' +
-        '#location_fields_meta_box .image-upload-remove, ' +
-        '#employee_fields_meta_box .image-upload-remove, ' +
-        '#employee_fields_meta_box .image-upload-remove-2, ' +
-        '#hexagons_fields_meta_box .image-upload-remove, ' +
-        '#hexagons_fields_meta_box .image-upload-remove-2 '
+        '#default_fields_meta_box .image-upload-remove, '
         , function(e) {
             console.log('button removed clicked');
             // prevents default action
@@ -196,15 +182,7 @@ domRdy(function() {
     // after click on down
     jQuery(document).on('click',
         '#gn-wrapper-announcements .sort-down, ' +
-        '#gn-wrapper-accordion .sort-down, ' +
-        '#gn-wrapper-teaser .sort-down, ' +
-        '#gn-wrapper-slider .sort-down, ' +
-        '#gn-wrapper-portfolio .sort-down, ' +
-        '#gn-wrapper-hexagon .sort-down, ' +
-        '#gn-wrapper-hexagon-row2 .sort-down, ' +
-        '#gn-wrapper-employee .sort-down, ' +
-        '#gn-wrapper-file .sort-down, ' +
-        '#gn-wrapper-testimonial .sort-down',
+        '#gn-wrapper-default .sort-down',
         function(e) {
             console.log("down");
             let c_card = jQuery(this).closest('.cpt-element');
@@ -219,15 +197,7 @@ domRdy(function() {
     // after click on up
     jQuery(document).on('click',
         '#gn-wrapper-announcements .sort-up, ' +
-        '#gn-wrapper-accordion .sort-up, ' +
-        '#gn-wrapper-teaser .sort-up, ' +
-        '#gn-wrapper-slider .sort-up, ' +
-        '#gn-wrapper-portfolio .sort-up, ' +
-        '#gn-wrapper-hexagon .sort-up, ' +
-        '#gn-wrapper-hexagon-row2 .sort-up, ' +
-        '#gn-wrapper-employee .sort-up, ' +
-        '#gn-wrapper-file .sort-up, ' +
-        '#gn-wrapper-testimonial .sort-up', function(e) {
+        '#gn-wrapper-default .sort-up', function(e) {
             console.log("up");
             let c_card = jQuery(this).closest('.cpt-element');
             let t_card= c_card.prev('.cpt-element');

@@ -45,11 +45,16 @@
 				$date             = $item["date"] ?? "";
 
 				$date_html          = $date ? '<p class="announcements-date gn-h3">' . $date . '<p>' : '';
+				
 				$headline_html      = $headline ? '<h2 class="text-color-'.$headline_color.'">' . $headline . '</h2>' : '';
+				
 				$image_html         = $image_url ? '<div>
 														<img class="img-fluid py-3" src="' . $image_url . '" alt="' . $headline . '">
 													</div>' : '';
-				$button_html        = $button_text ? '<div class="mt-4"><a href="' . $button_link . '" target="' . $link_type . '" class="btn-full btn-full-primary">' . esc_html($button_text) . '</a></div>' : '';
+				
+				$button_html        = $button_text ? '<div class="mt-4">
+															<a href="' . $button_link . '" target="' . $link_type . '" class="btn-full btn-full-primary">' . esc_html($button_text) . '</a>
+													 </div>' : '';
 				
 				$content_html       .= '
 						                <div class="announcement-item py-5">
@@ -74,7 +79,8 @@
 				
 				$icon_html = !empty($attributes[$icon_key]) ? '<span class="me-2">' . wp_kses_post($attributes[$icon_key]) . '</span>' : '';
 				
-				if (!empty($attributes[$name_key]) && !empty($attributes[$link_key])) {
+				if (!empty($attributes[$name_key]) && !empty($attributes[$link_key]))
+				{
 					$sidebar_html .= '<div class="sidebar-button mb-2"><a href="' . esc_url($attributes[$link_key]) . '" class="sidebar-link">' . $icon_html . '' . esc_html($attributes[$name_key]) . '</a></div>';
 				}
 			}
@@ -87,27 +93,27 @@
 		if ($sidebar_enable === 'yes')
 		{
 			return '
-            <section class="announcements-block bg-color-' . esc_attr($background_color) . '" id="' . esc_attr($unique_id) . '">
-                <div class="container d-flex flex-column flex-lg-row">
-                    <div class="col-12 col-lg-9">
-                        ' . $content_html . '
-                    </div>
-                    <div class="sidebar-container col-12 col-lg-3 ps-lg-5 py-5">
-                        ' . $sidebar_html . '
-                    </div>
-                </div>
-            </section>';
+		            <section class="announcements-block bg-color-' . esc_attr($background_color) . '" id="' . esc_attr($unique_id) . '">
+		                <div class="container d-flex flex-column flex-lg-row">
+		                    <div class="col-12 col-lg-9">
+		                        ' . $content_html . '
+		                    </div>
+		                    <div class="sidebar-container col-12 col-lg-3 ps-lg-5 py-5">
+		                        ' . $sidebar_html . '
+		                    </div>
+		                </div>
+		            </section>';
 		}
 		else
 		{
 			return '
-            <section class="announcements-block bg-color-' . esc_attr($background_color) . '" id="' . esc_attr($unique_id) . '">
-                <div class="container">
-                    <div class="row">
-                        ' . $content_html . '
-                    </div>
-                </div>
-            </section>';
+		            <section class="announcements-block bg-color-' . esc_attr($background_color) . '" id="' . esc_attr($unique_id) . '">
+		                <div class="container">
+		                    <div class="row">
+		                        ' . $content_html . '
+		                    </div>
+		                </div>
+		            </section>';
 		}
 	}
 

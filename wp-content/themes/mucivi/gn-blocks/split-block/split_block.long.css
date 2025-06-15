@@ -21,21 +21,6 @@ section.split-block div.split-wrapper .headline {
     margin-bottom: 30px;
 }
 
-
-@media (max-width: 991px) {
-
-}
-
-@media (max-width: 767px) {
-
-
-}
-
-
-@media (max-width: 575px) {
-
-}
-
 section.split-block div.split-wrapper .subheadline {
     text-transform: uppercase;
     margin-bottom: 5px;
@@ -161,47 +146,6 @@ section.split-block .split-block-slider-wrapper {
     width: 100%;
 }
 
-section.split-block .split-block-slider-wrapper .slick-prev {
-    background: url("../../img/arrow-right-black.svg") 100% no-repeat;
-    left: 50px;
-    background-size: 20px;
-    background-position: 15px center;
-    transform: translateY(-50%) rotate(180deg) ;
-}
-section.split-block .split-block-slider-wrapper .slick-next {
-    background: url("../../img/arrow-right-black.svg") 100% no-repeat;
-    background-size: 20px;
-    background-position: 15px center;
-    transform: translateY(-50%);
-}
-section.split-block .split-block-slider-wrapper .slick-arrow {
-    width: 50px;
-    height: 50px;
-    transition: .3s;
-    float: left;
-    font-size: 0;
-    border: 1px solid #000;
-    cursor: pointer;
-    z-index: 2;
-    top: 50%;
-    position: absolute;
-}
-
-section.split-block .split-block-slider-wrapper .slick-arrow:hover {
-    background: url("../../img/arrow-right.svg") 100% no-repeat;
-    background-size: 20px;
-    background-position: 15px center;
-    background-color: var(--mucivi-primary);
-    border: 1px solid var(--mucivi-primary);
-}
-
-section.split-block .split-block-slider-wrapper .slick-arrow.slick-prev {
-    left: 50px;
-}
-section.split-block .split-block-slider-wrapper .slick-arrow.slick-next {
-    right: 50px;
-}
-
 section.split-block .split-block-slider-wrapper .slide-image-wrapper {
     display: flex;
     flex-direction: column;
@@ -241,25 +185,12 @@ section.split-block .split-block-slider-wrapper .slide img {
         max-height: 100%;
     }
 
-    section.split-block .split-block-slider-wrapper .slick-arrow.slick-prev {
-        left: 30px;
-    }
-    section.split-block .split-block-slider-wrapper .slick-arrow.slick-next {
-        right: 30px;
-    }
 }
 
 @media only screen and (max-width: 767px) {
     section.split-block div.split-wrapper {
         display: flex;
         flex-direction: column;
-    }
-
-    section.split-block .split-block-slider-wrapper .slick-arrow.slick-prev {
-        left: 20px;
-    }
-    section.split-block .split-block-slider-wrapper .slick-arrow.slick-next {
-        right: 20px;
     }
 
     section.split-block div.split-wrapper .button-1,
