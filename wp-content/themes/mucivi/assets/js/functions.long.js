@@ -97,6 +97,24 @@ document.addEventListener('DOMContentLoaded', function() {
     // });
 });
 
+// language switcher
+document.addEventListener('DOMContentLoaded', function () {
+    const activeLang = document.querySelector('.lang-active');
+    const dropdown = document.querySelector('.lang-dropdown');
+    
+    if (activeLang) {
+        activeLang.addEventListener('click', function (e) {
+            e.preventDefault();
+            dropdown.classList.toggle('show-lang-dropdown');
+        });
+    }
+    
+    document.addEventListener('click', function (e) {
+        if (!e.target.closest('.lang-switcher')) {
+            dropdown.classList.remove('show-lang-dropdown');
+        }
+    });
+});
 
 /*Contact form Opening and closing Tab*/
 document.addEventListener('DOMContentLoaded', function() {
@@ -145,3 +163,126 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
+
+// image product gallery
+document.addEventListener('DOMContentLoaded', function () {
+    let current_index = 0;
+    let start_x = 0;
+    let is_dragging = false;
+    const slides = document.querySelectorAll('.swipe-slide');
+    const gallery_wrapper = document.querySelector('.woocommerce-product-gallery__wrapper');
+    const prev_button = document.querySelector('.prev-button');
+    const next_button = document.querySelector('.next-button');
+    
+    // Check if there are any swipe slides
+    if (slides.length === 0) {
+        return;
+    }
+    
+    // Check if elements exist
+    if (!gallery_wrapper) {
+        console.error('Gallery wrapper not found');
+        return;
+    }
+    if (!prev_button) {
+        console.error('Previous button not found');
+    }
+    if (!next_button) {
+        console.error('Next button not found');
+    }
+    
+    // Check if there is only one slide
+    if (slides.length <= 1) {
+        if (prev_button) prev_button.style.display = 'none';
+        if (next_button) next_button.style.display = 'none';
+        return; // No need to continue with the rest of the script
+    }
+    
+    if (prev_button) prev_button.addEventListener('click', show_previous);
+    if (next_button) next_button.addEventListener('click', show_next);
+    
+    gallery_wrapper.addEventListener('touchstart', touch_start);
+    gallery_wrapper.addEventListener('touchmove', touch_move);
+    gallery_wrapper.addEventListener('touchend', touch_end);
+    
+    function update_buttons() {
+        if (prev_button) prev_button.disabled = false;
+        if (next_button) next_button.disabled = false;
+    }
+    
+    function set_position_by_index() {
+        const translate_x = current_index * -100;
+        gallery_wrapper.style.transform = `translateX(${translate_x}%)`;
+        update_buttons();
+    }
+    
+    function show_previous() {
+        current_index = (current_index - 1 + slides.length) % slides.length;
+        set_position_by_index();
+    }
+    
+    function show_next() {
+        current_index = (current_index + 1) % slides.length;
+        set_position_by_index();
+    }
+    
+    function touch_start(event) {
+        start_x = event.touches[0].clientX;
+        is_dragging = true;
+        gallery_wrapper.style.transition = 'none';
+    }
+    
+    function touch_move(event) {
+        if (!is_dragging) return;
+        const current_x = event.touches[0].clientX;
+        const translate_x = (current_index * -100) + ((current_x - start_x) / window.innerWidth) * 100;
+        gallery_wrapper.style.transform = `translateX(${translate_x}%)`;
+    }
+    
+    function touch_end(event) {
+        is_dragging = false;
+        gallery_wrapper.style.transition = 'transform 0.3s ease-in-out';
+        const moved_by = (start_x - event.changedTouches[0].clientX) / window.innerWidth * 100;
+        if (moved_by > 10) {
+            show_next();
+        } else if (moved_by < -10) {
+            show_previous();
+        } else {
+            set_position_by_index();
+        }
+    }
+    
+    update_buttons(); // Initialize button states
+});
+
+
+
+//autoupdate cart number
+jQuery(document).ready(function($) {
+    function updateCartCount() {
+        $.ajax({
+            url: wtAjax.ajaxurl,
+            type: 'POST',
+            data: {
+                action: 'update_cart_count'
+            },
+            success: function(response) {
+                var count = parseInt(response, 10); // Ensure the response is an integer
+                if (!isNaN(count) && count > 0) {
+                    $('.menu-basket-items-total').text(count).show();
+                    pageReloaded = false; // Reset the flag
+                } else {
+                    $('.menu-basket-items-total').text(0).hide(); // Ensure it hides and sets the count to 0
+                }
+            }
+        });
+    }
+    
+    // Call updateCartCount function whenever the cart is updated
+    $(document.body).on('added_to_cart updated_cart_totals removed_from_cart', function() {
+        updateCartCount();
+    });
+    
+    // Initial call to set the cart count when the page loads
+    updateCartCount();
+});

@@ -85,6 +85,7 @@ function add_theme_options() {
 
             // social link
             $social_title       = $options['social_title'] ?? "";
+            $twitter_link       = $options_all['twitter_link'] ?? "";
             $vimeo_link         = $options_all['vimeo_link'] ?? "";
             $linked_in_link     = $options_all['linkedin_link'] ?? "";
             $instagram_link     = $options_all['instagram_link'] ?? "";
@@ -141,13 +142,12 @@ function add_theme_options() {
                                            value="<?php esc_attr_e( $social_title ); ?>"/>
                                 </div>
                                 <hr>
-                                <!--                                 Vimeo - Link-->
-                                <p>Vimeo - Link</p>
+                                <p>Twitter - Link</p>
                                 <div>
                                     <input class="gn-option-fields"
                                            type="text"
-                                           name="mucivi_theme_options_all[vimeo_link]"
-                                           value="<?php esc_attr_e( $vimeo_link ); ?>"/>
+                                           name="mucivi_theme_options_all[twitter_link]"
+                                           value="<?php esc_attr_e( $twitter_link ); ?>"/>
                                 </div>
                                 <hr>
                                 <p>LinkedIn - Link</p>
@@ -181,6 +181,14 @@ function add_theme_options() {
                                            name="mucivi_theme_options_all[facebook_link]"
                                            value="<?php esc_attr_e( $facebook_link ); ?>"/>
                                 </div>
+                                <p>Vimeo - Link</p>
+                                <div>
+                                    <input class="gn-option-fields"
+                                           type="text"
+                                           name="mucivi_theme_options_all[vimeo_link]"
+                                           value="<?php esc_attr_e( $vimeo_link ); ?>"/>
+                                </div>
+                                <hr>
 
                             </li>
                             <li id="footer">

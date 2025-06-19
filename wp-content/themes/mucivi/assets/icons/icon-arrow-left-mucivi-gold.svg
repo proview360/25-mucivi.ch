@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Ebene_1" data-name="Ebene 1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 15.9 15.4">
+  <defs>
+    <style>
+      .cls-1 {
+      fill: none;
+      stroke: #9D7D36;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-width: 2px;
+      }
+    </style>
+  </defs>
+  <g id="Icon_feather-arrow-right" data-name="Icon feather-arrow-right" transform="rotate(180, 7.95, 7.7)">
+    <path id="Pfad_89" data-name="Pfad 89" class="cls-1" d="M1,7.7h13.9"/>
+    <path id="Pfad_90" data-name="Pfad 90" class="cls-1" d="M8.7,1.4l6.3,6.3-6.3,6.3"/>
+  </g>
+</svg>

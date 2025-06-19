@@ -17,7 +17,14 @@ function add_frontend_resources() {
     wp_enqueue_style("bootstrap-css", $theme_path . "/assets/css/bootstrap/bootstrap.min.css", array(), "5.2.2");
 	
 	wp_enqueue_style("css-main", $theme_path . "/assets/css/main.css", array("bootstrap-css"), _S_VERSION);
- 
+	
+	wp_register_style( 'mucivi-woocommerce', get_template_directory_uri() . '/woocommerce.css' );
+	
+	if ( class_exists( 'woocommerce' ) ) {
+		wp_enqueue_style( 'mucivi-woocommerce' );
+	}
+	
+	
 	// JS
     wp_deregister_script("wp-embed");
     wp_enqueue_script("bootstrap-js", $theme_path . "/assets/js/bootstrap.min.js", array("jquery"), "5.2.2", true);
@@ -27,10 +34,14 @@ function add_frontend_resources() {
     wp_localize_script("js-main", "wtAjax", array(
         "ajaxurl" => admin_url("admin-ajax.php"),
     ));
-
+	// add theme support woocommerce
+	add_theme_support( 'woocommerce' );
 }
+	
+
 
 add_action("wp_enqueue_scripts", "add_frontend_resources");
+	
 
 
 // load backend CSS and JS
@@ -63,6 +74,7 @@ function register_my_menus()
         array(
             'primary-menu' => __('Primary Menu'),
             'mobile-menu' => __('Mobile Menu'),
+	        'footer-menu-1' => __('Footer Menu 1'),
         )
     );
 }
@@ -81,14 +93,17 @@ function load_media_files() {
 
     wp_enqueue_media();
 }
-add_action('admin_enqueue_scripts', 'load_media_files');
 
-// allow svg upload
+add_action('admin_enqueue_scripts', 'load_media_files');
+	
+
+	// allow svg upload
 function allow_svg_types($mimes) {
     $mimes['svg'] = 'image/svg+xml';
     return $mimes;
 }
 add_filter('upload_mimes', 'allow_svg_types');
+
 
 
 // Editor Type WYSIWYG
@@ -334,8 +349,64 @@ class Mobile_Walker_Nav_Menu extends Walker_Nav_Menu
         $output .= apply_filters('walker_nav_menu_start_el', $item_output, $item, $depth, $args);
     }
 }
+	
+	
+	
+	// saves metas for all CPT
+	function save_custom_post_metas( $post_id, $metaNonce, $saveFields, $fields ) {
+		
+		// check if POST exist
+		if( !$_POST )
+		{
+			return $post_id;
+		}
+		
+		if( !isset( $_POST[$metaNonce] ) )
+		{
+			return $post_id;
+		}
+		
+		// verify nonce
+		if ( !wp_verify_nonce( $_POST[$metaNonce], $saveFields ) )
+		{
+			return $post_id;
+		}
+		
+		// check autosave
+		if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE )
+		{
+			return $post_id;
+		}
+		
+		// check permissions
+		if ( 'page' === $_POST['post_type'] )
+		{
+			if ( !current_user_can( 'edit_page', $post_id ) )
+			{
+				return $post_id;
+			}
+			elseif ( !current_user_can( 'edit_post', $post_id ) )
+			{
+				return $post_id;
+			}
+		}
+		
+		$old = get_post_meta( $post_id, $fields, true );
+		$new = $_POST[$fields];
+		
+		if ( $new && $new !== $old )
+		{
+			update_post_meta( $post_id, $fields, $new );
+		}
+		elseif ( '' === $new && $old )
+		{
+			delete_post_meta( $post_id, $fields, $old );
+		}
+		
+		return $post_id;
+	}
 
-
+	
 // register granit custom-blocks
 function register_granit_blocks() {
 

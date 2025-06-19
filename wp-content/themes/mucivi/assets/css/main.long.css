@@ -481,6 +481,7 @@ div.header-mucivi {
     left: 0;
     width: 100%;
     z-index: 99;
+    border-bottom: 1px solid #c8c8c8;
 }
 
 
@@ -731,6 +732,17 @@ nav.desktop-nav .nav-menu>li.current-menu-parent > a span.arrow-mucivi-desktop{
         width: 80px !important;
         height: 80px !important;
     }
+    .header-mucivi .logo-mobile {
+        position: relative;
+    }
+    .header-mucivi .logo-mobile img {
+        width: auto;
+        height: 80px;
+        margin: 10px;
+    }
+
+
+
 
 }
 @media (max-width: 767px) {
@@ -742,6 +754,22 @@ nav.desktop-nav .nav-menu>li.current-menu-parent > a span.arrow-mucivi-desktop{
 @media (max-width: 575px) {
     nav.desktop-nav .header-wrapper .logo-desktop img{
         width: 160px;
+    }
+
+    .open-mega-menu {
+        width: 100px !important;
+        height: 100px !important;
+    }
+
+    nav.desktop-nav.container{
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+        align-items: center;
+    }
+
+    .header-wrapper .mobile-space{
+        margin-right: 110px;
     }
 }
 
@@ -792,41 +820,77 @@ nav.mobile-nav .mobile-icons {
 
 
 /* language switcher */
+
+/* language switcher */
+.lang-dropdown {
+    display: none;
+}
+
+.lang-dropdown.show-lang-dropdown {
+    display: flex;
+}
+
 .lang-switcher {
-    display: inline-block;
-    color: var(--mucivi-primary);
-}
-
-.lang-divider {
-    height: 1px;
-    background: #ccc;
-    margin: 5px 0;
-}
-
-.lang-switcher span {
-    margin: 0 5px;
+    position: relative;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .lang-active {
+    width: 40px;
+    height: 40px;
+    background: url("/wp-content/themes/mucivi/assets/img/vectors/languageIcon.svg") no-repeat center center;
+    background-size: contain;
     color: var(--mucivi-primary);
-}
-
-.lang-active:hover {
-    color: var(--mucivi-black);
+    font-size: 12px;
+    font-weight: var(--font-weight-400);
+    display: flex;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
+    text-transform: uppercase;
 }
 
-.lang-inactive a {
-    text-decoration: none;
-    color: var(--mucivi-black);
-}
-
-.lang-inactive a:hover {
-    text-decoration: none;
+.lang-active a {
     color: var(--mucivi-primary);
 }
 
+.lang-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    flex-direction: column;
+    align-items: center;
+    padding-top: 10px;
+    z-index: 999;
+    display: none;
+}
 
+.lang-dropdown a {
+    color: var(--mucivi-primary);
+    font-size: 12px;
+    font-weight: var(--font-weight-400);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url("/wp-content/themes/mucivi/assets/img/vectors/languageIcon.svg") no-repeat center center;
+    background-size: contain;
+    width: 40px;
+    height: 40px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+/* Hover support for desktop */
+.lang-switcher:hover .lang-dropdown,
+.lang-dropdown:hover {
+    display: flex;
+}
+
+
+/* end of language switcher */
 /* end of language switcher */
 /* Search Container */
 .search-container {
@@ -1035,10 +1099,14 @@ input[type="search"]::-ms-clear {
     position: relative;
 }
 
+@media (max-width: 1199px) {
+    nav.desktop-nav .main-menu {
+        display: none;
+    }
+}
 @media (max-width: 991px) {
     main {
         display: block;
-        margin-top: 128px;
     }
 
     section#main{
@@ -1051,9 +1119,7 @@ input[type="search"]::-ms-clear {
     nav.mobile-nav .logo-mobile img {
         width: 50%;
     }
-    nav.desktop-nav .main-menu {
-        display: none;
-    }
+
     nav.mobile-nav {
         display: flex;
         border-bottom: 1px solid var(--mucivi-light-gray);
@@ -1179,13 +1245,16 @@ nav.desktop-nav .nav-menu .dropdown-menu .arrow-mucivi-desktop {
 .footer-bottom {
     background-color: var(--mucivi-primary);
     color: var(--mucivi-white);
-    text-align: center;
 }
 
+.menu-footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 20px;
+}
 
-
-
-.menu-footer-1-container a,
+.menu-footer-container a,
 .menu-footer-menu-2-container a,
 .menu-footer-menu-3-container a,
 .menu-footer-menu-4-container a,
@@ -1197,11 +1266,14 @@ nav.desktop-nav .nav-menu .dropdown-menu .arrow-mucivi-desktop {
 .menu-footer-menu-2-english-container a,
 .menu-footer-menu-3-english-container a,
 .menu-footer-menu-4-english-container a{
-    font-size: 20px;
+
     color: var(--mucivi-white);
 }
 
-.menu-footer-1-container li,
+.menu-footer-container a:hover{
+    color: var(--mucivi-black);
+}
+.menu-footer-container li,
 .menu-footer-menu-2-container li,
 .menu-footer-menu-3-container li,
 .menu-footer-menu-4-container li,
@@ -1228,6 +1300,7 @@ nav.desktop-nav .nav-menu .dropdown-menu .arrow-mucivi-desktop {
 .footer-bottom p.first-copyright{
     font-size: 16px;
     margin-bottom: 0;
+
 }
 
 .footer-bottom .footer-copyrights p.second-copyright{
@@ -1898,7 +1971,7 @@ button.btn-full-primary {
 
 /* news blog single */
 #primary.content-single-post-preview {
-    margin-top: 150px;
+    margin-top: 20px;
 }
 
 .newsroom-entry-content a {
@@ -2145,9 +2218,12 @@ button.btn-full-primary {
 
 }
 
+.mega-socials div {
+    height: 70px;
+}
 .panel-right .mega-socials{
     position: absolute;
-    top: 150px;
+    top: 125px;
     right: 0;
     display: flex;
     align-items: center;
@@ -2483,3 +2559,70 @@ button.btn-full-primary {
     margin: 30px 0 0 0 !important;;
     font-size: 18px !important;;
 }
+
+
+
+section.related.products {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+section.related.products h2 {
+    margin: 20px 0;
+}
+
+
+/* menu shop */
+.menu-shop {
+    padding-right: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menu-basket {
+    position: relative;
+}
+
+.menu-basket-icon-account {
+    width: 23px;
+    height: 23px;
+    background-image: url('/wp-content/themes/mucivi/assets/icons/account-icon-mucivi.svg');
+}
+
+.menu-basket-icon-account:hover {
+    background-image: url('/wp-content/themes/mucivi/assets/icons/account-icon-mucivi-gold.svg');
+}
+
+
+
+.icon-container-basket  {
+    width: 25px;
+    height: 24px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.menu-basket-icon-basket {
+    background-image: url('/wp-content/themes/mucivi/assets/icons/icon-cart-mucivi.svg');
+}
+
+.menu-basket-icon-basket:hover {
+    background-image: url('/wp-content/themes/mucivi/assets/icons/icon-cart-mucivi-gold.svg');
+}
+
+
+.menu-basket span.menu-basket-items-total {
+    position: absolute;
+    background-color: var(--mucivi-primary);
+    color: var(--mucivi-white);
+    border-radius: 100%;
+    padding: 0 7px;
+    font-size: 14px;
+    top: -14px;
+    right: -14px;
+    border: 3px solid var(--mucivi-white);
+}
+

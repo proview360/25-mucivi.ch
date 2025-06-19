@@ -41,63 +41,66 @@ $footer_title_1        = str_replace("*]", "</span>", $footer_title_1);
 
 $footer_title_2       = str_replace("[*", "<br/><span class='text-bold'>", $footer_title_2);
 $footer_title_2        = str_replace("*]", "</span>", $footer_title_2);
-
-
+	
+	$linked_in_link                 = $theme_options_all['linkedin_link'] ?? "";
+	$instagram_link                 = $theme_options_all['instagram_link'] ?? "";
+	$facebook_link                  = $theme_options_all['facebook_link'] ?? "";
+	$youtube_link                   = $theme_options_all['youtube_link'] ?? "";
+	$twitter_link                   = $theme_options_all['twitter_link'] ?? "";
 $nav_footer_1 = array(
-    'theme_location' => 'footer-menu-1',
-    'menu_class' => 'footer-menu',
-    'items_wrap' => '%3$s',
-);
-
-$nav_footer_2 = array(
-    'theme_location' => 'footer-menu-2',
-    'menu_class' => 'footer-menu',
-    'items_wrap' => '%3$s',
-);
-
-$nav_footer_3 = array(
-    'theme_location' => 'footer-menu-3',
-    'menu_class' => 'footer-menu',
-    'items_wrap' => '%3$s',
-);
-
-$nav_footer_4 = array(
-    'theme_location' => 'footer-menu-4',
-    'menu_class' => 'footer-menu',
-    'items_wrap' => '%3$s',
-);
-
+		'theme_location' => 'footer-menu-1',
+		'menu_class' => 'footer-menu',
+		'items_wrap' => '%3$s',
+	);
 
 ?>
 
 <footer class="footer-container">
-<!--    <div class="container ">-->
-<!--        <div class="footer-top d-flex flex-column flex-xl-row justify-content-between">-->
-<!--            <div class="px-3 px-md-0">-->
-<!--                <p class="gn-h1 py-5 text-color-white"> --><?php //echo $footer_title_1 ?><!--</p>-->
-<!--                <div class="d-flex flex-column flex-md-row  gap-md-5">-->
-<!--                    --><?php //wp_nav_menu($nav_footer_1); ?>
-<!--                    --><?php //wp_nav_menu($nav_footer_2); ?>
-<!--                </div>-->
-<!--            </div>-->
-<!---->
-<!--            <div class="px-3 px-md-0">-->
-<!--                <p class="gn-h1 py-5 text-color-white"> --><?php //echo $footer_title_2 ?><!--</p>-->
-<!--                <div class="d-flex flex-column flex-md-row  gap-md-5 ">-->
-<!--                    --><?php //wp_nav_menu($nav_footer_3); ?>
-<!--                    --><?php //wp_nav_menu($nav_footer_4); ?>
-<!--                </div>-->
-<!--            </div>-->
-<!---->
-<!---->
-<!--        </div>-->
-<!--    </div>-->
-
     <div class="footer-bottom py-4">
-        <div class="container d-flex justify-content-center align-content-center px-3 px-md-0">
-                    <p class="first-copyright"><?php echo $footer_copyright_text ?></p>
+        <div class="container d-flex flex-column flex-lg-row justify-content-between align-content-start align-items-lg-center gap-2">
+            <div>
+                <p class="first-copyright"><?php echo $footer_copyright_text ?></p>
+            </div>
+            <div class="d-flex align-items-center gap-3">
+                <div>
+                    <a target="_blank" href="<?php echo $facebook_link ?>">
+                        <img src="/wp-content/themes/mucivi/assets/img/vectors/fb.svg" alt="social facebook">
+                    </a>
+                </div>
+                <div>
+                    <a target="_blank" href="<?php echo $twitter_link ?>">
+                        <img src="/wp-content/themes/mucivi/assets/img/vectors/x.svg" alt="social facebook">
+                    </a>
+                </div>
+                <div>
+                    <a target="_blank" href="<?php echo $instagram_link ?>">
+                        <img src="/wp-content/themes/mucivi/assets/img/vectors/ig.svg" alt="social facebook">
+                    </a>
+                </div>
+                <div>
+                    <a target="_blank" href="<?php echo $youtube_link ?>">
+                        <img src="/wp-content/themes/mucivi/assets/img/vectors/yt.svg" alt="social facebook">
+                    </a>
+                </div>
+                <div>
+                    <a target="_blank" href="<?php echo $linked_in_link ?>">
+                        <img src="/wp-content/themes/mucivi/assets/img/vectors/linkedin.svg" alt="social facebook">
+                    </a>
+                </div>
+            </div>
         </div>
 
+        <div class="container d-flex flex-column flex-lg-row justify-content-between align-content-start align-items-lg-center mt-3 gap-2">
+            <div class="d-flex align-items-center gap-3">
+		        <?php echo $footer_copyright_text_2?>
+            </div>
+            <div>
+                <div class="d-flex flex-column flex-md-row  gap-md-5">
+				    <?php wp_nav_menu($nav_footer_1); ?>
+                </div>
+            </div>
+          
+        </div>
     </div>
 
 </footer>

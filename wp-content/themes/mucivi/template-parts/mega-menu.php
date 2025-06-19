@@ -29,9 +29,12 @@ $social_title        = str_replace("*]", "</span>", $social_title);
 $linked_in_link                 = $theme_options_all['linkedin_link'] ?? "";
 $instagram_link                 = $theme_options_all['instagram_link'] ?? "";
 $facebook_link                  = $theme_options_all['facebook_link'] ?? "";
+$youtube_link                   = $theme_options_all['youtube_link'] ?? "";
+$twitter_link                   = $theme_options_all['twitter_link'] ?? "";
+
 ?>
 
-<div class="open-mega-menu d-flex d-lg-none" id="openMegaMenu">
+<div class="open-mega-menu d-flex d-xl-none" id="openMegaMenu">
     <!-- Open Hamburger SVG -->
     <div class="svg-icon open-icon">
         <img src="/wp-content/themes/mucivi/assets/img/vectors/openMenu.svg" width="30" height="27.23" alt="Close">
@@ -56,8 +59,8 @@ $facebook_link                  = $theme_options_all['facebook_link'] ?? "";
                 </a>
             </div>
             <div>
-                <a href="<?php echo $linked_in_link ?>">
-                    <img src="/wp-content/themes/mucivi/assets/img/vectors/linkedin.svg" alt="social facebook">
+                <a href="<?php echo $twitter_link ?>">
+                    <img src="/wp-content/themes/mucivi/assets/img/vectors/x.svg" alt="social facebook">
                 </a>
             </div>
             <div>
@@ -65,6 +68,17 @@ $facebook_link                  = $theme_options_all['facebook_link'] ?? "";
                     <img src="/wp-content/themes/mucivi/assets/img/vectors/ig.svg" alt="social facebook">
                 </a>
             </div>
+            <div>
+                <a href="<?php echo $youtube_link ?>">
+                    <img src="/wp-content/themes/mucivi/assets/img/vectors/yt.svg" alt="social facebook">
+                </a>
+            </div>
+            <div>
+                <a href="<?php echo $linked_in_link ?>">
+                    <img src="/wp-content/themes/mucivi/assets/img/vectors/linkedin.svg" alt="social facebook">
+                </a>
+            </div>
+        
             <div class="mega-social-description">
                 <p><?php echo $social_title ?></p>
             </div>
@@ -72,7 +86,6 @@ $facebook_link                  = $theme_options_all['facebook_link'] ?? "";
         <div class="panel-content container">
             <div class="mega-menu-main d-flex flex-column justify-content-between">
                 <div class="mega-menu-right-top">
-                    <p class="gn-h1"><?php echo $mega_menu_headline ?></p>
                     <nav class="mega-menu-content ">
                                         <?php
                                         wp_nav_menu(array(
