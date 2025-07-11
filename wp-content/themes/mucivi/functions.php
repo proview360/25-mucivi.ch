@@ -469,6 +469,7 @@ include_once("gn-utilities.php");
 // cpt
 include_once("gn-cpt.php");
 require_once(get_stylesheet_directory() . '/gn-cpt/announcements.php');
+	require_once(get_stylesheet_directory() . '/gn-cpt/links.php');
 
 // load theme options
 require_once(get_stylesheet_directory() . '/theme-options.php');

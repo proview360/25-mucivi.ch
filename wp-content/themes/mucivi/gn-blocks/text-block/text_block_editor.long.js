@@ -5,12 +5,13 @@
         Fragment            = element.Fragment,
         RichText            = blockEditor.RichText,
         InspectorControls   = blockEditor.InspectorControls,
+        withSelect          = data.withSelect,
         SelectControl       = components.SelectControl;
     
     var blockAttributes = {
+        post_id: { type: 'string' },
         content: { type: 'string', source: 'html', selector: 'p' },
         headline: { type: 'string' },
-        number_of_link: {type: 'string'},
         side_bar_title: {type: 'string'},
         sub_headline: { type: 'string' },
         headline_color: { type: 'string' },
@@ -31,17 +32,12 @@
         margin_top: { type: 'string' }
     };
     
-    // Auto-generate dynamic button attributes
-    for (let i = 1; i <= 10; i++) {
-        blockAttributes[`button_${i}_name`] = { type: 'string' };
-        blockAttributes[`button_${i}_link`] = { type: 'string' };
-        blockAttributes[`button_${i}_icon`] = { type: 'string' };
-    }
-    
+
     //register block
     blocks.registerBlockType('gn/text-block', {
 
         //set basic info
+ 
         title: 'Text Block',
         icon: 'format-quote',
         category: 'mucivi-blocks',
@@ -50,10 +46,19 @@
 
         //define required attributes
         attributes: blockAttributes,
-
-        //set edit function
-        edit: function(props) {
-
+        
+        edit: withSelect( function ( select ) {
+            
+            var query = {
+                orderby : 'title',
+                order : 'asc',
+                per_page: -1,
+            }
+            
+            return {
+                posts: select( 'core' ).getEntityRecords( 'postType', 'links', query ),
+            };
+        } )( function ( props ) {
 
             if(!props.attributes.space_top)
             {
@@ -142,9 +147,6 @@
                 props.setAttributes( {headline: event.target.value} )
             }
             
-            function update_number_of_link (event) {
-                props.setAttributes( {number_of_link: event.target.value} )
-            }
             
             function update_side_bar_title (event) {
                 props.setAttributes( {side_bar_title: event.target.value} )
@@ -192,6 +194,26 @@
 
             function update_space_top (newValue) {
                 props.setAttributes( { space_top: newValue } )
+            }
+            
+            function on_change_post( newContent ) {
+                props.setAttributes( { post_id: newContent } );
+            }
+            
+            var options = [];
+            
+            if( props.posts )
+            {
+                options.push( { value: 0, label: 'Choose...' } );
+                
+                props.posts.forEach((post) => {
+                    
+                    options.push({value:post.id, label:post.title.raw });
+                });
+            }
+            else
+            {
+                options.push( { value: 0, label: 'Lade...' } )
             }
 
 
@@ -489,30 +511,9 @@
                                     onChange: update_side_bar_enable
                                 }
                             ),
+     
                             
-                            props.attributes.side_bar_enable === 'yes' && [
-                                el("dt", null, "Number of links"),
-                                    el("input", {
-                                        key: "input",
-                                        type: "text",
-                                        value: props.attributes.number_of_link,
-                                        placeholder: "Write here...",
-                                        onChange: update_number_of_link
-                                    })
-                            ],
-                            
-                            props.attributes.side_bar_enable === 'yes' && [
-                                    el("dt", null, "Side Bar Title"),
-                                    el("input", {
-                                        key: "input",
-                                        type: "text",
-                                        value: props.attributes.side_bar_title,
-                                        placeholder: "Write here...",
-                                        onChange: update_side_bar_title
-                                    })
-                            ],
-                            
-                            
+       
                         ),
                     ),
 
@@ -602,76 +603,35 @@
                             
                             
                             props.attributes.side_bar_enable === 'yes' && (() => {
-                                const numberOfLinks = parseInt(props.attributes.number_of_link || "0");
-                                const fields = [];
-                                
-                                for (let i = 1; i <= numberOfLinks; i++) {
-                                    fields.push(
-                                        el("dt", { key: `btn${i}-icon-label` },
-                                            el("span", null, `Button ${i} icon`)
-                                        ),
-                                        el("dd", { key: `btn${i}-icon` },
-                                            el("input", {
-                                                type: "text",
-                                                value: props.attributes[`button_${i}_icon`] || "",
-                                                placeholder: `Button ${i} icon...`,
-                                                onChange: (e) => {
-                                                    const newAttrs = {};
-                                                    newAttrs[`button_${i}_icon`] = e.target.value;
-                                                    props.setAttributes(newAttrs);
-                                                }
+                                return el(
+                                    "dl", null,
+                                    el("dt", null, "Side Bar Title"),
+                                    el("input", {
+                                        key: "input",
+                                        type: "text",
+                                        value: props.attributes.side_bar_title,
+                                        placeholder: "Write here...",
+                                        onChange: update_side_bar_title
+                                    }),
+                                    el(
+                                        "div", null,
+                                        el("dt", null, "Links choose"),
+                                        el("dd", null,
+                                            el(SelectControl, {
+                                                value: props.attributes.post_id,
+                                                options: options,
+                                                onChange: on_change_post,
                                             })
-                                        ),
-                                        el("dt", { key: `btn${i}-label` },
-                                            el("span", null, `Button ${i} name`)
-                                        ),
-                                        el("dd", { key: `btn${i}-name` },
-                                            el("input", {
-                                                type: "text",
-                                                value: props.attributes[`button_${i}_name`] || "",
-                                                placeholder: `Button ${i} name...`,
-                                                onChange: (e) => {
-                                                    const newAttrs = {};
-                                                    newAttrs[`button_${i}_name`] = e.target.value;
-                                                    props.setAttributes(newAttrs);
-                                                }
-                                            })
-                                        ),
-                                        el("dt", { key: `btn${i}-link-label` },
-                                            el("span", null, `Button ${i} link`)
-                                        ),
-                                        el("dd", { key: `btn${i}-link` },
-                                            el("input", {
-                                                type: "text",
-                                                value: props.attributes[`button_${i}_link`] || "",
-                                                placeholder: `Button ${i} link...`,
-                                                onChange: (e) => {
-                                                    const newAttrs = {};
-                                                    newAttrs[`button_${i}_link`] = e.target.value;
-                                                    props.setAttributes(newAttrs);
-                                                }
-                                            })
-                                        ),
-                                        // Optional <hr> between items
-                                        i < numberOfLinks ? el("hr", {
-                                            key: `hr-${i}`,
-                                            style: { borderColor: "red", borderWidth: "1px", margin: "20px 0" }
-                                        }) : null
-                                    );
-                                }
-                                
-                                return fields;
+                                        )
+                                    ),
+                                );
                             })()
-                        
-                        
-                        
-                        
-                        
+                            
                         )
                     )
                 )
             );
-        },
+        }),
 
         //set save function
         save: function(props) {

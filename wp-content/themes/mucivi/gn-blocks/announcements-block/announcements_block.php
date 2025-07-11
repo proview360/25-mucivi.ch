@@ -23,6 +23,7 @@
 		wp_enqueue_script("gn_announcements_block_js", $theme_path . "/gn-blocks/announcements-block/announcements_block.min.js", ["js-main"], "1");
 		
 		$post_ID               = $attributes["post_id"] ?? "";
+		$post_ID_2               = $attributes["post_id_2"] ?? "";
 		$background_color      = $attributes["background_color"] ?? "white";
 		$sidebar_enable        = $attributes['side_bar_enable'] ?? 'no';
 		$sidebar_title         = $attributes["side_bar_title"] ?? '';
@@ -30,6 +31,13 @@
 		$unique_id             = uniqid('announcements_');
 		$content_html          = '';
 		$sidebar_html          = '';
+		
+		$links_data            = get_post_meta($post_ID_2, 'links_fields', true);
+//		echo '<pre>';
+//		echo print_r($links_data);
+//		echo '</pre>';
+//
+		
 		
 		// Build content
 		if (is_array($announcements_data) && count($announcements_data)) {
@@ -70,24 +78,30 @@
 		// Build sidebar
 		if ($sidebar_enable === 'yes')
 		{
-			$sidebar_html .= '<div class="sidebar-title">' . esc_html($sidebar_title) . '</div><div class="sidebar-buttons mt-4">';
+			$sidebar_html .= '
+
+		<div class="sidebar-title">
+		   '.$sidebar_title.'
+		</div>
+		<div class="sidebar-buttons mt-4">';
 			
-			for ($i = 1; $i <= 10; $i++) {
-				$name_key = "button_{$i}_name";
-				$link_key = "button_{$i}_link";
-				$icon_key = "button_{$i}_icon";
-				
-				$icon_html = !empty($attributes[$icon_key]) ? '<span class="me-2">' . wp_kses_post($attributes[$icon_key]) . '</span>' : '';
-				
-				if (!empty($attributes[$name_key]) && !empty($attributes[$link_key]))
-				{
-					$sidebar_html .= '<div class="sidebar-button mb-2"><a href="' . esc_url($attributes[$link_key]) . '" class="sidebar-link">' . $icon_html . '' . esc_html($attributes[$name_key]) . '</a></div>';
+			if (is_array($links_data) && count($links_data)) {
+				foreach ($links_data as $item) {
+					
+					$icon = $item["icon"] ?? "";
+					$button_text = $item["button_text"] ?? "";
+					
+					$button_link = $item["button_link"] ?? "";
+					$link_type = $item["link_type"] ?? "";
+					$icon_html = $icon !== "none" ? '<span class="me-2"><i class="'.$icon.'"></i></span>' : '';
+					
+					if ($button_text !== "" ) {
+						$sidebar_html .= '<div class="sidebar-button mb-2"><a target="'.$link_type.'" href="' . $button_link . '" class="sidebar-link">' . $icon_html . '' . $button_text . '</a></div>';
+					}
 				}
 			}
-			
 			$sidebar_html .= '</div>';
 		}
-		
 		
 		// Build full layout
 		if ($sidebar_enable === 'yes')
