@@ -25,6 +25,18 @@ $theme_options_all        = get_option('mucivi_theme_options_all');
 
 $mucivi_logo                 = $theme_options_all['mucivi_logo'];
 
+$ar_class = "";
+if($currentLangCode === "ar"){
+    $ar_class = 'ms-3';
+}
+//			echo '<pre>';
+//			echo print_r($ar_class);
+//			echo '</pre>';
+//
+//	echo '<pre>';
+//	echo print_r($currentLangCode);
+//	echo '</pre>';
+
 ?>
 
 <!DOCTYPE html>
@@ -66,7 +78,7 @@ $mucivi_logo                 = $theme_options_all['mucivi_logo'];
                     <?php get_template_part('template-parts/mega-menu'); ?>
                     <div class="menu-shop">
                         <div class=" d-flex align-items-end justify-content-end ">
-                            <a class="menu-item account-contents me-3"
+                            <a class="menu-item account-contents <?php echo $ar_class ?> me-3"
                                href="<?php echo get_permalink(get_option('woocommerce_myaccount_page_id')); ?>"
                                title="<?php _e('View your account'); ?>">
                                 <div class="icon-container menu-basket-icon-account"></div>
@@ -80,7 +92,7 @@ $mucivi_logo                 = $theme_options_all['mucivi_logo'];
                             </a>
                         </div>
                     </div>
-                    <?php get_template_part('template-parts/search-form'); ?>
+<!--                    --><?php //get_template_part('template-parts/search-form'); ?>
                 </div>
          
 
